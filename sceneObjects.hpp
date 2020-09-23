@@ -3,7 +3,7 @@
 
 #define SO_VERSION_MAJOR 1
 #define SO_VERSION_MINOR 1
-#define SO_VERSION_REVISION 1
+#define SO_VERSION_REVISION 2
 
 #include "sceneObjects.hpp"
 #include <vector>
@@ -109,7 +109,7 @@ class SO_Camera {
         glm::vec3 position;
         glm::vec3 front;
         glm::vec3 up;
-        SO_Camera(float, float, float, float, glm::vec3, glm::vec3, glm::vec3);
+        SO_Camera(float fovIn, float aspectRatioIn, float nearClipIn, float farClipIn, glm::vec3 positionIn, glm::vec3 frontIn, glm::vec3 upIn);
         void linkShader(SO_Shader *shaderRefIn);
         void unlinkShader(SO_Shader *shaderRefIn);
         void updateViewMatrix(void);

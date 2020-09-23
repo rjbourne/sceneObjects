@@ -9,15 +9,6 @@
 			"problemMatcher": [
 				"$eslint-stylish"
 			]
-		},
-		{
-			"type": "shell",
-			"label": "C/C++: run main.exe",
-			"command": ".\\main.exe",
-			"group": "build",
-			"problemMatcher": [
-				"$eslint-stylish"
-			]
 		}
 	]
 }
