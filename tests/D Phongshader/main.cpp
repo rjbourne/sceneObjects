@@ -347,7 +347,7 @@ int main(int argc, char *argv[]) {
 
     GLuint ebo4; // apply triangle elements to vbo
     glGenBuffers(1, &ebo4);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo1);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo4);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
@@ -367,6 +367,59 @@ int main(int argc, char *argv[]) {
     glEnableVertexAttribArray(colAttrib4);
     glVertexAttribPointer(colAttrib4, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(6*sizeof(float)));
+
+///////////////////////////////////////////////////// cyan icosphere
+
+    GLuint shaderProgram5;
+    SO_PhongShader shaderObj5;
+    shaderProgram5 = shaderObj5.generate(1);
+    glUseProgram(shaderProgram5); // use the shader program
+
+    shaderObj5.setLightPosition(0, glm::vec3(3.0f, 4.0f, 2.0f));
+    shaderObj5.setLightConstant(0, 1.0f);
+    shaderObj5.setLightLinear(0, 0.0f);
+    shaderObj5.setLightQuadratic(0, 0.0f);
+    shaderObj5.setLightAmbient(0, glm::vec3(0.3f, 0.3f, 0.3f));
+    shaderObj5.setLightDiffuse(0, glm::vec3(1.0f, 1.0f, 1.0f));
+    shaderObj5.setLightSpecular(0, glm::vec3(0.5f, 0.5f, 0.5f));
+    shaderObj5.setColor(glm::vec3(0.0f, 1.0f, 1.0f));
+
+    shaderObj5.setModelMatrix(glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -1.5f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f)));
+    
+    cameraObj.linkShader(&shaderObj5);
+
+    SO_MeshData sphereData = createIcosphere(5);
+
+    glUseProgram(shaderProgram5);
+
+    // the vertex array object for the scene
+    GLuint vao5;
+    glGenVertexArrays(1, &vao5);
+    glBindVertexArray(vao5);
+
+
+    GLuint vbo5; // apply vertices to the vbo
+    glGenBuffers(1, &vbo5);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo5);
+    glBufferData(GL_ARRAY_BUFFER, sphereData.vertices.size()*sizeof(float)*3, &sphereData.vertices[0].x, GL_STATIC_DRAW);
+
+    GLuint ebo5; // apply triangle elements to vbo
+    glGenBuffers(1, &ebo5);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo5);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sphereData.faceElements.size()*sizeof(int), &sphereData.faceElements[0], GL_STATIC_DRAW);
+
+    //locate vertex coords within buffer
+    GLint posAttrib5 = glGetAttribLocation(shaderProgram5, "position");
+    glEnableVertexAttribArray(posAttrib5);
+    glVertexAttribPointer(posAttrib5, 3, GL_FLOAT, GL_FALSE,
+                        3*sizeof(float), 0);
+    
+    //locate vertex normal within buffer
+    GLint normalAttrib5 = glGetAttribLocation(shaderProgram5, "normal");
+    glEnableVertexAttribArray(normalAttrib5);
+    glVertexAttribPointer(normalAttrib5, 3, GL_FLOAT, GL_FALSE,
+                        3*sizeof(float), 0);
+
 
 
     double mouseSpeedX = 1; // camera controls
@@ -433,6 +486,9 @@ int main(int argc, char *argv[]) {
         glUseProgram(shaderProgram4);
         glBindVertexArray(vao4);
         glDrawElements(GL_TRIANGLES, sizeof(elements), GL_UNSIGNED_INT, 0);
+        glUseProgram(shaderProgram5);
+        glBindVertexArray(vao5);
+        glDrawElements(GL_TRIANGLES, sphereData.faceElements.size(), GL_UNSIGNED_INT, 0);
         glUseProgram(shaderProgram3); //transparents last
         glBindVertexArray(vao3);
         glDepthMask(GL_FALSE);
@@ -462,6 +518,14 @@ int main(int argc, char *argv[]) {
     glDeleteBuffers(1, &ebo3);
     glDeleteBuffers(1, &vbo3);
     glDeleteVertexArrays(1, &vao3);
+
+    glDeleteBuffers(1, &ebo4);
+    glDeleteBuffers(1, &vbo4);
+    glDeleteVertexArrays(1, &vao4);
+
+    glDeleteBuffers(1, &ebo5);
+    glDeleteBuffers(1, &vbo5);
+    glDeleteVertexArrays(1, &vao5);
 
     glfwTerminate();
 
