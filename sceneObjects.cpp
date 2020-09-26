@@ -6,11 +6,15 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 
 //compile a vertex shader from the given char*
 void SO_Shader::createVertexShader(const char* vertexSource) {
@@ -112,9 +116,9 @@ SO_Shader::~SO_Shader(void) {
 
 
 //numberLights gives number of point lights in the scene
-//alpha = true requires a 4 vector for color (RGBA), otherwise (RGB) if not using materials
-//              if using materials requires either uniform or in alpha
-//instanced = true allows instancing to be created using setPostModelMatrix() and instanceMatrix/normalInstMatrix attributes
+//optionsIn : binary flags given by enums SO_ShaderOptions
+// expects in: position, normal, (ambient/diffuse/specular/alpha)Attrib, color, instanceMatrix, normalInstMatrix
+//uniforms: set with SO_PhongShader::set_____ methods
 GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     numberLights = numberLightsIn; //no. of point sources
     options = optionsIn;
@@ -260,6 +264,7 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     }
     fragmentSourceStr += R"glsl(
         uniform vec3 viewPos;
+        uniform unsigned int specPower;
         uniform PointLight lights[)glsl" + std::to_string(numberLights) + R"glsl(];
 
         vec3 CalcPointLight(PointLight light, vec3 normal, vec3 viewDir) {
@@ -268,7 +273,7 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
             float diff = max(dot(normal, lightDir), 0.0);
             // specular shading
             vec3 reflectDir = reflect(-lightDir, normal);
-            float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+            float spec = pow(max(dot(viewDir, reflectDir), 0.0), specPower);
             // attenuation
             float distance    = length(light.lightPos - worldPos);
             float attenuation = 1.0 / (light.constant + light.linear * distance + 
@@ -309,6 +314,9 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     // get locations of shader uniforms
     normalMatrixLoc = glGetUniformLocation(this->getProgramID(), "normalMatrix");
     viewPositionLoc = glGetUniformLocation(this->getProgramID(), "viewPos");
+    specularPowerLoc = glGetUniformLocation(this->getProgramID(), "specPower");
+    setSpecularPower(32);
+
     if ((options & SO_INSTANCED) == SO_INSTANCED) {
         postModelMatrixLoc = glGetUniformLocation(this->getProgramID(), "postModel");
         postNormalMatrixLoc = glGetUniformLocation(this->getProgramID(), "postNormalMatrix");
@@ -501,6 +509,10 @@ void SO_PhongShader::setColor(glm::vec4 color) {
     }
 }
 
+void SO_PhongShader::setSpecularPower(unsigned int specPower) {
+    glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
+}
+
 float skyboxVertices[] = {
     // positions          
     -1.0f,  1.0f, -1.0f,
@@ -614,6 +626,8 @@ GLuint SO_SkyboxShader::generate(std::vector<std::string> imageFilesIn) {
     glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+    return this->getProgramID();
 }
 
 //set the model matrix of the skybox (empty function)
@@ -645,6 +659,411 @@ SO_SkyboxShader::~SO_SkyboxShader(void) {
     glDeleteVertexArrays(1, &skyboxVAO);
     glDeleteBuffers(1, &skyboxVBO);
 }
+
+// generate a shader program for a assimp mesh
+GLuint SO_AssimpShader::generate(int numberLightsIn) {
+    numberLights = numberLightsIn;
+    std::string vertexSourceStr;
+    vertexSourceStr = R"glsl(
+        #version 330 core
+
+        layout (location = 0) in vec3 position;
+        layout (location = 1) in vec3 normal;
+        layout (location = 2) in vec2 texCoord;
+
+        out vec3 norm;
+        out vec3 worldPos;
+        out vec2 TexCoord;
+
+        uniform mat4 normalMatrix;
+        uniform mat4 model;
+        uniform mat4 view;
+        uniform mat4 proj;
+
+        void main() {
+            gl_Position = proj * view *  model * vec4(position, 1.0);
+            norm = normalize(vec3(normalMatrix * vec4(normal, 0.0)));
+            worldPos = vec3(model * vec4(position, 1.0));
+            TexCoord = texCoord;
+        }
+    )glsl";
+
+    std::string fragmentSourceStr;
+    fragmentSourceStr = R"glsl(
+        #version 330 core
+
+        struct PointLight {
+            vec3 lightPos;
+
+            float constant;
+            float linear;
+            float quadratic;
+
+            vec3 ambient;
+            vec3 diffuse;
+            vec3 specular;
+        };
+
+        in vec3 norm;
+        in vec3 worldPos;
+        in vec2 TexCoord;
+
+        out vec4 outColor;
+
+        uniform vec3 viewPos;
+        uniform unsigned int specPower;
+        uniform PointLight lights[)glsl" + std::to_string(numberLights) + R"glsl(];
+
+        uniform sampler2D textureDiffuse;
+
+        vec3 CalcPointLight(PointLight light, vec3 normal, vec3 viewDir) {
+            vec3 lightDir = normalize(light.lightPos - worldPos);
+            // diffuse shading
+            float diff = max(dot(normal, lightDir), 0.0);
+            // specular shading
+            vec3 reflectDir = reflect(-lightDir, normal);
+            float spec = pow(max(dot(viewDir, reflectDir), 0.0), specPower);
+            // attenuation
+            float distance    = length(light.lightPos - worldPos);
+            float attenuation = 1.0 / (light.constant + light.linear * distance + 
+                        light.quadratic * (distance * distance));   
+            // combine results
+            vec3 ambient  = light.ambient  * texture(textureDiffuse, TexCoord).xyz;
+            vec3 diffuse  = light.diffuse  * diff * texture(textureDiffuse, TexCoord).xyz;
+            vec3 specular = light.specular * spec * vec3(0.5, 0.5, 0.5);
+            ambient  *= attenuation;
+            diffuse  *= attenuation;
+            specular *= attenuation;
+            return (ambient + diffuse + specular);
+        }
+
+        void main()
+        {
+            vec3 viewDir = normalize(viewPos - worldPos); 
+            vec3 result = vec3(0.0, 0.0, 0.0);
+            for (int i = 0; i < )glsl" + std::to_string(numberLights) + R"glsl(; i++) {
+                result += CalcPointLight(lights[i], norm, viewDir);
+            }
+            outColor = vec4(result, 1.0);
+        })glsl";
+
+    createVertexShader(vertexSourceStr.c_str());
+    createFragmentShader(fragmentSourceStr.c_str());
+    linkProgram();
+
+    normalMatrixLoc = glGetUniformLocation(this->getProgramID(), "normalMatrix");
+    viewPositionLoc = glGetUniformLocation(this->getProgramID(), "viewPos");
+    specularPowerLoc = glGetUniformLocation(this->getProgramID(), "specPower");
+    setSpecularPower(32);
+
+    return this->getProgramID();
+}
+
+//applies the model matrix to the shader program
+//model matrix transforms from modelspace to worldspace
+//also creates and applies the corresponding normal matrix
+void SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
+    SO_Shader::setModelMatrix(modelMatrix);
+    glm::mat4 normalMatrix = glm::transpose(glm::inverse(modelMatrix));
+    glProgramUniformMatrix4fv(this->getProgramID(), normalMatrixLoc, 1, GL_FALSE, glm::value_ptr(normalMatrix));
+}
+
+//set the position of the camera in the shader program in worldspace
+//method has no effect in SO::Shader base class
+void SO_AssimpShader::setViewPosition(glm::vec3 viewPosition) {
+    glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
+}
+
+//set the position of a light in worldspace
+//index is the number of the light (rom 0 to numberLights-1)
+//lightPosition is the position
+void SO_AssimpShader::setLightPosition(int index, glm::vec3 lightPosition) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].lightPos";
+    GLint lightPositionLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform3fv(this->getProgramID(), lightPositionLoc, 1, glm::value_ptr(lightPosition));
+}
+
+//set the constant attenuation factor of a light in worldspace
+//index is the number of the light (rom 0 to numberLights-1)
+//lightConstant is the constant
+void SO_AssimpShader::setLightConstant(int index, float lightConstant) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].constant";
+    GLint lightConstantLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform1f(this->getProgramID(), lightConstantLoc, lightConstant);
+}
+
+//set the linear attenuation factor of a light in worldspace
+//index is the number of the light (rom 0 to numberLights-1)
+//lightLinear is the coefficient
+void SO_AssimpShader::setLightLinear(int index, float lightLinear) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].linear";
+    GLint lightLinearLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform1f(this->getProgramID(), lightLinearLoc, lightLinear);
+}
+
+//set the quadratic attenuation factor of a light in worldspace
+//index is the number of the light (rom 0 to numberLights-1)
+//lightQuadratic is the coefficient
+void SO_AssimpShader::setLightQuadratic(int index, float lightQuadratic) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].quadratic";
+    GLint lightQuadraticLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform1f(this->getProgramID(), lightQuadraticLoc, lightQuadratic);
+}
+
+//set the ambient color and strength of a light
+//index is the number of the light (rom 0 to numberLights-1)
+//lightAmbient is the color (RGB)
+void SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].ambient";
+    GLint lightAmbientLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform3fv(this->getProgramID(), lightAmbientLoc, 1, glm::value_ptr(lightAmbient));
+}
+
+//set the diffuse color and strength of a light
+//index is the number of the light (rom 0 to numberLights-1)
+//lightDiffuse is the color (RGB)
+void SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].diffuse";
+    GLint lightDiffuseLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform3fv(this->getProgramID(), lightDiffuseLoc, 1, glm::value_ptr(lightDiffuse));
+}
+
+//set the specular color and strength of a light
+//index is the number of the light (rom 0 to numberLights-1)
+//lightSpecular is the color (RGB)
+void SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
+    if (index < 0 || index >= numberLights) {
+        std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
+        throw std::invalid_argument(error.c_str());
+    }
+    std::string name = "lights[" + std::to_string(index) + "].specular";
+    GLint lightSpecularLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
+    glProgramUniform3fv(this->getProgramID(), lightSpecularLoc, 1, glm::value_ptr(lightSpecular));
+}
+
+void SO_AssimpShader::setSpecularPower(unsigned int specPower) {
+    glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
+}
+
+// craetes a shader for the mesh
+SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
+    shader = SO_AssimpShader();
+    shader.generate(numberLights);
+    glGenVertexArrays(1, &vao);
+    glGenBuffers(1, &vbo);
+    glGenBuffers(1, &ebo);
+
+    glBindVertexArray(vao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(SO_AssimpVertex), &vertices[0], GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, elements.size() * sizeof(unsigned int), &elements[0], GL_STATIC_DRAW);
+
+    //vertices
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)0);
+    //normals
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, normal));
+    //texture coords
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, texCoords));
+
+    glBindVertexArray(0);
+
+    return &shader;
+}
+
+
+//draws the mesh - call at render time
+void SO_AssimpMesh::draw() {
+    glUseProgram(shader.getProgramID());
+    glUniform1i(glGetUniformLocation(shader.getProgramID(), "textureDiffuse"), 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, diffuseMaps[0].textureId);
+
+    glBindVertexArray(vao);
+    glDrawElements(GL_TRIANGLES, elements.size(), GL_UNSIGNED_INT, 0);
+}
+
+SO_AssimpMesh::~SO_AssimpMesh() {
+    glDeleteVertexArrays(1, &vao);
+    glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &ebo);
+}
+
+//constructor for assimp model (only allows 1 pair of texture coords)
+//aiOptions should be members of aiPostProccessSteps enum e.g.
+// -aiProcess_FlipUVs
+// -aiProcess_GenNormals
+// -aiProcess_OptimizeMeshes
+// -aiProcess_OptimizeGraph
+// Note that aiTriangulate is always called
+SO_AssimpModel::SO_AssimpModel(std::string path, int aiOptions) {
+    loadModel(path, aiOptions);
+}
+
+//constructor for assimp model (only allows 1 pair of texture coords)
+//aiOptions should be members of aiPostProccessSteps enum e.g.
+// -aiProcess_FlipUVs
+// -aiProcess_GenNormals
+// -aiProcess_OptimizeMeshes
+// -aiProcess_OptimizeGraph
+// Note that aiTriangulate is always called
+void SO_AssimpModel::loadModel(std::string path, int aiOptions) {
+    Assimp::Importer importer;
+    const aiScene* scene = importer.ReadFile(path, aiOptions | aiProcess_Triangulate);
+    if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
+        throw std::invalid_argument(std::string("Assimp error imorting: ") + std::string(importer.GetErrorString()));
+        return;
+    }
+    directory = path.substr(0, path.find_last_of("/\\"));
+    processNode(scene->mRootNode, scene);
+    
+}
+
+//processes each node of a scene
+void SO_AssimpModel::processNode(aiNode* node, const aiScene* scene) {
+    for (unsigned int i = 0; i < node->mNumMeshes; i++) {
+        aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+        meshes.push_back(processMesh(mesh, scene));
+    }
+    for (unsigned int i = 0; i < node->mNumChildren; i++) {
+        processNode(node->mChildren[i], scene);
+    }
+}
+
+//convertes an assimp mesh into an SO mesh
+SO_AssimpMesh SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
+    SO_AssimpMesh SOMesh;
+    for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
+        SO_AssimpVertex vertex;
+        vertex.position.x = mesh->mVertices[i].x;
+        vertex.position.y = mesh->mVertices[i].y;
+        vertex.position.z = mesh->mVertices[i].z;
+        vertex.normal.x = mesh->mNormals[i].x;
+        vertex.normal.y = mesh->mNormals[i].y;
+        vertex.normal.z = mesh->mNormals[i].z;
+        vertex.texCoords.x = mesh->mTextureCoords[0][i].x;
+        vertex.texCoords.y = mesh->mTextureCoords[0][i].y;
+        SOMesh.vertices.push_back(vertex);
+    }
+    for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
+        aiFace face = mesh->mFaces[i];
+        for (unsigned int j = 0; j < face.mNumIndices; j++) {
+            SOMesh.elements.push_back(face.mIndices[j]);
+        }
+    }
+    aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+    if (material->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
+        SOMesh.diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE);
+    }
+    return SOMesh;
+}
+
+//loads the texture files from a material
+std::vector<SO_AssimpTexture> SO_AssimpModel::loadMaterialTextures(aiMaterial* material, aiTextureType type) {
+    std::vector<SO_AssimpTexture> textures;
+    for (unsigned int i = 0; i < material->GetTextureCount(type); i++) {
+        aiString str;
+        material->GetTexture(type, i, &str);
+        bool skip = false;
+        for (unsigned int j = 0; j < globalTextures.size(); j++) {
+            if (std::strcmp(globalTextures[j].path.data(), str.C_Str()) == 0) {
+                textures.push_back(globalTextures[j]);
+                skip = true;
+                break;
+            }
+        }
+        if (!skip) {
+            SO_AssimpTexture texture;
+            texture.textureId = loadTextureFromFile(std::string(str.C_Str()));
+            texture.path = str.C_Str();
+            textures.push_back(texture);
+            globalTextures.push_back(texture);
+
+        }
+    }
+    return textures;
+}
+
+//loads texture files into openGL
+GLuint SO_AssimpModel::loadTextureFromFile(std::string path) {
+    std::string filename = directory + '\\' + path;
+
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+
+    int width, height, nrComponents;
+    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+    if (data) {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    }
+    else {
+        std::string error = "Unable to load skybox texture at path: " + filename;
+        throw std::runtime_error(error.c_str());
+    }
+    stbi_image_free(data);
+
+    return textureID;
+}
+
+//draws the scene - call at render time
+void SO_AssimpModel::draw() {
+    for (unsigned int i = 0; i < meshes.size(); i++) {
+        meshes[i].draw();
+    }
+}
+
+//creates all the shaders for the meshes
+void SO_AssimpModel::createShaders(int numberLights) {
+    for (unsigned int i = 0; i < meshes.size(); i++) {
+        meshes[i].createShader(numberLights);
+    }
+}
+
 
 SO_Camera::SO_Camera(float fovIn=45.0f, float aspectRatioIn=1.0f, float nearClipIn=0.1f, float farClipIn=100.0f, 
                         glm::vec3 positionIn=glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 frontIn=glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3 upIn=glm::vec3(0.0f, 1.0f, 0.0f)) {

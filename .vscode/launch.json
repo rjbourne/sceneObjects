@@ -22,8 +22,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "C/C++: mingw32 make"
+            ]//,
+            //"preLaunchTask": "C/C++: mingw32 make"
         }
     ]
 }

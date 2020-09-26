@@ -2,12 +2,15 @@
 #define SCENEOBJECTS_H_
 
 #define SO_VERSION_MAJOR 1
-#define SO_VERSION_MINOR 1
-#define SO_VERSION_REVISION 1
+#define SO_VERSION_MINOR 2
+#define SO_VERSION_REVISION 0
 
 #include "sceneObjects.hpp"
 #include <vector>
 #include <string>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -46,7 +49,6 @@ enum SO_ShaderOptions : unsigned int {
     SO_COLOR_ATTRIBUTE = 128
 };
 
-
 // 3D Phong model lighting class
 class SO_PhongShader : public SO_Shader {
     protected:
@@ -61,6 +63,7 @@ class SO_PhongShader : public SO_Shader {
         GLint specularMatLoc;
         GLint alphaMatLoc;
         GLint colorLoc;
+        GLint specularPowerLoc;
         using SO_Shader::createVertexShader;
         using SO_Shader::createFragmentShader;
         using SO_Shader::linkProgram;
@@ -82,6 +85,7 @@ class SO_PhongShader : public SO_Shader {
         void setMaterialAlpha(float alphaMaterial);
         void setColor(glm::vec3 color);
         void setColor(glm::vec4 color);
+        void setSpecularPower(unsigned int specPower);
 };
 
 class SO_SkyboxShader : public SO_Shader {
@@ -98,6 +102,66 @@ class SO_SkyboxShader : public SO_Shader {
         void render(GLenum depthFuncReset = GL_LESS);
 };
 
+struct SO_AssimpVertex {
+    glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 normal = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec2 texCoords = glm::vec2(0.0f, 0.0f);
+};
+
+struct SO_AssimpTexture {
+    GLuint textureId;
+    std::string path;
+};
+
+class SO_AssimpShader : public SO_Shader {
+    protected:
+        int numberLights;
+        GLint normalMatrixLoc;
+        GLint viewPositionLoc;
+        GLint specularPowerLoc;
+    public:
+        GLuint generate(int numberLightsIn);
+        void setModelMatrix(glm::mat4 modelMatrix) override;
+        void setViewPosition(glm::vec3 viewPosition) override;
+        void setLightPosition(int index, glm::vec3 lightPosition);
+        void setLightConstant(int index, float lightConstant);
+        void setLightLinear(int index, float lightLinear);
+        void setLightQuadratic(int index, float lightQuadratic);
+        void setLightAmbient(int index, glm::vec3 lightAmbient);
+        void setLightDiffuse(int index, glm::vec3 lightDiffuse);
+        void setLightSpecular(int index, glm::vec3 lightSpecular);
+        void setSpecularPower(unsigned int specPower);
+};
+
+class SO_AssimpMesh {
+        GLuint vbo;
+        GLuint vao;
+        GLuint ebo;
+    public:
+        SO_AssimpShader shader;
+        std::vector<SO_AssimpVertex> vertices;
+        std::vector<unsigned int> elements;
+        std::vector<SO_AssimpTexture> diffuseMaps;
+        SO_AssimpShader* createShader(int numberLights);
+        void draw();
+        ~SO_AssimpMesh();
+};
+
+class SO_AssimpModel {
+    public:
+        std::vector<SO_AssimpMesh> meshes;
+        std::vector<SO_AssimpTexture> globalTextures;
+        std::string directory;
+        SO_AssimpModel(std::string path, int aiOptions);
+        void loadModel(std::string path, int aiOptions);
+        void processNode(aiNode* node, const aiScene* scene);
+        SO_AssimpMesh processMesh(aiMesh* mesh, const aiScene* scene);
+        std::vector<SO_AssimpTexture> loadMaterialTextures(aiMaterial* material, aiTextureType type);
+        GLuint loadTextureFromFile(std::string path);
+        void draw();
+        void createShaders(int numberLights);
+};
+
 //A 3D camera capable of creating view/projection matricces to linked shader programs on call
 class SO_Camera {
     std::vector<SO_Shader*> shaderPointers;
@@ -109,7 +173,7 @@ class SO_Camera {
         glm::vec3 position;
         glm::vec3 front;
         glm::vec3 up;
-        SO_Camera(float, float, float, float, glm::vec3, glm::vec3, glm::vec3);
+        SO_Camera(float fovIn, float aspectRatioIn, float nearClipIn, float farClipIn, glm::vec3 positionIn, glm::vec3 frontIn, glm::vec3 upIn);
         void linkShader(SO_Shader *shaderRefIn);
         void unlinkShader(SO_Shader *shaderRefIn);
         void updateViewMatrix(void);
