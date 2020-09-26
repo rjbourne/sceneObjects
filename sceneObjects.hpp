@@ -63,6 +63,7 @@ class SO_PhongShader : public SO_Shader {
         GLint specularMatLoc;
         GLint alphaMatLoc;
         GLint colorLoc;
+        GLint specularPowerLoc;
         using SO_Shader::createVertexShader;
         using SO_Shader::createFragmentShader;
         using SO_Shader::linkProgram;
@@ -84,6 +85,7 @@ class SO_PhongShader : public SO_Shader {
         void setMaterialAlpha(float alphaMaterial);
         void setColor(glm::vec3 color);
         void setColor(glm::vec4 color);
+        void setSpecularPower(unsigned int specPower);
 };
 
 class SO_SkyboxShader : public SO_Shader {
@@ -116,6 +118,7 @@ class SO_AssimpShader : public SO_Shader {
         int numberLights;
         GLint normalMatrixLoc;
         GLint viewPositionLoc;
+        GLint specularPowerLoc;
     public:
         GLuint generate(int numberLightsIn);
         void setModelMatrix(glm::mat4 modelMatrix) override;
@@ -127,6 +130,7 @@ class SO_AssimpShader : public SO_Shader {
         void setLightAmbient(int index, glm::vec3 lightAmbient);
         void setLightDiffuse(int index, glm::vec3 lightDiffuse);
         void setLightSpecular(int index, glm::vec3 lightSpecular);
+        void setSpecularPower(unsigned int specPower);
 };
 
 class SO_AssimpMesh {

@@ -264,6 +264,7 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     }
     fragmentSourceStr += R"glsl(
         uniform vec3 viewPos;
+        uniform unsigned int specPower;
         uniform PointLight lights[)glsl" + std::to_string(numberLights) + R"glsl(];
 
         vec3 CalcPointLight(PointLight light, vec3 normal, vec3 viewDir) {
@@ -272,7 +273,7 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
             float diff = max(dot(normal, lightDir), 0.0);
             // specular shading
             vec3 reflectDir = reflect(-lightDir, normal);
-            float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+            float spec = pow(max(dot(viewDir, reflectDir), 0.0), specPower);
             // attenuation
             float distance    = length(light.lightPos - worldPos);
             float attenuation = 1.0 / (light.constant + light.linear * distance + 
@@ -313,6 +314,9 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     // get locations of shader uniforms
     normalMatrixLoc = glGetUniformLocation(this->getProgramID(), "normalMatrix");
     viewPositionLoc = glGetUniformLocation(this->getProgramID(), "viewPos");
+    specularPowerLoc = glGetUniformLocation(this->getProgramID(), "specPower");
+    setSpecularPower(32);
+
     if ((options & SO_INSTANCED) == SO_INSTANCED) {
         postModelMatrixLoc = glGetUniformLocation(this->getProgramID(), "postModel");
         postNormalMatrixLoc = glGetUniformLocation(this->getProgramID(), "postNormalMatrix");
@@ -503,6 +507,10 @@ void SO_PhongShader::setColor(glm::vec4 color) {
             throw std::invalid_argument("cannot pass vec4 as color argument when alpha is disabled");
         }
     }
+}
+
+void SO_PhongShader::setSpecularPower(unsigned int specPower) {
+    glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
 }
 
 float skyboxVertices[] = {
@@ -703,6 +711,7 @@ GLuint SO_AssimpShader::generate(int numberLightsIn) {
         out vec4 outColor;
 
         uniform vec3 viewPos;
+        uniform unsigned int specPower;
         uniform PointLight lights[)glsl" + std::to_string(numberLights) + R"glsl(];
 
         uniform sampler2D textureDiffuse;
@@ -713,7 +722,7 @@ GLuint SO_AssimpShader::generate(int numberLightsIn) {
             float diff = max(dot(normal, lightDir), 0.0);
             // specular shading
             vec3 reflectDir = reflect(-lightDir, normal);
-            float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+            float spec = pow(max(dot(viewDir, reflectDir), 0.0), specPower);
             // attenuation
             float distance    = length(light.lightPos - worldPos);
             float attenuation = 1.0 / (light.constant + light.linear * distance + 
@@ -744,6 +753,8 @@ GLuint SO_AssimpShader::generate(int numberLightsIn) {
 
     normalMatrixLoc = glGetUniformLocation(this->getProgramID(), "normalMatrix");
     viewPositionLoc = glGetUniformLocation(this->getProgramID(), "viewPos");
+    specularPowerLoc = glGetUniformLocation(this->getProgramID(), "specPower");
+    setSpecularPower(32);
 
     return this->getProgramID();
 }
@@ -852,6 +863,10 @@ void SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
     std::string name = "lights[" + std::to_string(index) + "].specular";
     GLint lightSpecularLoc = glGetUniformLocation(this->getProgramID(), name.c_str());
     glProgramUniform3fv(this->getProgramID(), lightSpecularLoc, 1, glm::value_ptr(lightSpecular));
+}
+
+void SO_AssimpShader::setSpecularPower(unsigned int specPower) {
+    glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
 }
 
 // craetes a shader for the mesh

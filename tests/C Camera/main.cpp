@@ -131,6 +131,7 @@ int main(int argc, char *argv[]) {
     shaderObj.setLightAmbient(0, glm::vec3(0.2f, 0.2f, 0.2f));
     shaderObj.setLightDiffuse(0, glm::vec3(1.0f, 1.0f, 1.0f));
     shaderObj.setLightSpecular(0, glm::vec3(0.5f, 0.5f, 0.5f));
+    shaderObj.setSpecularPower(128);
 
     shaderObj.setModelMatrix(glm::mat4(1.0f));
     

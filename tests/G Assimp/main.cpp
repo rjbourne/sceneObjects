@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
     glewInit();
 
     SO_AssimpModel cube = SO_AssimpModel("C:\\Users\\Robert\\Documents\\GitHub\\sceneObjects\\tests\\G Assimp\\backpack\\backpack.obj",
-                                        aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph);
+                                        aiProcess_Triangulate | /*aiProcess_FlipUVs |*/ aiProcess_GenNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph);
     cube.createShaders(1);
     for (int i = 0; i < cube.meshes.size(); i++) {
         cube.meshes[i].shader.setLightPosition(0, glm::vec3(2.0f, 3.0f, 4.0f));
