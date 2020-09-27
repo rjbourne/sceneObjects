@@ -120,7 +120,7 @@ class SO_AssimpShader : public SO_Shader {
         GLint viewPositionLoc;
         GLint specularPowerLoc;
     public:
-        GLuint generate(int numberLightsIn);
+        GLuint generate(int numberLightsIn, int diffuseTextures, int specularTextures);
         void setModelMatrix(glm::mat4 modelMatrix) override;
         void setViewPosition(glm::vec3 viewPosition) override;
         void setLightPosition(int index, glm::vec3 lightPosition);
@@ -142,6 +142,9 @@ class SO_AssimpMesh {
         std::vector<SO_AssimpVertex> vertices;
         std::vector<unsigned int> elements;
         std::vector<SO_AssimpTexture> diffuseMaps;
+        glm::vec3 diffuseColor = glm::vec3(0.0f, 0.0f, 0.0f);
+        std::vector<SO_AssimpTexture> specularMaps;
+        glm::vec3 specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
         SO_AssimpShader* createShader(int numberLights);
         void draw();
         ~SO_AssimpMesh();

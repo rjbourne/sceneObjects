@@ -661,7 +661,7 @@ SO_SkyboxShader::~SO_SkyboxShader(void) {
 }
 
 // generate a shader program for a assimp mesh
-GLuint SO_AssimpShader::generate(int numberLightsIn) {
+GLuint SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures) {
     numberLights = numberLightsIn;
     std::string vertexSourceStr;
     vertexSourceStr = R"glsl(
@@ -714,7 +714,8 @@ GLuint SO_AssimpShader::generate(int numberLightsIn) {
         uniform unsigned int specPower;
         uniform PointLight lights[)glsl" + std::to_string(numberLights) + R"glsl(];
 
-        uniform sampler2D textureDiffuse;
+        uniform )glsl" + (std::string)((diffuseTextures == 0) ? "vec3 colorDiffuse" : "sampler2D textureDiffuse") + R"glsl(;
+        uniform )glsl" + (std::string)((specularTextures == 0) ? "vec3 colorSpecular" : "sampler2D textureSpecular") + R"glsl(;
 
         vec3 CalcPointLight(PointLight light, vec3 normal, vec3 viewDir) {
             vec3 lightDir = normalize(light.lightPos - worldPos);
@@ -728,9 +729,9 @@ GLuint SO_AssimpShader::generate(int numberLightsIn) {
             float attenuation = 1.0 / (light.constant + light.linear * distance + 
                         light.quadratic * (distance * distance));   
             // combine results
-            vec3 ambient  = light.ambient  * texture(textureDiffuse, TexCoord).xyz;
-            vec3 diffuse  = light.diffuse  * diff * texture(textureDiffuse, TexCoord).xyz;
-            vec3 specular = light.specular * spec * vec3(0.5, 0.5, 0.5);
+            vec3 ambient  = light.ambient  * )glsl" + (std::string)((diffuseTextures == 0) ? "colorDiffuse" : "texture(textureDiffuse, TexCoord).xyz") + R"glsl(;
+            vec3 diffuse  = light.diffuse  * diff * )glsl" + (std::string)((diffuseTextures == 0) ? "colorDiffuse" : "texture(textureDiffuse, TexCoord).xyz") + R"glsl(;
+            vec3 specular = light.specular * spec * )glsl" + (std::string)((specularTextures == 0) ? "colorSpecular" : "texture(textureSpecular, TexCoord).xyz") + R"glsl(;
             ambient  *= attenuation;
             diffuse  *= attenuation;
             specular *= attenuation;
@@ -872,7 +873,7 @@ void SO_AssimpShader::setSpecularPower(unsigned int specPower) {
 // craetes a shader for the mesh
 SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
     shader = SO_AssimpShader();
-    shader.generate(numberLights);
+    shader.generate(numberLights, diffuseMaps.size(), specularMaps.size());
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
@@ -904,9 +905,20 @@ SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
 //draws the mesh - call at render time
 void SO_AssimpMesh::draw() {
     glUseProgram(shader.getProgramID());
-    glUniform1i(glGetUniformLocation(shader.getProgramID(), "textureDiffuse"), 0);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, diffuseMaps[0].textureId);
+    if (diffuseMaps.size() == 0) {
+        glUniform3fv(glGetUniformLocation(shader.getProgramID(), "colorDiffuse"), 1, glm::value_ptr(diffuseColor));
+    } else {
+        glUniform1i(glGetUniformLocation(shader.getProgramID(), "textureDiffuse"), 0);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, diffuseMaps[0].textureId);
+    }
+    if (specularMaps.size() == 0) {
+        glUniform3fv(glGetUniformLocation(shader.getProgramID(), "colorSpecular"), 1, glm::value_ptr(specularColor));
+    } else {
+        glUniform1i(glGetUniformLocation(shader.getProgramID(), "textureSpecular"), 1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, specularMaps[0].textureId);
+    }
 
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, elements.size(), GL_UNSIGNED_INT, 0);
@@ -981,9 +993,26 @@ SO_AssimpMesh SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         }
     }
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
-    if (material->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
-        SOMesh.diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE);
+    //diffuse texture
+    SOMesh.diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE);
+    aiColor3D diffuseColor (0.0f, 1.0f, 0.0f);
+    if (AI_SUCCESS != material->Get(AI_MATKEY_COLOR_DIFFUSE, diffuseColor)) {
+        throw std::invalid_argument("Failed to load diffuse color from assimp material");
     }
+    SOMesh.diffuseColor.r = diffuseColor.r;
+    SOMesh.diffuseColor.g = diffuseColor.g;
+    SOMesh.diffuseColor.b = diffuseColor.b;
+    //specular texture
+    SOMesh.specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR);
+    aiColor3D specularColor (0.0f, 1.0f, 0.0f);
+    if (AI_SUCCESS != material->Get(AI_MATKEY_COLOR_SPECULAR, specularColor)) {
+        throw std::invalid_argument("Failed to load specular color from assimp material");
+    }
+    SOMesh.specularColor.r = specularColor.r;
+    SOMesh.specularColor.g = specularColor.g;
+    SOMesh.specularColor.b = specularColor.b;
+    //normal texture
+    
     return SOMesh;
 }
 
