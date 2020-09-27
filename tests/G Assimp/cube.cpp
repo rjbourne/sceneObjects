@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 
     double mouseSpeedX = 1; // camera controls
     double mouseSpeedY = 1;
-    double anglePhi = 120.0;
+    double anglePhi = 0.0;
     double angleTheta = 90.0;
     bool mouseDown = false;
     float dist = 8.0f;
