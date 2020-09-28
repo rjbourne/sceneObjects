@@ -674,7 +674,6 @@ GLuint SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int sp
     if (normalTextures > 0) {
         vertexSourceStr += R"glsl(
         layout (location = 3) in vec3 tangent;
-        layout (location = 4) in vec3 bitangent;
         )glsl";
     }
     vertexSourceStr += R"glsl(
@@ -701,8 +700,11 @@ GLuint SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int sp
     if (normalTextures > 0) {
         vertexSourceStr += R"glsl(
             vec3 T = normalize(vec3(normalMatrix * vec4(tangent, 0.0)));
-            vec3 B = normalize(vec3(normalMatrix * vec4(bitangent, 0.0)));
             vec3 N = normalize(vec3(normalMatrix * vec4(normal, 0.0)));
+            // re-orthogonalize T with respect to N - Gram-Schmidt process
+            T = normalize(T - dot(T, N) * N);
+            // then retrieve perpendicular vector B with the cross product of T and N
+            vec3 B = cross(N, T);
             TBN = mat3(T, B, N);
         )glsl";
     } else {
@@ -945,9 +947,6 @@ SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
         //tangents
         glEnableVertexAttribArray(3);
         glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, tangent));
-        //bitangents
-        glEnableVertexAttribArray(4);
-        glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, bitangent));
     }
 
     glBindVertexArray(0);
@@ -1077,9 +1076,6 @@ SO_AssimpMesh SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
             vertex.tangent.x = mesh->mTangents[i].x;
             vertex.tangent.y = mesh->mTangents[i].y;
             vertex.tangent.z = mesh->mTangents[i].z;
-            vertex.bitangent.x = mesh->mBitangents[i].x;
-            vertex.bitangent.y = mesh->mBitangents[i].y;
-            vertex.bitangent.z = mesh->mBitangents[i].z;
         }
         SOMesh.vertices.push_back(vertex);
     }

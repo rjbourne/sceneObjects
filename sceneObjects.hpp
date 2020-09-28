@@ -107,7 +107,6 @@ struct SO_AssimpVertex {
     glm::vec3 normal = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec2 texCoords = glm::vec2(0.0f, 0.0f);
     glm::vec3 tangent = glm::vec3(0.0f, 0.0f, 0.0f);
-    glm::vec3 bitangent = glm::vec3(0.0f, 0.0f, 0.0f);
 };
 
 struct SO_AssimpTexture {
