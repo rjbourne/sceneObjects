@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     SO_AssimpModel cube = SO_AssimpModel("C:\\Users\\Robert\\Documents\\GitHub\\sceneObjects\\tests\\G Assimp\\backpack\\backpack.obj",
                                         aiProcess_Triangulate | /*aiProcess_FlipUVs |*/ aiProcess_GenNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph);
-    cube.createShaders(1);
+    cube.createShaders(2);
     for (int i = 0; i < cube.meshes.size(); i++) {
         cube.meshes[i].shader.setLightPosition(0, glm::vec3(2.0f, 3.0f, 4.0f));
         cube.meshes[i].shader.setLightConstant(0, 1.0f);
@@ -76,7 +76,16 @@ int main(int argc, char *argv[]) {
         cube.meshes[i].shader.setLightAmbient(0, glm::vec3(0.2f, 0.2f, 0.2f));
         cube.meshes[i].shader.setLightDiffuse(0, glm::vec3(1.0f, 1.0f, 1.0f));
         cube.meshes[i].shader.setLightSpecular(0, glm::vec3(0.5f, 0.5f, 0.5f));
-        cube.meshes[i].shader.setModelMatrix(glm::mat4(1.0f));
+
+        cube.meshes[i].shader.setLightPosition(1, glm::vec3(-2.0f, -3.0f, -4.0f));
+        cube.meshes[i].shader.setLightConstant(1, 1.0f);
+        cube.meshes[i].shader.setLightLinear(1, 0.0f);
+        cube.meshes[i].shader.setLightQuadratic(1, 0.0f);
+        cube.meshes[i].shader.setLightAmbient(1, glm::vec3(0.2f, 0.2f, 0.2f));
+        cube.meshes[i].shader.setLightDiffuse(1, glm::vec3(1.0f, 1.0f, 1.0f));
+        cube.meshes[i].shader.setLightSpecular(1, glm::vec3(0.5f, 0.5f, 0.5f));
+
+        cube.meshes[i].shader.setModelMatrix(glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
         cameraObj.linkShader(&cube.meshes[i].shader);
     }
 
@@ -136,7 +145,7 @@ int main(int argc, char *argv[]) {
         cube.draw();
         glfwSwapBuffers(window);
         glfwPollEvents();
-        printf("%.5f\n", glfwGetTime() - time);
+        //printf("%.5f\n", glfwGetTime() - time);
     }
 
     //if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
