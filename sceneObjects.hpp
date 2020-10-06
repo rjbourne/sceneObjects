@@ -3,7 +3,7 @@
 
 #define SO_VERSION_MAJOR 1
 #define SO_VERSION_MINOR 2
-#define SO_VERSION_REVISION 1
+#define SO_VERSION_REVISION 2
 
 #include "sceneObjects.hpp"
 #include <vector>
