@@ -197,8 +197,11 @@ SO_MeshData createIcosphere(int subdivisions);
 double fade(double x);
 int inc(int num, int repeat);
 double grad(int hash, double x, double y, double z);
-double lerp(double a, double b, double x);
-glm::vec3 lerp(glm::vec3 a, glm::vec3 b, double x);
+
+template <typename T, typename S = float> T lerp(T a, T b, S x) {
+    return a + (T)(x * (b - a));
+}
+
 double modulus(double x, double y);
 double perlin(double x, double y, double z, double repeat);
 

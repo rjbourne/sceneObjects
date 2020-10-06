@@ -1402,16 +1402,6 @@ double grad(int hash, double x, double y, double z) {
     }
 }
 
-//linear interpolation between two doubles
-double lerp(double a, double b, double x) {
-    return a + x * (b - a);
-}
-
-//linear interpolation between two vectors
-glm::vec3 lerp(glm::vec3 a, glm::vec3 b, double x) {
-    return a + (float)x * (b - a);
-}
-
 //moduus function without negatives
 double modulus(double x, double y) {
     return x - y*floor(x/y);
