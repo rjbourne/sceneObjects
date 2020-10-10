@@ -198,7 +198,7 @@ double fade(double x);
 int inc(int num, int repeat);
 double grad(int hash, double x, double y, double z);
 
-template <typename T, typename S = float> T lerp(T a, T b, S x) {
+template <typename T> T lerp(T a, T b, float x) {
     return a + (T)(x * (b - a));
 }
 
