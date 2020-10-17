@@ -2,6 +2,8 @@
 
 #include "sceneObjects.hpp"
 #include <stb_image.h>
+#include <stdio.h>
+#include <memory>
 #include <cstdio>
 #include <string>
 #include <vector>
@@ -1214,6 +1216,44 @@ void SO_Camera::unlinkShader(SO_Shader *shaderRefIn) {
         }
     }
 }
+
+#ifdef _WIN32
+SO_FfmpegStream::SO_FfmpegStream(std::string filepathIn) {
+    setFilepath(filepathIn);
+}
+
+//takes an std::string to set the filepath of the next stream opened
+void SO_FfmpegStream::setFilepath(std::string filepathIn) {
+    filepath = filepathIn;
+}
+
+
+//start a stream to an ffmpeg file
+void SO_FfmpegStream::openStream(int widthIn, int heightIn) {
+    //http://blog.mmacklin.com/2013/06/11/real-time-video-capture-with-ffmpeg/
+    width = widthIn;
+    height = heightIn;
+
+    std::string cmd = "ffmpeg -r 60 -f rawvideo -pix_fmt rgba -s " + std::to_string(width) + "x" + std::to_string(height) + " -i - "
+                        "-threads 0 -preset fast -y -pix_fmt yuv420p -crf 21 -vf vflip " + filepath;
+
+    ffmpeg = _popen(cmd.c_str(), "wb");
+
+    buffer = std::make_unique<int[]>(width*height);
+
+    streaming = true;
+}
+
+//render a frame
+void SO_FfmpegStream::renderFrame(void) {
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer.get());
+    fwrite(buffer.get(), sizeof(int)*width*height, 1, ffmpeg);
+}
+
+void SO_FfmpegStream::closeStream(void) {
+    _pclose(ffmpeg);
+}
+#endif
 
 //create vector at a ratio of division/subdivisions from vector1 to vector2
 glm::vec3 createRatioVector(int subdivisions, int division, glm::vec3 vector1, glm::vec3 vector2) {

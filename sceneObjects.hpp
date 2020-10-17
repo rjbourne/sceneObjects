@@ -8,6 +8,8 @@
 #include "sceneObjects.hpp"
 #include <vector>
 #include <string>
+#include <stdio.h>
+#include <memory>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -16,6 +18,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 
 //generic shader program class
 class SO_Shader {
@@ -184,6 +187,28 @@ class SO_Camera {
         void updateViewMatrix(void);
         void updateProjectionMatrix(void);
 };
+
+#ifdef _WIN32
+//A class capable of rendering to a ffmpeg stream
+class SO_FfmpegStream {
+    std::string filepath;
+    bool streaming = false;
+    FILE*  ffmpeg;
+    int width;
+    int height;
+    std::unique_ptr<int[]> buffer;
+    public:
+        SO_FfmpegStream(std::string filepathIn);
+        void setFilepath(std::string filepathIn);
+        void openStream(int widthIn, int heightIn);
+        void renderFrame(void);
+        void closeStream(void);
+
+};
+#else
+#pragma message("WARNING: class SO_Ffmpeg is not supported on this OS, and is not available")
+#endif
+
 
 //struct containing return data for a generic mesh
 struct SO_MeshData {
