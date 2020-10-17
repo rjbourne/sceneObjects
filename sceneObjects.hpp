@@ -2,8 +2,8 @@
 #define SCENEOBJECTS_H_
 
 #define SO_VERSION_MAJOR 1
-#define SO_VERSION_MINOR 2
-#define SO_VERSION_REVISION 2
+#define SO_VERSION_MINOR 3
+#define SO_VERSION_REVISION 0
 
 #include "sceneObjects.hpp"
 #include <vector>
