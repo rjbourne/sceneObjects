@@ -2,12 +2,14 @@
 #define SCENEOBJECTS_H_
 
 #define SO_VERSION_MAJOR 1
-#define SO_VERSION_MINOR 2
-#define SO_VERSION_REVISION 1
+#define SO_VERSION_MINOR 3
+#define SO_VERSION_REVISION 0
 
 #include "sceneObjects.hpp"
 #include <vector>
 #include <string>
+#include <stdio.h>
+#include <memory>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -16,6 +18,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 
 //generic shader program class
 class SO_Shader {
@@ -185,6 +188,29 @@ class SO_Camera {
         void updateProjectionMatrix(void);
 };
 
+#ifdef _WIN32
+//A class capable of rendering to a ffmpeg stream
+class SO_FfmpegStream {
+    std::string filepath;
+    bool streaming = false;
+    FILE*  ffmpeg;
+    int width;
+    int height;
+    int fps = 60;
+    std::unique_ptr<int[]> buffer;
+    public:
+        SO_FfmpegStream(std::string filepathIn);
+        void setFilepath(std::string filepathIn);
+        void openStream(int widthIn, int heightIn, int fpsIn = 60);
+        void renderFrame(void);
+        void closeStream(void);
+
+};
+#else
+#pragma message("WARNING: class SO_Ffmpeg is not supported on this OS, and is not available")
+#endif
+
+
 //struct containing return data for a generic mesh
 struct SO_MeshData {
     std::vector<glm::vec3> vertices;
@@ -197,8 +223,11 @@ SO_MeshData createIcosphere(int subdivisions);
 double fade(double x);
 int inc(int num, int repeat);
 double grad(int hash, double x, double y, double z);
-double lerp(double a, double b, double x);
-glm::vec3 lerp(glm::vec3 a, glm::vec3 b, double x);
+
+template <typename T> T lerp(T a, T b, float x) {
+    return a + (T)(x * (b - a));
+}
+
 double modulus(double x, double y);
 double perlin(double x, double y, double z, double repeat);
 

@@ -38,3 +38,8 @@ cd "H Assimp"
 mingw32-make
 .\main
 cd ..
+
+cd "I Ffmpeg"
+mingw32-make
+.\main
+cd ..
