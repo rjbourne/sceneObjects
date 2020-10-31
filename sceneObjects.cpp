@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <exception>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -1229,12 +1230,13 @@ void SO_FfmpegStream::setFilepath(std::string filepathIn) {
 
 
 //start a stream to an ffmpeg file
-void SO_FfmpegStream::openStream(int widthIn, int heightIn) {
+void SO_FfmpegStream::openStream(int widthIn, int heightIn, int fpsIn) {
     //http://blog.mmacklin.com/2013/06/11/real-time-video-capture-with-ffmpeg/
     width = widthIn;
     height = heightIn;
+    fps = fpsIn;
 
-    std::string cmd = "ffmpeg -r 60 -f rawvideo -pix_fmt rgba -s " + std::to_string(width) + "x" + std::to_string(height) + " -i - "
+    std::string cmd = "ffmpeg -r " + std::to_string(fps) + " -f rawvideo -pix_fmt rgba -s " + std::to_string(width) + "x" + std::to_string(height) + " -i - "
                         "-threads 0 -preset fast -y -pix_fmt yuv420p -crf 21 -vf vflip " + filepath;
 
     ffmpeg = _popen(cmd.c_str(), "wb");

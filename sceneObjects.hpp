@@ -196,11 +196,12 @@ class SO_FfmpegStream {
     FILE*  ffmpeg;
     int width;
     int height;
+    int fps = 60;
     std::unique_ptr<int[]> buffer;
     public:
         SO_FfmpegStream(std::string filepathIn);
         void setFilepath(std::string filepathIn);
-        void openStream(int widthIn, int heightIn);
+        void openStream(int widthIn, int heightIn, int fpsIn = 60);
         void renderFrame(void);
         void closeStream(void);
 
