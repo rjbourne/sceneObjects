@@ -1,5 +1,5 @@
 //includes
-#include "..\\..\\sceneObjects.hpp"
+#include <sceneObjects.hpp>
 #include <cstdio>
 #include <cmath>
 #include <vector>
@@ -10,6 +10,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+using namespace sceneObjects;
 
 int WIDTH = 800;
 int HEIGHT = 800;

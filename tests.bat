@@ -1,3 +1,5 @@
+mingw32-make
+
 cd "tests\\A Phongshader"
 mingw32-make
 .\main

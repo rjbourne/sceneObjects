@@ -4,7 +4,11 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\custom_C++_libs"
+                "C:/custom_C++_libs/includes/glfw",
+                "C:/custom_C++_libs/includes/glm",
+                "C:/custom_C++_libs/includes/glew",
+                "C:/custom_C++_libs/includes/assimp",
+                "C:/custom_C++_libs/includes/stbi"
             ],
             "defines": [
                 "_DEBUG",
