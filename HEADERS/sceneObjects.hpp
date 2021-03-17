@@ -7,7 +7,6 @@
 
 #define GLEW_STATIC
 
-#include "sceneObjects.hpp"
 #include <vector>
 #include <string>
 #include <stdio.h>

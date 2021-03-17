@@ -1,5 +1,5 @@
 //includes
-#include "..\\..\\sceneObjects.hpp"
+#include <sceneObjects.hpp>
 #include <cstdio>
 #include <cmath>
 #include <vector>
