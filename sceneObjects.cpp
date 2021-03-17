@@ -22,7 +22,7 @@
 
 
 //compile a vertex shader from the given char*
-void SO_Shader::createVertexShader(const char* vertexSource) {
+void sceneObjects::SO_Shader::createVertexShader(const char* vertexSource) {
     vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShaderID, 1, &vertexSource, NULL);
     glCompileShader(vertexShaderID);
@@ -41,7 +41,7 @@ void SO_Shader::createVertexShader(const char* vertexSource) {
 }
 
 //compile a fragment shader from the given char*
-void SO_Shader::createFragmentShader(const char* fragmentSource) {
+void sceneObjects::SO_Shader::createFragmentShader(const char* fragmentSource) {
     fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShaderID, 1, &fragmentSource, NULL);
     glCompileShader(fragmentShaderID);
@@ -59,7 +59,7 @@ void SO_Shader::createFragmentShader(const char* fragmentSource) {
 }
 
 //link together the previously compiled shaders into a program
-void SO_Shader::linkProgram(void) {
+void sceneObjects::SO_Shader::linkProgram(void) {
     programID = glCreateProgram();
     glAttachShader(programID, vertexShaderID);
     glAttachShader(programID, fragmentShaderID);
@@ -84,36 +84,36 @@ void SO_Shader::linkProgram(void) {
 }
 
 //returns the ID of the program associated with this class
-GLuint SO_Shader::getProgramID(void) {
+GLuint sceneObjects::SO_Shader::getProgramID(void) {
     return programID;
 }
 
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
-void SO_Shader::setModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_Shader::setModelMatrix(glm::mat4 modelMatrix) {
     glProgramUniformMatrix4fv(programID, modelMatrixLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 }
 
 //applies the view matrix to the shader program
 //view matrix transforms from worldspace to cameraspace
-void SO_Shader::setViewMatrix(glm::mat4 viewMatrix) {
+void sceneObjects::SO_Shader::setViewMatrix(glm::mat4 viewMatrix) {
     glProgramUniformMatrix4fv(programID, viewMatrixLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 }
 
 //set the position of the camera in the shader program in worldspace
 //method has no effect in SO::Shader base class
-void SO_Shader::setViewPosition(glm::vec3 viewPosition) {
+void sceneObjects::SO_Shader::setViewPosition(glm::vec3 viewPosition) {
     return;
 }
 
 //applies the projection matrix to the shader program
 //projection matrix transforms from cameraspace to clipspace
-void SO_Shader::setProjectionMatrix(glm::mat4 projectionMatrix) {
+void sceneObjects::SO_Shader::setProjectionMatrix(glm::mat4 projectionMatrix) {
     glProgramUniformMatrix4fv(programID, projectionMatrixLoc, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 }
 
 //destructor deletes the opengl program
-SO_Shader::~SO_Shader(void) {
+sceneObjects::SO_Shader::~SO_Shader(void) {
     if (programCreated) {
         glDeleteProgram(programID); //destructor deletes program
     }
@@ -124,7 +124,7 @@ SO_Shader::~SO_Shader(void) {
 //optionsIn : binary flags given by enums SO_ShaderOptions
 // expects in: position, normal, (ambient/diffuse/specular/alpha)Attrib, color, instanceMatrix, normalInstMatrix
 //uniforms: set with SO_PhongShader::set_____ methods
-GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
+GLuint sceneObjects::SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
     numberLights = numberLightsIn; //no. of point sources
     options = optionsIn;
     // create shaders and link them - delete after
@@ -349,7 +349,7 @@ GLuint SO_PhongShader::generate(int numberLightsIn, unsigned int optionsIn) {
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
 //also creates and applies the corresponding normal matrix
-void SO_PhongShader::setModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_PhongShader::setModelMatrix(glm::mat4 modelMatrix) {
     SO_Shader::setModelMatrix(modelMatrix);
     glm::mat4 normalMatrix = glm::transpose(glm::inverse(modelMatrix));
     glProgramUniformMatrix4fv(this->getProgramID(), normalMatrixLoc, 1, GL_FALSE, glm::value_ptr(normalMatrix));
@@ -361,7 +361,7 @@ void SO_PhongShader::setModelMatrix(glm::mat4 modelMatrix) {
 //
 //model matrix transforms from worldspace to worldspace
 //also creates and applies the corresponding normal matrix
-void SO_PhongShader::setPostModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_PhongShader::setPostModelMatrix(glm::mat4 modelMatrix) {
     if ((options & SO_INSTANCED) == SO_INSTANCED) {
         glProgramUniformMatrix4fv(this->getProgramID(), postModelMatrixLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
         glm::mat4 normalMatrix = glm::transpose(glm::inverse(modelMatrix));
@@ -371,14 +371,14 @@ void SO_PhongShader::setPostModelMatrix(glm::mat4 modelMatrix) {
 
 //set the position of the camera in the shader program in worldspace
 //method has no effect in SO::Shader base class
-void SO_PhongShader::setViewPosition(glm::vec3 viewPosition) {
+void sceneObjects::SO_PhongShader::setViewPosition(glm::vec3 viewPosition) {
     glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
 }
 
 //set the position of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightPosition is the position
-void SO_PhongShader::setLightPosition(int index, glm::vec3 lightPosition) {
+void sceneObjects::SO_PhongShader::setLightPosition(int index, glm::vec3 lightPosition) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -391,7 +391,7 @@ void SO_PhongShader::setLightPosition(int index, glm::vec3 lightPosition) {
 //set the constant attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightConstant is the constant
-void SO_PhongShader::setLightConstant(int index, float lightConstant) {
+void sceneObjects::SO_PhongShader::setLightConstant(int index, float lightConstant) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -404,7 +404,7 @@ void SO_PhongShader::setLightConstant(int index, float lightConstant) {
 //set the linear attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightLinear is the coefficient
-void SO_PhongShader::setLightLinear(int index, float lightLinear) {
+void sceneObjects::SO_PhongShader::setLightLinear(int index, float lightLinear) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -417,7 +417,7 @@ void SO_PhongShader::setLightLinear(int index, float lightLinear) {
 //set the quadratic attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightQuadratic is the coefficient
-void SO_PhongShader::setLightQuadratic(int index, float lightQuadratic) {
+void sceneObjects::SO_PhongShader::setLightQuadratic(int index, float lightQuadratic) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -430,7 +430,7 @@ void SO_PhongShader::setLightQuadratic(int index, float lightQuadratic) {
 //set the ambient color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightAmbient is the color (RGB)
-void SO_PhongShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
+void sceneObjects::SO_PhongShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -443,7 +443,7 @@ void SO_PhongShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
 //set the diffuse color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightDiffuse is the color (RGB)
-void SO_PhongShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
+void sceneObjects::SO_PhongShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -456,7 +456,7 @@ void SO_PhongShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
 //set the specular color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightSpecular is the color (RGB)
-void SO_PhongShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
+void sceneObjects::SO_PhongShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -467,34 +467,34 @@ void SO_PhongShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
 }
 
 //set the ambient color of a material
-void SO_PhongShader::setMaterialAmbient(glm::vec3 ambientMaterial) {
+void sceneObjects::SO_PhongShader::setMaterialAmbient(glm::vec3 ambientMaterial) {
     if ((options & SO_MATERIAL) == SO_MATERIAL and (options & SO_AMBIENT_ATTRIBUTE) != SO_AMBIENT_ATTRIBUTE) {
         glProgramUniform3fv(this->getProgramID(), ambientMatLoc, 1, glm::value_ptr(ambientMaterial));
     }
 }
 
 //set the diffuse color of a material
-void SO_PhongShader::setMaterialDiffuse(glm::vec3 diffuseMaterial) {
+void sceneObjects::SO_PhongShader::setMaterialDiffuse(glm::vec3 diffuseMaterial) {
     if ((options & SO_MATERIAL) == SO_MATERIAL and (options & SO_DIFFUSE_ATTRIBUTE) != SO_DIFFUSE_ATTRIBUTE) {
         glProgramUniform3fv(this->getProgramID(), diffuseMatLoc, 1, glm::value_ptr(diffuseMaterial));
     }
 }
 
 //set the specular color of a material
-void SO_PhongShader::setMaterialSpecular(glm::vec3 specularMaterial) {
+void sceneObjects::SO_PhongShader::setMaterialSpecular(glm::vec3 specularMaterial) {
     if ((options & SO_MATERIAL) == SO_MATERIAL and (options & SO_SPECULAR_ATTRIBUTE) != SO_SPECULAR_ATTRIBUTE) {
         glProgramUniform3fv(this->getProgramID(), specularMatLoc, 1, glm::value_ptr(specularMaterial));
     }
 }
 
 //set the alpha of a material
-void SO_PhongShader::setMaterialAlpha(float alphaMaterial) {
+void sceneObjects::SO_PhongShader::setMaterialAlpha(float alphaMaterial) {
     if ((options & SO_MATERIAL) == SO_MATERIAL and (options & SO_ALPHA_ATTRIBUTE) != SO_ALPHA_ATTRIBUTE and (options & SO_ALPHA) == SO_ALPHA) {
         glProgramUniform1f(this->getProgramID(), ambientMatLoc, alphaMaterial);
     }
 }
 
-void SO_PhongShader::setColor(glm::vec3 color) {
+void sceneObjects::SO_PhongShader::setColor(glm::vec3 color) {
     if ((options & SO_MATERIAL) != SO_MATERIAL) {
         if ((options & SO_ALPHA) != SO_ALPHA) {
             glProgramUniform3fv(this->getProgramID(), colorLoc, 1, glm::value_ptr(color));
@@ -504,7 +504,7 @@ void SO_PhongShader::setColor(glm::vec3 color) {
     }
 }
 
-void SO_PhongShader::setColor(glm::vec4 color) {
+void sceneObjects::SO_PhongShader::setColor(glm::vec4 color) {
     if ((options & SO_MATERIAL) != SO_MATERIAL) {
         if ((options & SO_ALPHA) == SO_ALPHA) {
             glProgramUniform4fv(this->getProgramID(), colorLoc, 1, glm::value_ptr(color));
@@ -514,7 +514,7 @@ void SO_PhongShader::setColor(glm::vec4 color) {
     }
 }
 
-void SO_PhongShader::setSpecularPower(unsigned int specPower) {
+void sceneObjects::SO_PhongShader::setSpecularPower(unsigned int specPower) {
     glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
 }
 
@@ -565,7 +565,7 @@ float skyboxVertices[] = {
 
 //generate a skybox using a vector of 6 images in order right (+x), left, top (+y), bottom, front (-z), back
 //max 2048 size (some frames delay in render function if larger) why? max texture size in buffer?
-GLuint SO_SkyboxShader::generate(std::vector<std::string> imageFilesIn) {
+GLuint sceneObjects::SO_SkyboxShader::generate(std::vector<std::string> imageFilesIn) {
     if (imageFilesIn.size() != 6) {
         std::string error = "expected 6 filenames to skybox generate(), got " + std::to_string(imageFilesIn.size());
         throw std::invalid_argument(error.c_str());
@@ -637,20 +637,20 @@ GLuint SO_SkyboxShader::generate(std::vector<std::string> imageFilesIn) {
 }
 
 //set the model matrix of the skybox (empty function)
-void SO_SkyboxShader::setModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_SkyboxShader::setModelMatrix(glm::mat4 modelMatrix) {
     modelMatrix = glm::mat4(glm::mat3(modelMatrix));
     SO_Shader::setModelMatrix(modelMatrix);
 }
 
 //set the view matrix of the skybox (removes translations)
-void SO_SkyboxShader::setViewMatrix(glm::mat4 viewMatrix) {
+void sceneObjects::SO_SkyboxShader::setViewMatrix(glm::mat4 viewMatrix) {
     viewMatrix = glm::mat4(glm::mat3(viewMatrix));
     SO_Shader::setViewMatrix(viewMatrix);
 }
 
 //render the skybox - should be last render done for efficiency
 //this operation leaves the shader and VAO set on the skybox
-void SO_SkyboxShader::render(GLenum depthFuncReset) {
+void sceneObjects::SO_SkyboxShader::render(GLenum depthFuncReset) {
     glDepthFunc(GL_LEQUAL);
     glUseProgram(this->getProgramID());
     glBindVertexArray(skyboxVAO);
@@ -661,13 +661,13 @@ void SO_SkyboxShader::render(GLenum depthFuncReset) {
 }
 
 //destructor
-SO_SkyboxShader::~SO_SkyboxShader(void) {
+sceneObjects::SO_SkyboxShader::~SO_SkyboxShader(void) {
     glDeleteVertexArrays(1, &skyboxVAO);
     glDeleteBuffers(1, &skyboxVBO);
 }
 
 // generate a shader program for a assimp mesh
-GLuint SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures) {
+GLuint sceneObjects::SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures) {
     numberLights = numberLightsIn;
     std::string vertexSourceStr;
     vertexSourceStr = R"glsl(
@@ -816,7 +816,7 @@ GLuint SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int sp
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
 //also creates and applies the corresponding normal matrix
-void SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
     SO_Shader::setModelMatrix(modelMatrix);
     glm::mat4 normalMatrix = glm::transpose(glm::inverse(modelMatrix));
     glProgramUniformMatrix4fv(this->getProgramID(), normalMatrixLoc, 1, GL_FALSE, glm::value_ptr(normalMatrix));
@@ -824,14 +824,14 @@ void SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
 
 //set the position of the camera in the shader program in worldspace
 //method has no effect in SO::Shader base class
-void SO_AssimpShader::setViewPosition(glm::vec3 viewPosition) {
+void sceneObjects::SO_AssimpShader::setViewPosition(glm::vec3 viewPosition) {
     glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
 }
 
 //set the position of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightPosition is the position
-void SO_AssimpShader::setLightPosition(int index, glm::vec3 lightPosition) {
+void sceneObjects::SO_AssimpShader::setLightPosition(int index, glm::vec3 lightPosition) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -844,7 +844,7 @@ void SO_AssimpShader::setLightPosition(int index, glm::vec3 lightPosition) {
 //set the constant attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightConstant is the constant
-void SO_AssimpShader::setLightConstant(int index, float lightConstant) {
+void sceneObjects::SO_AssimpShader::setLightConstant(int index, float lightConstant) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -857,7 +857,7 @@ void SO_AssimpShader::setLightConstant(int index, float lightConstant) {
 //set the linear attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightLinear is the coefficient
-void SO_AssimpShader::setLightLinear(int index, float lightLinear) {
+void sceneObjects::SO_AssimpShader::setLightLinear(int index, float lightLinear) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -870,7 +870,7 @@ void SO_AssimpShader::setLightLinear(int index, float lightLinear) {
 //set the quadratic attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightQuadratic is the coefficient
-void SO_AssimpShader::setLightQuadratic(int index, float lightQuadratic) {
+void sceneObjects::SO_AssimpShader::setLightQuadratic(int index, float lightQuadratic) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -883,7 +883,7 @@ void SO_AssimpShader::setLightQuadratic(int index, float lightQuadratic) {
 //set the ambient color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightAmbient is the color (RGB)
-void SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
+void sceneObjects::SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -896,7 +896,7 @@ void SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
 //set the diffuse color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightDiffuse is the color (RGB)
-void SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
+void sceneObjects::SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -909,7 +909,7 @@ void SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
 //set the specular color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightSpecular is the color (RGB)
-void SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
+void sceneObjects::SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -919,12 +919,12 @@ void SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
     glProgramUniform3fv(this->getProgramID(), lightSpecularLoc, 1, glm::value_ptr(lightSpecular));
 }
 
-void SO_AssimpShader::setSpecularPower(unsigned int specPower) {
+void sceneObjects::SO_AssimpShader::setSpecularPower(unsigned int specPower) {
     glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
 }
 
 // craetes a shader for the mesh
-SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
+sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int numberLights) {
     shader = SO_AssimpShader();
     shader.generate(numberLights, diffuseMaps.size(), specularMaps.size(), normalMaps.size());
     glGenVertexArrays(1, &vao);
@@ -961,7 +961,7 @@ SO_AssimpShader* SO_AssimpMesh::createShader(int numberLights) {
 
 
 //draws the mesh - call at render time
-void SO_AssimpMesh::draw() {
+void sceneObjects::SO_AssimpMesh::draw() {
     glUseProgram(shader.getProgramID());
     if (diffuseMaps.size() == 0) {
         glUniform3fv(glGetUniformLocation(shader.getProgramID(), "colorDiffuse"), 1, glm::value_ptr(diffuseColor));
@@ -987,7 +987,7 @@ void SO_AssimpMesh::draw() {
     glDrawElements(GL_TRIANGLES, elements.size(), GL_UNSIGNED_INT, 0);
 }
 
-SO_AssimpMesh::~SO_AssimpMesh() {
+sceneObjects::SO_AssimpMesh::~SO_AssimpMesh() {
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(1, &ebo);
@@ -1000,7 +1000,7 @@ SO_AssimpMesh::~SO_AssimpMesh() {
 // -aiProcess_OptimizeMeshes
 // -aiProcess_OptimizeGraph
 // Note that aiTriangulate is always called
-SO_AssimpModel::SO_AssimpModel(std::string path, int aiOptions) {
+sceneObjects::SO_AssimpModel::SO_AssimpModel(std::string path, int aiOptions) {
     loadModel(path, aiOptions);
 }
 
@@ -1011,7 +1011,7 @@ SO_AssimpModel::SO_AssimpModel(std::string path, int aiOptions) {
 // -aiProcess_OptimizeMeshes
 // -aiProcess_OptimizeGraph
 // Note that aiTriangulate is always called
-void SO_AssimpModel::loadModel(std::string path, int aiOptions) {
+void sceneObjects::SO_AssimpModel::loadModel(std::string path, int aiOptions) {
     Assimp::Importer importer;
     aiOptions |= aiProcess_Triangulate;
     const aiScene* scene = importer.ReadFile(path, 0);
@@ -1032,7 +1032,7 @@ void SO_AssimpModel::loadModel(std::string path, int aiOptions) {
 }
 
 //processes each node of a scene
-void SO_AssimpModel::processNode(aiNode* node, const aiScene* scene) {
+void sceneObjects::SO_AssimpModel::processNode(aiNode* node, const aiScene* scene) {
     for (unsigned int i = 0; i < node->mNumMeshes; i++) {
         aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
         meshes.push_back(processMesh(mesh, scene));
@@ -1043,8 +1043,8 @@ void SO_AssimpModel::processNode(aiNode* node, const aiScene* scene) {
 }
 
 //convertes an assimp mesh into an SO mesh
-SO_AssimpMesh SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
-    SO_AssimpMesh SOMesh;
+sceneObjects::SO_AssimpMesh sceneObjects::SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
+    sceneObjects::SO_AssimpMesh SOMesh;
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
     //diffuse texture
     SOMesh.diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE);
@@ -1094,7 +1094,7 @@ SO_AssimpMesh SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
 }
 
 //loads the texture files from a material
-std::vector<SO_AssimpTexture> SO_AssimpModel::loadMaterialTextures(aiMaterial* material, aiTextureType type) {
+std::vector<sceneObjects::SO_AssimpTexture> sceneObjects::SO_AssimpModel::loadMaterialTextures(aiMaterial* material, aiTextureType type) {
     std::vector<SO_AssimpTexture> textures;
     for (unsigned int i = 0; i < material->GetTextureCount(type); i++) {
         aiString str;
@@ -1120,7 +1120,7 @@ std::vector<SO_AssimpTexture> SO_AssimpModel::loadMaterialTextures(aiMaterial* m
 }
 
 //loads texture files into openGL
-GLuint SO_AssimpModel::loadTextureFromFile(std::string path) {
+GLuint sceneObjects::SO_AssimpModel::loadTextureFromFile(std::string path) {
     std::string filename = directory + '\\' + path;
 
     GLuint textureID;
@@ -1158,21 +1158,21 @@ GLuint SO_AssimpModel::loadTextureFromFile(std::string path) {
 }
 
 //draws the scene - call at render time
-void SO_AssimpModel::draw() {
+void sceneObjects::SO_AssimpModel::draw() {
     for (unsigned int i = 0; i < meshes.size(); i++) {
         meshes[i].draw();
     }
 }
 
 //creates all the shaders for the meshes
-void SO_AssimpModel::createShaders(int numberLights) {
+void sceneObjects::SO_AssimpModel::createShaders(int numberLights) {
     for (unsigned int i = 0; i < meshes.size(); i++) {
         meshes[i].createShader(numberLights);
     }
 }
 
 
-SO_Camera::SO_Camera(float fovIn=45.0f, float aspectRatioIn=1.0f, float nearClipIn=0.1f, float farClipIn=100.0f, 
+sceneObjects::SO_Camera::SO_Camera(float fovIn=45.0f, float aspectRatioIn=1.0f, float nearClipIn=0.1f, float farClipIn=100.0f, 
                         glm::vec3 positionIn=glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 frontIn=glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3 upIn=glm::vec3(0.0f, 1.0f, 0.0f)) {
     fov = fovIn;
     aspectRatio = aspectRatioIn;
@@ -1184,7 +1184,7 @@ SO_Camera::SO_Camera(float fovIn=45.0f, float aspectRatioIn=1.0f, float nearClip
 }
 
 //update the view matrix of all linked shaders
-void SO_Camera::updateViewMatrix(void) {
+void sceneObjects::SO_Camera::updateViewMatrix(void) {
     glm::mat4 viewMatrix = glm::lookAt(position, position+front, up);
     for (unsigned int i = 0; i < shaderPointers.size(); i++) {
         shaderPointers[i]->setViewMatrix(viewMatrix);
@@ -1193,7 +1193,7 @@ void SO_Camera::updateViewMatrix(void) {
 }
 
 //update the projection matrix of all linked shaders
-void SO_Camera::updateProjectionMatrix(void) {
+void sceneObjects::SO_Camera::updateProjectionMatrix(void) {
     glm::mat4 projectionMatrix = glm::perspective(glm::radians(fov), aspectRatio, nearClip, farClip);
     for (unsigned int i = 0; i < shaderPointers.size(); i++) {
         shaderPointers[i]->setProjectionMatrix(projectionMatrix);
@@ -1201,7 +1201,7 @@ void SO_Camera::updateProjectionMatrix(void) {
 }
 
 //link the camera to the shader program given by pointer
-void SO_Camera::linkShader(SO_Shader *shaderRefIn) {
+void sceneObjects::SO_Camera::linkShader(sceneObjects::SO_Shader *shaderRefIn) {
     for (unsigned int i = 0; i < shaderPointers.size(); i++) {
         if (shaderPointers[i] == shaderRefIn) {
             return;
@@ -1211,7 +1211,7 @@ void SO_Camera::linkShader(SO_Shader *shaderRefIn) {
 }
 
 //unlink the camera to the shader program given by pointer
-void SO_Camera::unlinkShader(SO_Shader *shaderRefIn) {
+void sceneObjects::SO_Camera::unlinkShader(sceneObjects::SO_Shader *shaderRefIn) {
     for (unsigned int i = 0; i < shaderPointers.size(); i++) {
         if (shaderPointers[i] == shaderRefIn) {
             shaderPointers.erase(shaderPointers.begin() + i);
@@ -1221,18 +1221,18 @@ void SO_Camera::unlinkShader(SO_Shader *shaderRefIn) {
 }
 
 #ifdef _WIN32
-SO_FfmpegStream::SO_FfmpegStream(std::string filepathIn) {
+sceneObjects::SO_FfmpegStream::SO_FfmpegStream(std::string filepathIn) {
     setFilepath(filepathIn);
 }
 
 //takes an std::string to set the filepath of the next stream opened
-void SO_FfmpegStream::setFilepath(std::string filepathIn) {
+void sceneObjects::SO_FfmpegStream::setFilepath(std::string filepathIn) {
     filepath = filepathIn;
 }
 
 
 //start a stream to an ffmpeg file
-void SO_FfmpegStream::openStream(int widthIn, int heightIn, int fpsIn) {
+void sceneObjects::SO_FfmpegStream::openStream(int widthIn, int heightIn, int fpsIn) {
     //http://blog.mmacklin.com/2013/06/11/real-time-video-capture-with-ffmpeg/
     width = widthIn;
     height = heightIn;
@@ -1249,24 +1249,24 @@ void SO_FfmpegStream::openStream(int widthIn, int heightIn, int fpsIn) {
 }
 
 //render a frame
-void SO_FfmpegStream::renderFrame(void) {
+void sceneObjects::SO_FfmpegStream::renderFrame(void) {
     glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer.get());
     fwrite(buffer.get(), sizeof(int)*width*height, 1, ffmpeg);
 }
 
-void SO_FfmpegStream::closeStream(void) {
+void sceneObjects::SO_FfmpegStream::closeStream(void) {
     _pclose(ffmpeg);
 }
 #endif
 
 //create vector at a ratio of division/subdivisions from vector1 to vector2
-glm::vec3 createRatioVector(int subdivisions, int division, glm::vec3 vector1, glm::vec3 vector2) {
+glm::vec3 sceneObjects::createRatioVector(int subdivisions, int division, glm::vec3 vector1, glm::vec3 vector2) {
     return glm::vec3((float)(subdivisions-division)*vector1 + (float)division*vector2)/(float)(subdivisions);
 }
 
 //create a sphere mesh starting with an icosohedron base (an icosphere)
 //subdivisions is the number of divisions along each edge of the starting icosahedron
-SO_MeshData createIcosphere(int subdivisions) {
+sceneObjects::SO_MeshData sceneObjects::createIcosphere(int subdivisions) {
     // create icosahedron https://en.wikipedia.org/wiki/Regular_icosahedron, https://en.wikipedia.org/wiki/Regular_icosahedron#/media/File:Icosahedron-golden-rectangles.svg
     float phi = (1.0f + sqrt(5.0f))/2;
     std::vector<glm::vec3> vertices; //vector because more vertices will be added when the mesh is created
@@ -1348,7 +1348,7 @@ SO_MeshData createIcosphere(int subdivisions) {
     //subdivide each icosohedron edge
     for (int division = 1; division < subdivisions; division++) {
         for (int edge = 0; edge < 30; edge++) {
-            glm::vec3 newVector = createRatioVector(subdivisions, division, vertices[edges[edge][0]], vertices[edges[edge][subdivisions]]);;
+            glm::vec3 newVector = sceneObjects::createRatioVector(subdivisions, division, vertices[edges[edge][0]], vertices[edges[edge][subdivisions]]);;
             vertices.push_back(newVector);
             edges[edge][division] = vertices.size() - 1;
         }
@@ -1372,7 +1372,7 @@ SO_MeshData createIcosphere(int subdivisions) {
                 nextRow.push_back(edges[faces[face][0]][row+1]); // add first vector from edge (a,b)
                 //add intervening vertices
                 for (int slice = 1; slice < row+1; slice++) { //add subdvision vectors
-                    glm::vec3 newVector = createRatioVector(row+1, slice, vertices[edges[faces[face][0]][row+1]], vertices[edges[faces[face][1]][row+1]]);
+                    glm::vec3 newVector = sceneObjects::createRatioVector(row+1, slice, vertices[edges[faces[face][0]][row+1]], vertices[edges[faces[face][1]][row+1]]);
                     vertices.push_back(newVector);
                     nextRow.push_back(vertices.size() - 1);
                 }
@@ -1397,7 +1397,7 @@ SO_MeshData createIcosphere(int subdivisions) {
         vertices[i] = glm::normalize(vertices[i]);
     }
 
-    SO_MeshData icosphereData;
+    sceneObjects::SO_MeshData icosphereData;
     icosphereData.vertices = vertices;
     icosphereData.faceElements = faceElements;
     return icosphereData;
@@ -1405,7 +1405,7 @@ SO_MeshData createIcosphere(int subdivisions) {
 }
 
 //a gradual step function between (0,0) and (1,1)
-double fade(double x) {
+double sceneObjects::fade(double x) {
     if (x <= 0) {
         return 0;
     } else if (x >= 1) {
@@ -1415,7 +1415,7 @@ double fade(double x) {
 }
 
 //increments around a loop
-int inc(int num, int repeat) {
+int sceneObjects::inc(int num, int repeat) {
     num++;
     if (repeat > 0) {
         num %= repeat;
@@ -1424,7 +1424,7 @@ int inc(int num, int repeat) {
 }
 
 //get gradient of perlin corner
-double grad(int hash, double x, double y, double z) {
+double sceneObjects::grad(int hash, double x, double y, double z) {
      switch(hash & 0xF) {
         case 0x0: return  x + y;
         case 0x1: return -x + y;
@@ -1447,11 +1447,11 @@ double grad(int hash, double x, double y, double z) {
 }
 
 //moduus function without negatives
-double modulus(double x, double y) {
+double sceneObjects::modulus(double x, double y) {
     return x - y*floor(x/y);
 }
 
-int perlinPerms[512] = { 151,160,137,91,90,15,                 // Hash lookup table as defined by Ken Perlin.  This is a randomly
+int sceneObjects::perlinPerms[512] = { 151,160,137,91,90,15,                 // Hash lookup table as defined by Ken Perlin.  This is a randomly
                         131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,    // arranged array of all numbers from 0-255 inclusive.
                         190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
                         88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,
@@ -1481,7 +1481,7 @@ int perlinPerms[512] = { 151,160,137,91,90,15,                 // Hash lookup ta
                     };
 
 //get perlin noise at coords (x,y,z)
-double perlin(double x, double y, double z, double repeat) { //https://adrianb.io/2014/08/09/perlinnoise.html
+double sceneObjects::perlin(double x, double y, double z, double repeat) { //https://adrianb.io/2014/08/09/perlinnoise.html
     if (repeat > 0) {
         x = modulus(x, repeat);
         y = modulus(y, repeat);
@@ -1504,14 +1504,14 @@ double perlin(double x, double y, double z, double repeat) { //https://adrianb.i
     double w = fade(zf);
 
     int aaa, aba, aab, abb, baa, bba, bab, bbb;
-    aaa = perlinPerms[perlinPerms[perlinPerms[    xi ]        +    yi ]           +    zi ];
-    aba = perlinPerms[perlinPerms[perlinPerms[    xi ]        +inc(yi, repeat)]   +    zi ];
-    aab = perlinPerms[perlinPerms[perlinPerms[    xi ]        +    yi ]           +inc(zi, repeat)];
-    abb = perlinPerms[perlinPerms[perlinPerms[    xi ]        +inc(yi, repeat)]   +inc(zi, repeat)];
-    baa = perlinPerms[perlinPerms[perlinPerms[inc(xi, repeat)]+    yi ]           +    zi ];
-    bba = perlinPerms[perlinPerms[perlinPerms[inc(xi, repeat)]+inc(yi, repeat)]   +    zi ];
-    bab = perlinPerms[perlinPerms[perlinPerms[inc(xi, repeat)]+    yi ]           +inc(zi, repeat)];
-    bbb = perlinPerms[perlinPerms[perlinPerms[inc(xi, repeat)]+inc(yi, repeat)]   +inc(zi, repeat)];
+    aaa = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[    xi ]        +    yi ]           +    zi ];
+    aba = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[    xi ]        +inc(yi, repeat)]   +    zi ];
+    aab = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[    xi ]        +    yi ]           +inc(zi, repeat)];
+    abb = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[    xi ]        +inc(yi, repeat)]   +inc(zi, repeat)];
+    baa = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[inc(xi, repeat)]+    yi ]           +    zi ];
+    bba = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[inc(xi, repeat)]+inc(yi, repeat)]   +    zi ];
+    bab = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[inc(xi, repeat)]+    yi ]           +inc(zi, repeat)];
+    bbb = sceneObjects::perlinPerms[sceneObjects::perlinPerms[sceneObjects::perlinPerms[inc(xi, repeat)]+inc(yi, repeat)]   +inc(zi, repeat)];
 
     double x1, x2, y1, y2;
     x1 = lerp(    grad (aaa, xf  , yf  , zf),           // The gradient function calculates the dot product between a pseudorandom
@@ -1534,7 +1534,7 @@ double perlin(double x, double y, double z, double repeat) { //https://adrianb.i
 }
 
 //get the linear interpolation color from a colormap
-glm::vec3 getLerpColor(SO_ColorMap &map, float min, float max, float value) {
+glm::vec3 sceneObjects::getLerpColor(sceneObjects::SO_ColorMap &map, float min, float max, float value) {
     value = (value - min)/(max - min); //normalise values
     if (value <= map.weights[0]) {
         return map.colors[0]; // if below min value return lowest value

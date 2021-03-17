@@ -1,8 +1,8 @@
 #ifndef SCENEOBJECTS_H_   /* Include guard */
 #define SCENEOBJECTS_H_
 
-#define SO_VERSION_MAJOR 1
-#define SO_VERSION_MINOR 3
+#define SO_VERSION_MAJOR 2
+#define SO_VERSION_MINOR 0
 #define SO_VERSION_REVISION 0
 
 #define GLEW_STATIC
@@ -21,7 +21,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
+namespace sceneObjects {
 //generic shader program class
 class SO_Shader {
     GLuint programID;
@@ -231,6 +231,9 @@ template <typename T> T lerp(T a, T b, float x) {
 }
 
 double modulus(double x, double y);
+
+extern int perlinPerms[512];
+
 double perlin(double x, double y, double z, double repeat);
 
 //contains all the information required to create a colormap gradient
@@ -242,4 +245,5 @@ struct SO_ColorMap {
 
 glm::vec3 getLerpColor(SO_ColorMap &map, float min, float max, float value);
 
+}
 #endif // FOO_H_
