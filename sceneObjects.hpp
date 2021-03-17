@@ -5,6 +5,8 @@
 #define SO_VERSION_MINOR 3
 #define SO_VERSION_REVISION 0
 
+#define GLEW_STATIC
+
 #include "sceneObjects.hpp"
 #include <vector>
 #include <string>

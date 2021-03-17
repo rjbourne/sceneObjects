@@ -1,5 +1,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 
+#define GLEW_STATIC
+
 #include "sceneObjects.hpp"
 #include <stb_image.h>
 #include <stdio.h>
