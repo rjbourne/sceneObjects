@@ -27,6 +27,9 @@ class SO_AssimpShader : public SO_Shader {
         GLint normalMatrixLoc;
         GLint viewPositionLoc;
         GLint specularPowerLoc;
+        using SO_Shader::createVertexShader;
+        using SO_Shader::createFragmentShader;
+        using SO_Shader::linkProgram;
     public:
         GLuint generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures);
         void setModelMatrix(glm::mat4 modelMatrix) override;

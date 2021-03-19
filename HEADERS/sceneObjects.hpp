@@ -95,6 +95,9 @@ class SO_SkyboxShader : public SO_Shader {
         GLuint textureID;
         GLuint skyboxVAO;
         GLuint skyboxVBO;
+        using SO_Shader::createVertexShader;
+        using SO_Shader::createFragmentShader;
+        using SO_Shader::linkProgram;
     public:
         ~SO_SkyboxShader(void);
         void setModelMatrix(glm::mat4 modelMatrix) override;
