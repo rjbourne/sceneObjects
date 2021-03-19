@@ -423,6 +423,126 @@ int main(int argc, char *argv[]) {
                         3*sizeof(float), 0);
 
 
+///////////////////////////////////////////////////// coloured cube instanced
+
+    GLuint shaderProgram6;
+    SO_PhongShader shaderObj6;
+    shaderProgram6 = shaderObj6.generate(1, SO_COLOR_ATTRIBUTE | SO_INSTANCED);
+    glUseProgram(shaderProgram6); // use the shader program
+
+    shaderObj6.setLightPosition(0, glm::vec3(3.0f, 4.0f, 2.0f));
+    shaderObj6.setLightConstant(0, 1.0f);
+    shaderObj6.setLightLinear(0, 0.0f);
+    shaderObj6.setLightQuadratic(0, 0.0f);
+    shaderObj6.setLightAmbient(0, glm::vec3(0.2f, 0.2f, 0.2f));
+    shaderObj6.setLightDiffuse(0, glm::vec3(1.0f, 1.0f, 1.0f));
+    shaderObj6.setLightSpecular(0, glm::vec3(0.5f, 0.5f, 0.5f));
+
+    shaderObj6.setModelMatrix(glm::scale(glm::mat4(1.0f), glm::vec3(0.08f, 0.08f, 0.08f)));
+    shaderObj6.setPostModelMatrix(glm::mat4(1.0f));
+    
+    std::vector<glm::mat4> intPos;
+    intPos.reserve(1000);
+    for (float i = 0; i < 1; i+=0.1) {
+        for (float j = 0; j < 1; j+=0.1) {
+            for (float k = 0; k < 1; k+=0.1) {
+                intPos.push_back(glm::translate(glm::mat4(1.0f), glm::vec3(1.05f + i, -0.45f + j, -0.45f + k)));
+            }
+        }
+    }
+    std::vector<glm::mat4> intNormals;
+    intNormals.resize(intPos.size());
+    for (int i = 0; i < intPos.size(); i++) {
+        intNormals[i] = glm::transpose(glm::inverse(intPos[i]));
+    }
+
+
+    cameraObj.linkShader(&shaderObj6);
+
+
+    glUseProgram(shaderProgram6);
+
+    // the vertex array object for the scene
+    GLuint vao6;
+    glGenVertexArrays(1, &vao6);
+    glBindVertexArray(vao6);
+
+
+    GLuint vbo6; // apply vertices to the vbo
+    glGenBuffers(1, &vbo6);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo6);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCol), verticesCol, GL_STATIC_DRAW);
+
+    //locate vertex coords within buffer
+    GLint posAttrib6 = glGetAttribLocation(shaderProgram6, "position");
+    glEnableVertexAttribArray(posAttrib6);
+    glVertexAttribPointer(posAttrib6, 3, GL_FLOAT, GL_FALSE,
+                        9*sizeof(float), 0);
+    
+    //locate vertex normal within buffer
+    GLint normalAttrib6 = glGetAttribLocation(shaderProgram6, "normal");
+    glEnableVertexAttribArray(normalAttrib6);
+    glVertexAttribPointer(normalAttrib6, 3, GL_FLOAT, GL_FALSE,
+                        9*sizeof(float), (void*)(3*sizeof(float)));
+
+    //locate vertex colors within buffer
+    GLint colAttrib6 = glGetAttribLocation(shaderProgram6, "color");
+    glEnableVertexAttribArray(colAttrib6);
+    glVertexAttribPointer(colAttrib6, 3, GL_FLOAT, GL_FALSE,
+                        9*sizeof(float), (void*)(6*sizeof(float)));
+
+    GLuint vbo6InstPos;
+    glGenBuffers(1, &vbo6InstPos);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo6InstPos);
+    glBufferData(GL_ARRAY_BUFFER, intPos.size()*sizeof(glm::mat4), &intPos[0], GL_STATIC_DRAW);
+
+    GLint instPosAttrib = glGetAttribLocation(shaderProgram6, "instanceMatrix");
+    glEnableVertexAttribArray(instPosAttrib);
+    glVertexAttribPointer(instPosAttrib, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)0);
+    glEnableVertexAttribArray(instPosAttrib+1);
+    glVertexAttribPointer(instPosAttrib+1, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(1*sizeof(glm::vec4)));
+    glEnableVertexAttribArray(instPosAttrib+2);
+    glVertexAttribPointer(instPosAttrib+2, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(2*sizeof(glm::vec4)));
+    glEnableVertexAttribArray(instPosAttrib+3);
+    glVertexAttribPointer(instPosAttrib+3, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(3*sizeof(glm::vec4)));
+    glVertexAttribDivisor(instPosAttrib, 1);
+    glVertexAttribDivisor(instPosAttrib+1, 1);
+    glVertexAttribDivisor(instPosAttrib+2, 1);
+    glVertexAttribDivisor(instPosAttrib+3, 1);
+
+    GLuint vbo6InstNorm;
+    glGenBuffers(1, &vbo6InstNorm);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo6InstNorm);
+    glBufferData(GL_ARRAY_BUFFER, intNormals.size()*sizeof(glm::mat4), &intNormals[0], GL_STATIC_DRAW);
+
+    GLint instNormAttrib = glGetAttribLocation(shaderProgram6, "normalInstMatrix");
+    glEnableVertexAttribArray(instNormAttrib);
+    glVertexAttribPointer(instNormAttrib, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)0);
+    glEnableVertexAttribArray(instNormAttrib + 1);
+    glVertexAttribPointer(instNormAttrib+1, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(1*sizeof(glm::vec4)));
+    glEnableVertexAttribArray(instNormAttrib + 2);
+    glVertexAttribPointer(instNormAttrib+2, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(2*sizeof(glm::vec4)));
+    glEnableVertexAttribArray(instNormAttrib + 3);
+    glVertexAttribPointer(instNormAttrib+3, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(glm::mat4), (void*)(3*sizeof(glm::vec4)));
+    glVertexAttribDivisor(instNormAttrib, 1);
+    glVertexAttribDivisor(instNormAttrib+1, 1);
+    glVertexAttribDivisor(instNormAttrib+2, 1);
+    glVertexAttribDivisor(instNormAttrib+3, 1);
+
+    GLuint ebo6; // apply triangle elements to vbo
+    glGenBuffers(1, &ebo6);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo6);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+
+
 
     double mouseSpeedX = 1; // camera controls
     double mouseSpeedY = 1;
@@ -491,6 +611,9 @@ int main(int argc, char *argv[]) {
         glUseProgram(shaderProgram5);
         glBindVertexArray(vao5);
         glDrawElements(GL_TRIANGLES, sphereData.faceElements.size(), GL_UNSIGNED_INT, 0);
+        glUseProgram(shaderProgram6);
+        glBindVertexArray(vao6);
+        glDrawElementsInstanced(GL_TRIANGLES, sizeof(elements)/sizeof(unsigned int), GL_UNSIGNED_INT, 0, intPos.size());
         glUseProgram(shaderProgram3); //transparents last
         glBindVertexArray(vao3);
         glDepthMask(GL_FALSE);
@@ -528,6 +651,10 @@ int main(int argc, char *argv[]) {
     glDeleteBuffers(1, &ebo5);
     glDeleteBuffers(1, &vbo5);
     glDeleteVertexArrays(1, &vao5);
+
+    glDeleteBuffers(1, &ebo6);
+    glDeleteBuffers(1, &vbo6);
+    glDeleteVertexArrays(1, &vao6);
 
     glfwTerminate();
 
