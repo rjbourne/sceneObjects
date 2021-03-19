@@ -1,5 +1,6 @@
 //includes
 #include <sceneObjects.hpp>
+#include <sceneModels.hpp>
 #include <cstdio>
 #include <cmath>
 #include <vector>

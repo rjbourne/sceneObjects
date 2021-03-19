@@ -1,4 +1,5 @@
 #include "sceneObjects.hpp"
+#include "sceneModels.hpp"
 
 // craetes a shader for the mesh
 sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int numberLights) {

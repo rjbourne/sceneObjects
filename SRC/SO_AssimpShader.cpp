@@ -1,4 +1,5 @@
 #include "sceneObjects.hpp"
+#include "sceneModels.hpp"
 
 // generate a shader program for a assimp mesh
 GLuint sceneObjects::SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures) {
