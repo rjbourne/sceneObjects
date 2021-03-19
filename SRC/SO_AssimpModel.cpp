@@ -1,6 +1,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 #include "sceneObjects.hpp"
+#include "sceneModels.hpp"
 
 
 //constructor for assimp model (only allows 1 pair of texture coords)
