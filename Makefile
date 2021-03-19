@@ -8,8 +8,8 @@ CPPDEBUGFLAGS = -c -Wall -Wextra -Wshadow -g
 INCLUDE = -I HEADERS -I C:/custom_C++_libs/includes/glm -I C:/custom_C++_libs/includes/glfw -I C:/custom_C++_libs/includes/glew -I C:/custom_C++_libs/includes/assimp -I C:/custom_C++_libs/includes/stbi
 
 SRC_DIR = SRC
-OBJ_DIR = OBJ
-BUILD_DIR = BUILD
+OBJ_DIR = RELEASE/OBJ
+BUILD_DIR = RELEASE/BUILD
 OBJ_DEBUG_DIR = DEBUG/OBJ
 BUILD_DEBUG_DIR = DEBUG/BUILD
 
