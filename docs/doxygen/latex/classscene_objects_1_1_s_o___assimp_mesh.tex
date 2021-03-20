@@ -1,0 +1,207 @@
+\hypertarget{classscene_objects_1_1_s_o___assimp_mesh}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Assimp\+Mesh Class Reference}
+\label{classscene_objects_1_1_s_o___assimp_mesh}\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+
+
+A class which stores an advanced mesh object -\/ including textures.  
+
+
+
+
+{\ttfamily \#include $<$scene\+Models.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{S\+O\+\_\+\+Assimp\+Shader}} $\ast$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a5a53d2ae2e8a1c62938c68fd4d039703}{create\+Shader}} (int number\+Lights)
+\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a51705d2c7d7d4c4afa9abf7c7dcb6ec3}{render}} ()
+\begin{DoxyCompactList}\small\item\em renders the mesh \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_ab02d518dd5997303a9e716b695e2698b}{$\sim$\+S\+O\+\_\+\+Assimp\+Mesh}} ()
+\begin{DoxyCompactList}\small\item\em The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{S\+O\+\_\+\+Assimp\+Shader}} \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_ad2a76aa42ad29c802215c8f500124bb4}{shader}}
+\begin{DoxyCompactList}\small\item\em The shader program used to render this object -\/ customised based on lighting choice and textures. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_vertex}{S\+O\+\_\+\+Assimp\+Vertex}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a6614015236fd651afe323f04830c85f9}{vertices}}
+\begin{DoxyCompactList}\small\item\em The vertices of the mesh -\/ includes texture coordinates and normals/tangents. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a857b7596625d8d6371deba2a0dc15be2}{elements}}
+\begin{DoxyCompactList}\small\item\em The elements used to construct triangular faces from the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_af9bda1f0374155af0866eac6003e8b0c}{diffuse\+Maps}}
+\begin{DoxyCompactList}\small\item\em The diffuse textures to be used for the mesh -\/ currently only the first is used. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a6b97aa76ed5a9573c5bedc18df94da13}{diffuse\+Color}} = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em The diffuse colour to be used if no diffuse texture is present. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a45ce815c248cbb7da5858fcdbc2369fd}{specular\+Maps}}
+\begin{DoxyCompactList}\small\item\em The specular texture to be used for the mesh -\/ currently only the first is used. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a79564f1d659a0e71d9736a92679c3a0c}{specular\+Color}} = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em The specular colour to be used if no specular texture is present. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a1855ae3ba445ae95b6b75ced6b1b64e8}{normal\+Maps}}
+\begin{DoxyCompactList}\small\item\em The normal textures to be used for the object -\/ currently only the first is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a79f652a17fb01cc48f1e044df93fb642}{vbo}}
+\begin{DoxyCompactList}\small\item\em The vertex buffer object for the mesh. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a722ea36f4a75528702dc41b0c16416bb}{vao}}
+\begin{DoxyCompactList}\small\item\em The vertex array object for the mesh. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh_a3e1db6a9ecde32a45e5b3030e6cc38fe}{ebo}}
+\begin{DoxyCompactList}\small\item\em The lement buffer object for the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which stores an advanced mesh object -\/ including textures. 
+
+This class stores a mesh object with vertices, face elements and diffuse, specular and normal textures 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_ab02d518dd5997303a9e716b695e2698b}\label{classscene_objects_1_1_s_o___assimp_mesh_ab02d518dd5997303a9e716b695e2698b}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!````~SO\_AssimpMesh@{$\sim$SO\_AssimpMesh}}
+\index{````~SO\_AssimpMesh@{$\sim$SO\_AssimpMesh}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{$\sim$SO\_AssimpMesh()}{~SO\_AssimpMesh()}}
+{\footnotesize\ttfamily scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::$\sim$\+S\+O\+\_\+\+Assimp\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} class. 
+
+The custom destructor for this class is implemented with non-\/default behaviour to destory the V\+A\+O/\+V\+BO that have been created. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a5a53d2ae2e8a1c62938c68fd4d039703}\label{classscene_objects_1_1_s_o___assimp_mesh_a5a53d2ae2e8a1c62938c68fd4d039703}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!createShader@{createShader}}
+\index{createShader@{createShader}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{createShader()}{createShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Shader}} $\ast$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::create\+Shader (\begin{DoxyParamCaption}\item[{int}]{number\+Lights }\end{DoxyParamCaption})}
+
+The function which creates the custom \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{S\+O\+\_\+\+Assimp\+Shader}} for this mesh \mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a51705d2c7d7d4c4afa9abf7c7dcb6ec3}\label{classscene_objects_1_1_s_o___assimp_mesh_a51705d2c7d7d4c4afa9abf7c7dcb6ec3}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!render@{render}}
+\index{render@{render}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renders the mesh 
+
+\begin{DoxyWarning}{Warning}
+this operation leaves the shader program and V\+AO set on the mesh shader after calling use\+Program() and bind\+Vertex\+Array() must be recalled 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a6b97aa76ed5a9573c5bedc18df94da13}\label{classscene_objects_1_1_s_o___assimp_mesh_a6b97aa76ed5a9573c5bedc18df94da13}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!diffuseColor@{diffuseColor}}
+\index{diffuseColor@{diffuseColor}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{diffuseColor}{diffuseColor}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::diffuse\+Color = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)}
+
+
+
+The diffuse colour to be used if no diffuse texture is present. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_af9bda1f0374155af0866eac6003e8b0c}\label{classscene_objects_1_1_s_o___assimp_mesh_af9bda1f0374155af0866eac6003e8b0c}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!diffuseMaps@{diffuseMaps}}
+\index{diffuseMaps@{diffuseMaps}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{diffuseMaps}{diffuseMaps}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::diffuse\+Maps}
+
+
+
+The diffuse textures to be used for the mesh -\/ currently only the first is used. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a3e1db6a9ecde32a45e5b3030e6cc38fe}\label{classscene_objects_1_1_s_o___assimp_mesh_a3e1db6a9ecde32a45e5b3030e6cc38fe}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!ebo@{ebo}}
+\index{ebo@{ebo}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{ebo}{ebo}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::ebo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The lement buffer object for the mesh. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a857b7596625d8d6371deba2a0dc15be2}\label{classscene_objects_1_1_s_o___assimp_mesh_a857b7596625d8d6371deba2a0dc15be2}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!elements@{elements}}
+\index{elements@{elements}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{elements}{elements}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::elements}
+
+
+
+The elements used to construct triangular faces from the mesh. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a1855ae3ba445ae95b6b75ced6b1b64e8}\label{classscene_objects_1_1_s_o___assimp_mesh_a1855ae3ba445ae95b6b75ced6b1b64e8}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!normalMaps@{normalMaps}}
+\index{normalMaps@{normalMaps}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{normalMaps}{normalMaps}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::normal\+Maps}
+
+
+
+The normal textures to be used for the object -\/ currently only the first is used. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_ad2a76aa42ad29c802215c8f500124bb4}\label{classscene_objects_1_1_s_o___assimp_mesh_ad2a76aa42ad29c802215c8f500124bb4}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!shader@{shader}}
+\index{shader@{shader}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{shader}{shader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{S\+O\+\_\+\+Assimp\+Shader}} scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::shader}
+
+
+
+The shader program used to render this object -\/ customised based on lighting choice and textures. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a79564f1d659a0e71d9736a92679c3a0c}\label{classscene_objects_1_1_s_o___assimp_mesh_a79564f1d659a0e71d9736a92679c3a0c}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!specularColor@{specularColor}}
+\index{specularColor@{specularColor}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{specularColor}{specularColor}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::specular\+Color = glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)}
+
+
+
+The specular colour to be used if no specular texture is present. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a45ce815c248cbb7da5858fcdbc2369fd}\label{classscene_objects_1_1_s_o___assimp_mesh_a45ce815c248cbb7da5858fcdbc2369fd}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!specularMaps@{specularMaps}}
+\index{specularMaps@{specularMaps}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{specularMaps}{specularMaps}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::specular\+Maps}
+
+
+
+The specular texture to be used for the mesh -\/ currently only the first is used. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a722ea36f4a75528702dc41b0c16416bb}\label{classscene_objects_1_1_s_o___assimp_mesh_a722ea36f4a75528702dc41b0c16416bb}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!vao@{vao}}
+\index{vao@{vao}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{vao}{vao}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::vao\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The vertex array object for the mesh. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a79f652a17fb01cc48f1e044df93fb642}\label{classscene_objects_1_1_s_o___assimp_mesh_a79f652a17fb01cc48f1e044df93fb642}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!vbo@{vbo}}
+\index{vbo@{vbo}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{vbo}{vbo}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::vbo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The vertex buffer object for the mesh. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_mesh_a6614015236fd651afe323f04830c85f9}\label{classscene_objects_1_1_s_o___assimp_mesh_a6614015236fd651afe323f04830c85f9}} 
+\index{sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}!vertices@{vertices}}
+\index{vertices@{vertices}!sceneObjects::SO\_AssimpMesh@{sceneObjects::SO\_AssimpMesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_vertex}{S\+O\+\_\+\+Assimp\+Vertex}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh\+::vertices}
+
+
+
+The vertices of the mesh -\/ includes texture coordinates and normals/tangents. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_models_8hpp}{scene\+Models.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___assimp_mesh_8cpp}{S\+O\+\_\+\+Assimp\+Mesh.\+cpp}}\end{DoxyCompactItemize}

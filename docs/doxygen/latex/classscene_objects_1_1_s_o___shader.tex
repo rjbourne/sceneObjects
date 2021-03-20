@@ -1,0 +1,247 @@
+\hypertarget{classscene_objects_1_1_s_o___shader}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Shader Class Reference}
+\label{classscene_objects_1_1_s_o___shader}\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+
+
+generic shader program class  
+
+
+
+
+{\ttfamily \#include $<$scene\+Objects.\+hpp$>$}
+
+Inheritance diagram for scene\+Objects\+::S\+O\+\_\+\+Shader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.777778cm]{classscene_objects_1_1_s_o___shader}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a1089f63927aca4120f238916f4adb7a4}{$\sim$\+S\+O\+\_\+\+Shader}} (void)
+\begin{DoxyCompactList}\small\item\em The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a21ef07de1a025f555741a7db4fe5c3fc}{create\+Vertex\+Shader}} (const char $\ast$vertex\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a vertex shader for the shader program using the char$\ast$ argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a88e296911a8c6245ff6a01406ad627b2}{create\+Fragment\+Shader}} (const char $\ast$fragment\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a fragment shader for the shader program using the char$\ast$ input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_aa780feaae596dfabf590287397cca39a}{link\+Program}} (void)
+\begin{DoxyCompactList}\small\item\em Links the vertex and fragment shaders into a program. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_af20a5f6692ee551d05997a1cd0aad875}{get\+Program\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em returns the Open\+GL program ID associated with the shader program for use in functions like use\+Program() \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a469e22af8baa4fdf1e1eb84f25a6b086}{set\+Model\+Matrix}} (glm\+::mat4 model\+Matrix)
+\begin{DoxyCompactList}\small\item\em Sets the mat4 \char`\"{}model\char`\"{} uniform in the shader. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a686a2c3bf7c954e54dec34134ebd1260}{set\+View\+Matrix}} (glm\+::mat4 view\+Matrix)
+\begin{DoxyCompactList}\small\item\em Sets the mat4 \char`\"{}view\char`\"{} uniform in the shader. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_ace394ba61101dbcf3f35931f9107513c}{set\+View\+Position}} (glm\+::vec3 view\+Position)
+\begin{DoxyCompactList}\small\item\em Sets the unused vec3 \char`\"{}view\+Pos\char`\"{} uniform in the shader -\/ D\+O\+ES N\+O\+T\+H\+I\+NG. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a064bc26e370a8ebfe8046d5400d83518}{set\+Projection\+Matrix}} (glm\+::mat4 projection\+Matrix)
+\begin{DoxyCompactList}\small\item\em Sets the mat4 \char`\"{}proj\char`\"{} uniform in the shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a3bddab0e05819c68a16136488033764e}{program\+ID}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL program ID used to reference the program when performing tasks such as use\+Program() \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a34141357f0e1e47358e038ea9a17d33a}{vertex\+Shader\+ID}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL shader ID associated with the vertex shader. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a86949036217179a82ec0b4ed7e762e65}{fragment\+Shader\+ID}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL shader ID associated with the fragment shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a4cad0deb7c1d7a5fdc94013d97ded420}{model\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}model\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a8e83085cb6f6829f6218b4c3514219c9}{view\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}view\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a28bbb65858a7246ba21cbe47c9342920}{projection\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}proj\char`\"{} in the shader. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a72081ae01daf467a90963fd55c712457}{program\+Created}} = false
+\begin{DoxyCompactList}\small\item\em Whether a program has yet been successfully linked by the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+generic shader program class 
+
+The \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class is the base class for all shader classes in the \mbox{\hyperlink{namespacescene_objects}{scene\+Objects}} library. It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, as well as the ability to supply three matrix uniforms -\/ intended for use in 3D projection these must be of type mat4 in the glsl with names \char`\"{}model\char`\"{}, \char`\"{}view\char`\"{}, and \char`\"{}proj\char`\"{} for use with the setter functions 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a1089f63927aca4120f238916f4adb7a4}\label{classscene_objects_1_1_s_o___shader_a1089f63927aca4120f238916f4adb7a4}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!````~SO\_Shader@{$\sim$SO\_Shader}}
+\index{````~SO\_Shader@{$\sim$SO\_Shader}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{$\sim$SO\_Shader()}{~SO\_Shader()}}
+{\footnotesize\ttfamily scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::$\sim$\+S\+O\+\_\+\+Shader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class. 
+
+The custom destructor for this class is implemented with non-\/default behaviour to destory the program that has been created. Note that any V\+A\+Os, V\+B\+Os, etc. are not managed by the class and are therefore not deleted -\/ this must be handled by the user. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a88e296911a8c6245ff6a01406ad627b2}\label{classscene_objects_1_1_s_o___shader_a88e296911a8c6245ff6a01406ad627b2}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!createFragmentShader@{createFragmentShader}}
+\index{createFragmentShader@{createFragmentShader}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{createFragmentShader()}{createFragmentShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Fragment\+Shader (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fragment\+Source }\end{DoxyParamCaption})}
+
+
+
+Creates a fragment shader for the shader program using the char$\ast$ input. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a21ef07de1a025f555741a7db4fe5c3fc}\label{classscene_objects_1_1_s_o___shader_a21ef07de1a025f555741a7db4fe5c3fc}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!createVertexShader@{createVertexShader}}
+\index{createVertexShader@{createVertexShader}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{createVertexShader()}{createVertexShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Vertex\+Shader (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+Source }\end{DoxyParamCaption})}
+
+
+
+Creates a vertex shader for the shader program using the char$\ast$ argument. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_af20a5f6692ee551d05997a1cd0aad875}\label{classscene_objects_1_1_s_o___shader_af20a5f6692ee551d05997a1cd0aad875}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!getProgramID@{getProgramID}}
+\index{getProgramID@{getProgramID}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{getProgramID()}{getProgramID()}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::get\+Program\+ID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+returns the Open\+GL program ID associated with the shader program for use in functions like use\+Program() 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_aa780feaae596dfabf590287397cca39a}\label{classscene_objects_1_1_s_o___shader_aa780feaae596dfabf590287397cca39a}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!linkProgram@{linkProgram}}
+\index{linkProgram@{linkProgram}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{linkProgram()}{linkProgram()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::link\+Program (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Links the vertex and fragment shaders into a program. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a469e22af8baa4fdf1e1eb84f25a6b086}\label{classscene_objects_1_1_s_o___shader_a469e22af8baa4fdf1e1eb84f25a6b086}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!setModelMatrix@{setModelMatrix}}
+\index{setModelMatrix@{setModelMatrix}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{setModelMatrix()}{setModelMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::set\+Model\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{model\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets the mat4 \char`\"{}model\char`\"{} uniform in the shader. 
+
+Setting the \char`\"{}model\char`\"{} uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class implement a \char`\"{}model\char`\"{} uniform even if it is unused. The model matrix transforms from model space to world space 
+
+Reimplemented in \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a5235f5d0187cbe3d17a7485912ccff87}{scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader}}, \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ae3d206f91193b86296eb3f12227c2415}{scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader}}, and \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader_a16427fc3cc435d3631cb76cee6bfcef0}{scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Shader}}.
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a064bc26e370a8ebfe8046d5400d83518}\label{classscene_objects_1_1_s_o___shader_a064bc26e370a8ebfe8046d5400d83518}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!setProjectionMatrix@{setProjectionMatrix}}
+\index{setProjectionMatrix@{setProjectionMatrix}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{setProjectionMatrix()}{setProjectionMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::set\+Projection\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{projection\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets the mat4 \char`\"{}proj\char`\"{} uniform in the shader. 
+
+Setting the \char`\"{}proj\char`\"{} uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class implement a \char`\"{}proj\char`\"{} uniform even if it is unused. The proj matrix transforms between camera space and projection space \mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a686a2c3bf7c954e54dec34134ebd1260}\label{classscene_objects_1_1_s_o___shader_a686a2c3bf7c954e54dec34134ebd1260}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!setViewMatrix@{setViewMatrix}}
+\index{setViewMatrix@{setViewMatrix}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{setViewMatrix()}{setViewMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::set\+View\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{view\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets the mat4 \char`\"{}view\char`\"{} uniform in the shader. 
+
+Setting the \char`\"{}view\char`\"{} uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class implement a \char`\"{}view\char`\"{} uniform even if it is unused. The view matrix transforms from world space to camera space 
+
+Reimplemented in \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a62235d4c9d9d9ddf394453feb0a250d0}{scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader}}.
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_ace394ba61101dbcf3f35931f9107513c}\label{classscene_objects_1_1_s_o___shader_ace394ba61101dbcf3f35931f9107513c}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!setViewPosition@{setViewPosition}}
+\index{setViewPosition@{setViewPosition}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{setViewPosition()}{setViewPosition()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::set\+View\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{view\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets the unused vec3 \char`\"{}view\+Pos\char`\"{} uniform in the shader -\/ D\+O\+ES N\+O\+T\+H\+I\+NG. 
+
+Setting the \char`\"{}view\+Pos\char`\"{} uniform must be done outside the shader -\/ this function is blank as of present. It is N\+OT a requirement that shaders utilising the \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} class implement a \char`\"{}view\+Pos\char`\"{} uniform. The view\+Pos gives the position of the camera in world space 
+
+Reimplemented in \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a911a249b7e7113a2bf72f5589396aaf5}{scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader}}, and \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader_a22579eb2e1f36180807c9d12de009e0c}{scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Shader}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a86949036217179a82ec0b4ed7e762e65}\label{classscene_objects_1_1_s_o___shader_a86949036217179a82ec0b4ed7e762e65}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!fragmentShaderID@{fragmentShaderID}}
+\index{fragmentShaderID@{fragmentShaderID}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{fragmentShaderID}{fragmentShaderID}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::fragment\+Shader\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL shader ID associated with the fragment shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a4cad0deb7c1d7a5fdc94013d97ded420}\label{classscene_objects_1_1_s_o___shader_a4cad0deb7c1d7a5fdc94013d97ded420}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!modelMatrixLoc@{modelMatrixLoc}}
+\index{modelMatrixLoc@{modelMatrixLoc}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{modelMatrixLoc}{modelMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::model\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}model\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a72081ae01daf467a90963fd55c712457}\label{classscene_objects_1_1_s_o___shader_a72081ae01daf467a90963fd55c712457}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!programCreated@{programCreated}}
+\index{programCreated@{programCreated}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{programCreated}{programCreated}}
+{\footnotesize\ttfamily bool scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::program\+Created = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether a program has yet been successfully linked by the class. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a3bddab0e05819c68a16136488033764e}\label{classscene_objects_1_1_s_o___shader_a3bddab0e05819c68a16136488033764e}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!programID@{programID}}
+\index{programID@{programID}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{programID}{programID}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::program\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL program ID used to reference the program when performing tasks such as use\+Program() 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a28bbb65858a7246ba21cbe47c9342920}\label{classscene_objects_1_1_s_o___shader_a28bbb65858a7246ba21cbe47c9342920}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!projectionMatrixLoc@{projectionMatrixLoc}}
+\index{projectionMatrixLoc@{projectionMatrixLoc}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{projectionMatrixLoc}{projectionMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::projection\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}proj\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a34141357f0e1e47358e038ea9a17d33a}\label{classscene_objects_1_1_s_o___shader_a34141357f0e1e47358e038ea9a17d33a}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!vertexShaderID@{vertexShaderID}}
+\index{vertexShaderID@{vertexShaderID}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{vertexShaderID}{vertexShaderID}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::vertex\+Shader\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL shader ID associated with the vertex shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___shader_a8e83085cb6f6829f6218b4c3514219c9}\label{classscene_objects_1_1_s_o___shader_a8e83085cb6f6829f6218b4c3514219c9}} 
+\index{sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}!viewMatrixLoc@{viewMatrixLoc}}
+\index{viewMatrixLoc@{viewMatrixLoc}!sceneObjects::SO\_Shader@{sceneObjects::SO\_Shader}}
+\doxysubsubsection{\texorpdfstring{viewMatrixLoc}{viewMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::view\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}view\char`\"{} in the shader. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_objects_8hpp}{scene\+Objects.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___shader_8cpp}{S\+O\+\_\+\+Shader.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="classscene_objects_1_1_s_o___assimp_mesh" kind="class" language="C++" prot="public">
+    <compoundname>sceneObjects::SO_AssimpMesh</compoundname>
+    <includes refid="scene_models_8hpp" local="no">sceneModels.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a79f652a17fb01cc48f1e044df93fb642" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_AssimpMesh::vbo</definition>
+        <argsstring></argsstring>
+        <name>vbo</name>
+        <briefdescription>
+<para>The vertex buffer object for the mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="77" column="16" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a722ea36f4a75528702dc41b0c16416bb" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_AssimpMesh::vao</definition>
+        <argsstring></argsstring>
+        <name>vao</name>
+        <briefdescription>
+<para>The vertex array object for the mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="78" column="16" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a3e1db6a9ecde32a45e5b3030e6cc38fe" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_AssimpMesh::ebo</definition>
+        <argsstring></argsstring>
+        <name>ebo</name>
+        <briefdescription>
+<para>The lement buffer object for the mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="79" column="16" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1ad2a76aa42ad29c802215c8f500124bb4" prot="public" static="no" mutable="no">
+        <type><ref refid="classscene_objects_1_1_s_o___assimp_shader" kindref="compound">SO_AssimpShader</ref></type>
+        <definition>SO_AssimpShader sceneObjects::SO_AssimpMesh::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+<para>The shader program used to render this object - customised based on lighting choice and textures. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="81" column="25" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a6614015236fd651afe323f04830c85f9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_vertex" kindref="compound">SO_AssimpVertex</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpVertex&gt; sceneObjects::SO_AssimpMesh::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <briefdescription>
+<para>The vertices of the mesh - includes texture coordinates and normals/tangents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="82" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a857b7596625d8d6371deba2a0dc15be2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt;unsigned int&gt; sceneObjects::SO_AssimpMesh::elements</definition>
+        <argsstring></argsstring>
+        <name>elements</name>
+        <briefdescription>
+<para>The elements used to construct triangular faces from the mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="83" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1af9bda1f0374155af0866eac6003e8b0c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_texture" kindref="compound">SO_AssimpTexture</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpTexture&gt; sceneObjects::SO_AssimpMesh::diffuseMaps</definition>
+        <argsstring></argsstring>
+        <name>diffuseMaps</name>
+        <briefdescription>
+<para>The diffuse textures to be used for the mesh - currently only the first is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="84" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a6b97aa76ed5a9573c5bedc18df94da13" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::SO_AssimpMesh::diffuseColor</definition>
+        <argsstring></argsstring>
+        <name>diffuseColor</name>
+        <initializer>= glm::vec3(0.0f, 0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The diffuse colour to be used if no diffuse texture is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="85" column="19" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a45ce815c248cbb7da5858fcdbc2369fd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_texture" kindref="compound">SO_AssimpTexture</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpTexture&gt; sceneObjects::SO_AssimpMesh::specularMaps</definition>
+        <argsstring></argsstring>
+        <name>specularMaps</name>
+        <briefdescription>
+<para>The specular texture to be used for the mesh - currently only the first is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="86" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a79564f1d659a0e71d9736a92679c3a0c" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::SO_AssimpMesh::specularColor</definition>
+        <argsstring></argsstring>
+        <name>specularColor</name>
+        <initializer>= glm::vec3(0.0f, 0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The specular colour to be used if no specular texture is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="87" column="19" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_mesh_1a1855ae3ba445ae95b6b75ced6b1b64e8" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_texture" kindref="compound">SO_AssimpTexture</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpTexture&gt; sceneObjects::SO_AssimpMesh::normalMaps</definition>
+        <argsstring></argsstring>
+        <name>normalMaps</name>
+        <briefdescription>
+<para>The normal textures to be used for the object - currently only the first is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="88" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_mesh_1a5a53d2ae2e8a1c62938c68fd4d039703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classscene_objects_1_1_s_o___assimp_shader" kindref="compound">SO_AssimpShader</ref> *</type>
+        <definition>sceneObjects::SO_AssimpShader * sceneObjects::SO_AssimpMesh::createShader</definition>
+        <argsstring>(int numberLights)</argsstring>
+        <name>createShader</name>
+        <param>
+          <type>int</type>
+          <declname>numberLights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The function which creates the custom <ref refid="classscene_objects_1_1_s_o___assimp_shader" kindref="compound">SO_AssimpShader</ref> for this mesh </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="89" column="25" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpMesh.cpp" bodystart="5" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_mesh_1a51705d2c7d7d4c4afa9abf7c7dcb6ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_AssimpMesh::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <briefdescription>
+<para>renders the mesh </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>this operation leaves the shader program and VAO set on the mesh shader after calling useProgram() and bindVertexArray() must be recalled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="94" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpMesh.cpp" bodystart="42" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_mesh_1ab02d518dd5997303a9e716b695e2698b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sceneObjects::SO_AssimpMesh::~SO_AssimpMesh</definition>
+        <argsstring>()</argsstring>
+        <name>~SO_AssimpMesh</name>
+        <briefdescription>
+<para>The custom destructor for the <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The custom destructor for this class is implemented with non-default behaviour to destory the VAO/VBO that have been created. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="99" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpMesh.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which stores an advanced mesh object - including textures. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class stores a mesh object with vertices, face elements and diffuse, specular and normal textures </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>sceneObjects::SO_AssimpShader</label>
+        <link refid="classscene_objects_1_1_s_o___assimp_shader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sceneObjects::SO_Shader</label>
+        <link refid="classscene_objects_1_1_s_o___shader"/>
+      </node>
+      <node id="1">
+        <label>sceneObjects::SO_AssimpMesh</label>
+        <link refid="classscene_objects_1_1_s_o___assimp_mesh"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="76" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="76" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a5a53d2ae2e8a1c62938c68fd4d039703" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>createShader</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a6b97aa76ed5a9573c5bedc18df94da13" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>diffuseColor</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1af9bda1f0374155af0866eac6003e8b0c" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>diffuseMaps</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a3e1db6a9ecde32a45e5b3030e6cc38fe" prot="private" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>ebo</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a857b7596625d8d6371deba2a0dc15be2" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>elements</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a1855ae3ba445ae95b6b75ced6b1b64e8" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>normalMaps</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a51705d2c7d7d4c4afa9abf7c7dcb6ec3" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>render</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1ad2a76aa42ad29c802215c8f500124bb4" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>shader</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a79564f1d659a0e71d9736a92679c3a0c" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>specularColor</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a45ce815c248cbb7da5858fcdbc2369fd" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>specularMaps</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a722ea36f4a75528702dc41b0c16416bb" prot="private" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>vao</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a79f652a17fb01cc48f1e044df93fb642" prot="private" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>vbo</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1a6614015236fd651afe323f04830c85f9" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>vertices</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_mesh_1ab02d518dd5997303a9e716b695e2698b" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpMesh</scope><name>~SO_AssimpMesh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

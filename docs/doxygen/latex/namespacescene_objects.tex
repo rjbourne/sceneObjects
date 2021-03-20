@@ -1,0 +1,273 @@
+\hypertarget{namespacescene_objects}{}\doxysection{scene\+Objects Namespace Reference}
+\label{namespacescene_objects}\index{sceneObjects@{sceneObjects}}
+
+
+The namespace containing all classes, members, structs involved in the \mbox{\hyperlink{namespacescene_objects}{scene\+Objects}} library.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}}
+\begin{DoxyCompactList}\small\item\em A class which stores an advanced mesh object -\/ including textures. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model}{S\+O\+\_\+\+Assimp\+Model}}
+\begin{DoxyCompactList}\small\item\em A class which can load in object files using the assimp library. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_shader}{S\+O\+\_\+\+Assimp\+Shader}}
+\begin{DoxyCompactList}\small\item\em The shader for an \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}}
+\begin{DoxyCompactList}\small\item\em Stores a texture for an \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model}{S\+O\+\_\+\+Assimp\+Model}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_vertex}{S\+O\+\_\+\+Assimp\+Vertex}}
+\begin{DoxyCompactList}\small\item\em The container for a single vertex imported with the assimp system. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___camera}{S\+O\+\_\+\+Camera}}
+\begin{DoxyCompactList}\small\item\em A 3D camera capable of creating view/projection matrices to linked shader programs on call. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structscene_objects_1_1_s_o___color_map}{S\+O\+\_\+\+Color\+Map}}
+\begin{DoxyCompactList}\small\item\em Contains all the information required to create a colormap gradient. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___ffmpeg_stream}{S\+O\+\_\+\+Ffmpeg\+Stream}}
+\begin{DoxyCompactList}\small\item\em A class capable of rendering to a ffmpeg stream. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structscene_objects_1_1_s_o___mesh_data}{S\+O\+\_\+\+Mesh\+Data}}
+\begin{DoxyCompactList}\small\item\em struct containing data for a simple mesh which can be used or manipulated by the user \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader}{S\+O\+\_\+\+Phong\+Shader}}
+\begin{DoxyCompactList}\small\item\em 3D Phong model lighting class \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}}
+\begin{DoxyCompactList}\small\item\em generic shader program class \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader}{S\+O\+\_\+\+Skybox\+Shader}}
+\begin{DoxyCompactList}\small\item\em Generate a skybox using 6 images which will appear in the background. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59}{S\+O\+\_\+\+Shader\+Options}} \+: unsigned int \{ \newline
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59ab46d5619ba61008aa949a5b23a84e053}{S\+O\+\_\+\+A\+L\+P\+HA}} = 1, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a34f4602000f79a19051e92a925ee3f8c}{S\+O\+\_\+\+I\+N\+S\+T\+A\+N\+C\+ED}} = 2, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a4bf50d0f5e7329cb1e8d7eb315b6845c}{S\+O\+\_\+\+M\+A\+T\+E\+R\+I\+AL}} = 4, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59affee27d801c942710393d065d3412a8e}{S\+O\+\_\+\+A\+M\+B\+I\+E\+N\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE}} = 8, 
+\newline
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59afe123b98c45a6da56c2983e5693d0d0a}{S\+O\+\_\+\+D\+I\+F\+F\+U\+S\+E\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE}} = 16, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59aef134e3aafeec3681ca063d6a821a5c1}{S\+O\+\_\+\+S\+P\+E\+C\+U\+L\+A\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE}} = 32, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a25171d3b39ec70b8a7e720e41a64dab3}{S\+O\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE}} = 64, 
+\mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a0ba6951a4cbb45ce90b0cae2ad9bf7fb}{S\+O\+\_\+\+C\+O\+L\+O\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE}} = 128
+ \}
+\begin{DoxyCompactList}\small\item\em The options which can be passed into S\+O\+\_\+\+Phong\+Shader to control the exact behaviour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{namespacescene_objects_a68e19ab4cc523ffa7b31eef60d35745a}{create\+Ratio\+Vector}} (int subdivisions, int division, glm\+::vec3 vector1, glm\+::vec3 vector2)
+\begin{DoxyCompactList}\small\item\em creates a weighted sum of two vectors \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structscene_objects_1_1_s_o___mesh_data}{S\+O\+\_\+\+Mesh\+Data}} \mbox{\hyperlink{namespacescene_objects_a32b10fae4fe3a240ba3e600c1858db50}{create\+Icosphere}} (int subdivisions)
+\begin{DoxyCompactList}\small\item\em creates a sphere mesh beginning from an icosahedron \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacescene_objects_a91799fbed28322ded909d788aa004951}{fade}} (double x)
+\begin{DoxyCompactList}\small\item\em Return 6t$^\wedge$5-\/15t$^\wedge$4+10t$^\wedge$3 -\/ a smooth function between (0,0) and (1,1) with gradient 0 at each point. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacescene_objects_ab0bd7d10d194763d90775dc4d49f7d25}{inc}} (int num, int repeat)
+\begin{DoxyCompactList}\small\item\em increments a number {\ttfamily num} looping around to 0 at the value of {\ttfamily repeat} (i.\+e. returns (num+1)repeat if num $>$0) -\/ not mod since it doesn\textquotesingle{}t loop negative values \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacescene_objects_a3850d54716e5b08fdc38e23ab4243f44}{grad}} (int hash, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em gets the gradient of perlin corner (see algorithm) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacescene_objects_aadeed623ab9621c624babc1d53dfb799}{lerp}} (T a, T b, float x)
+\begin{DoxyCompactList}\small\item\em linear interpolation for any type T with mulitplication an addition defined \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacescene_objects_ad69be0396a78765395413b2a9e6f8ba9}{modulus}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em a modulus function which is \textquotesingle{}correct\textquotesingle{} about negatives \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacescene_objects_a300f24d7bded37b38293e85ec1e94dbf}{perlin}} (double x, double y, double z, double repeat)
+\begin{DoxyCompactList}\small\item\em generates perlin noise at coordinates {\ttfamily x},{\ttfamily y},{\ttfamily z}, with a repeat size of {\ttfamily repeat} \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{namespacescene_objects_a8dba26f2db6ab8e4d76fcbcb756e7c58}{get\+Lerp\+Color}} (\mbox{\hyperlink{structscene_objects_1_1_s_o___color_map}{S\+O\+\_\+\+Color\+Map}} \&map, float min, float max, float value)
+\begin{DoxyCompactList}\small\item\em Extracts the colour from a colourmap gradient given the {\ttfamily min} and {\ttfamily max} values and a {\ttfamily value} between those. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacescene_objects_a49c8330ef743ecb7a25bd11b5393811a}{perlin\+Perms}} \mbox{[}512\mbox{]}
+\begin{DoxyCompactList}\small\item\em stores the table of permutations required to generate perlin noise \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The namespace containing all classes, members, structs involved in the \mbox{\hyperlink{namespacescene_objects}{scene\+Objects}} library. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59}} 
+\index{sceneObjects@{sceneObjects}!SO\_ShaderOptions@{SO\_ShaderOptions}}
+\index{SO\_ShaderOptions@{SO\_ShaderOptions}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{SO\_ShaderOptions}{SO\_ShaderOptions}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59}{scene\+Objects\+::\+S\+O\+\_\+\+Shader\+Options}} \+: unsigned int}
+
+
+
+The options which can be passed into \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader}{S\+O\+\_\+\+Phong\+Shader}} to control the exact behaviour. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_ALPHA@{SO\_ALPHA}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_ALPHA@{SO\_ALPHA}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59ab46d5619ba61008aa949a5b23a84e053}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59ab46d5619ba61008aa949a5b23a84e053}} 
+S\+O\+\_\+\+A\+L\+P\+HA&Enables the alpha channel on the object. If enabled then an alpha value can be passed into the shader using set\+Color(vec4) or set\+Material\+Alpha if alpha is a uniform, or as a vertex attribute if it is not a vertex uniform. It is expected that objects with alpha values are rendered last and with careful culling settings. for example the following code may be used 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{glDepthMask(GL\_FALSE);}
+\DoxyCodeLine{glCullFace(GL\_FRONT); \textcolor{comment}{// render back of cube first -\/ do not need polygon z sorting as cube is convex}}
+\DoxyCodeLine{glDrawElements(GL\_TRIANGLES, elements.size(), GL\_UNSIGNED\_INT, 0);}
+\DoxyCodeLine{glCullFace(GL\_BACK);}
+\DoxyCodeLine{glDrawElements(GL\_TRIANGLES, elements.size(), GL\_UNSIGNED\_INT, 0);}
+\DoxyCodeLine{glDepthMask(GL\_TRUE);}
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_INSTANCED@{SO\_INSTANCED}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_INSTANCED@{SO\_INSTANCED}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a34f4602000f79a19051e92a925ee3f8c}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a34f4602000f79a19051e92a925ee3f8c}} 
+S\+O\+\_\+\+I\+N\+S\+T\+A\+N\+C\+ED&Enables instanced rendering of an object. If enabled then the shader acts on instanced objects -\/ it expects to recieve the matrix \char`\"{}post\+Model\char`\"{} as a uniform, as well as to recieve the \char`\"{}instance\+Matrix\char`\"{} and \char`\"{}normal\+Inst Matrix\char`\"{} as vertex attributes set to be instanced with gl\+Vertex\+Attrib\+Divisor. Additionally gl\+Draw\+Elements\+Instanced should be called in preference to gl\+Draw\+Elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_MATERIAL@{SO\_MATERIAL}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_MATERIAL@{SO\_MATERIAL}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a4bf50d0f5e7329cb1e8d7eb315b6845c}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a4bf50d0f5e7329cb1e8d7eb315b6845c}} 
+S\+O\+\_\+\+M\+A\+T\+E\+R\+I\+AL&Enables the use of material shaders rather than fixed colours. If enabled then the alternative rendering settings of ambient/diffuse/speccular are used rather than a default colour. Each of these can be set separately as either uniforms or vertex attributes using further shader\+Options. The material choice is separate from the ambient/diffuse/specular lighting colours -\/ it provides additional variation in material under the same lighting \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_AMBIENT\_ATTRIBUTE@{SO\_AMBIENT\_ATTRIBUTE}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_AMBIENT\_ATTRIBUTE@{SO\_AMBIENT\_ATTRIBUTE}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59affee27d801c942710393d065d3412a8e}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59affee27d801c942710393d065d3412a8e}} 
+S\+O\+\_\+\+A\+M\+B\+I\+E\+N\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE&Enables the ambient colour to be passed as a vertex attribute as opposed to a uniform using set\+Material\+Ambient() \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_DIFFUSE\_ATTRIBUTE@{SO\_DIFFUSE\_ATTRIBUTE}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_DIFFUSE\_ATTRIBUTE@{SO\_DIFFUSE\_ATTRIBUTE}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59afe123b98c45a6da56c2983e5693d0d0a}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59afe123b98c45a6da56c2983e5693d0d0a}} 
+S\+O\+\_\+\+D\+I\+F\+F\+U\+S\+E\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE&Enables the diffuse colour to be passed as a vertex attribute as opposed to a uniform using set\+Material\+Diffuse() \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_SPECULAR\_ATTRIBUTE@{SO\_SPECULAR\_ATTRIBUTE}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_SPECULAR\_ATTRIBUTE@{SO\_SPECULAR\_ATTRIBUTE}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59aef134e3aafeec3681ca063d6a821a5c1}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59aef134e3aafeec3681ca063d6a821a5c1}} 
+S\+O\+\_\+\+S\+P\+E\+C\+U\+L\+A\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE&Enables the specular colour to be passed as a vertex attribute as opposed to a uniform using set\+Material\+Specular() \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_ALPHA\_ATTRIBUTE@{SO\_ALPHA\_ATTRIBUTE}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_ALPHA\_ATTRIBUTE@{SO\_ALPHA\_ATTRIBUTE}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a25171d3b39ec70b8a7e720e41a64dab3}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a25171d3b39ec70b8a7e720e41a64dab3}} 
+S\+O\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE&Enables the alpha colour to be passed as a vertex attribute in material mode as opposed to a uniform using set\+Material\+Alpha() \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SO\_COLOR\_ATTRIBUTE@{SO\_COLOR\_ATTRIBUTE}!sceneObjects@{sceneObjects}}\index{sceneObjects@{sceneObjects}!SO\_COLOR\_ATTRIBUTE@{SO\_COLOR\_ATTRIBUTE}}}\mbox{\Hypertarget{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a0ba6951a4cbb45ce90b0cae2ad9bf7fb}\label{namespacescene_objects_a97fb2e6562dc9a261e6c5925cdbccd59a0ba6951a4cbb45ce90b0cae2ad9bf7fb}} 
+S\+O\+\_\+\+C\+O\+L\+O\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE&Enables the colour to be passed as a vertex attribute in colour mode as opposed to a uniform using set\+Color() \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacescene_objects_a32b10fae4fe3a240ba3e600c1858db50}\label{namespacescene_objects_a32b10fae4fe3a240ba3e600c1858db50}} 
+\index{sceneObjects@{sceneObjects}!createIcosphere@{createIcosphere}}
+\index{createIcosphere@{createIcosphere}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{createIcosphere()}{createIcosphere()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structscene_objects_1_1_s_o___mesh_data}{scene\+Objects\+::\+S\+O\+\_\+\+Mesh\+Data}} scene\+Objects\+::create\+Icosphere (\begin{DoxyParamCaption}\item[{int}]{subdivisions }\end{DoxyParamCaption})}
+
+
+
+creates a sphere mesh beginning from an icosahedron 
+
+Creates a sphere mesh by taking an icosahedron and dividing each edge into {\ttfamily subdivisions} sections. Then the faces of the icosahedron are split up from the cuts of the edges. Finally all the vertices are normalised to s distance 1 from the origin \mbox{\Hypertarget{namespacescene_objects_a68e19ab4cc523ffa7b31eef60d35745a}\label{namespacescene_objects_a68e19ab4cc523ffa7b31eef60d35745a}} 
+\index{sceneObjects@{sceneObjects}!createRatioVector@{createRatioVector}}
+\index{createRatioVector@{createRatioVector}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{createRatioVector()}{createRatioVector()}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::create\+Ratio\+Vector (\begin{DoxyParamCaption}\item[{int}]{subdivisions,  }\item[{int}]{division,  }\item[{glm\+::vec3}]{vector1,  }\item[{glm\+::vec3}]{vector2 }\end{DoxyParamCaption})}
+
+
+
+creates a weighted sum of two vectors 
+
+creates the weighted sum of vectors ({\ttfamily subdivisions}-\/{\ttfamily division})/{\ttfamily subdivisions}$\ast${\ttfamily vector1} + {\ttfamily division}/{\ttfamily subdivisions}$\ast${\ttfamily vector2} If vector1 and vector2 are position vectors then this gives the position vector to a point {\ttfamily division}/{\ttfamily subdivitions} from vector1 to vector2 \mbox{\Hypertarget{namespacescene_objects_a91799fbed28322ded909d788aa004951}\label{namespacescene_objects_a91799fbed28322ded909d788aa004951}} 
+\index{sceneObjects@{sceneObjects}!fade@{fade}}
+\index{fade@{fade}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{fade()}{fade()}}
+{\footnotesize\ttfamily double scene\+Objects\+::fade (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Return 6t$^\wedge$5-\/15t$^\wedge$4+10t$^\wedge$3 -\/ a smooth function between (0,0) and (1,1) with gradient 0 at each point. 
+
+\mbox{\Hypertarget{namespacescene_objects_a8dba26f2db6ab8e4d76fcbcb756e7c58}\label{namespacescene_objects_a8dba26f2db6ab8e4d76fcbcb756e7c58}} 
+\index{sceneObjects@{sceneObjects}!getLerpColor@{getLerpColor}}
+\index{getLerpColor@{getLerpColor}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{getLerpColor()}{getLerpColor()}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::get\+Lerp\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structscene_objects_1_1_s_o___color_map}{scene\+Objects\+::\+S\+O\+\_\+\+Color\+Map}} \&}]{map,  }\item[{float}]{min,  }\item[{float}]{max,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Extracts the colour from a colourmap gradient given the {\ttfamily min} and {\ttfamily max} values and a {\ttfamily value} between those. 
+
+\mbox{\Hypertarget{namespacescene_objects_a3850d54716e5b08fdc38e23ab4243f44}\label{namespacescene_objects_a3850d54716e5b08fdc38e23ab4243f44}} 
+\index{sceneObjects@{sceneObjects}!grad@{grad}}
+\index{grad@{grad}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{grad()}{grad()}}
+{\footnotesize\ttfamily double scene\+Objects\+::grad (\begin{DoxyParamCaption}\item[{int}]{hash,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+
+
+gets the gradient of perlin corner (see algorithm) 
+
+\mbox{\Hypertarget{namespacescene_objects_ab0bd7d10d194763d90775dc4d49f7d25}\label{namespacescene_objects_ab0bd7d10d194763d90775dc4d49f7d25}} 
+\index{sceneObjects@{sceneObjects}!inc@{inc}}
+\index{inc@{inc}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{inc()}{inc()}}
+{\footnotesize\ttfamily int scene\+Objects\+::inc (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{int}]{repeat }\end{DoxyParamCaption})}
+
+
+
+increments a number {\ttfamily num} looping around to 0 at the value of {\ttfamily repeat} (i.\+e. returns (num+1)repeat if num $>$0) -\/ not mod since it doesn\textquotesingle{}t loop negative values 
+
+\mbox{\Hypertarget{namespacescene_objects_aadeed623ab9621c624babc1d53dfb799}\label{namespacescene_objects_aadeed623ab9621c624babc1d53dfb799}} 
+\index{sceneObjects@{sceneObjects}!lerp@{lerp}}
+\index{lerp@{lerp}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{lerp()}{lerp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T scene\+Objects\+::lerp (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b,  }\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+linear interpolation for any type T with mulitplication an addition defined 
+
+i.\+e. returns {\ttfamily (1-\/x)$\ast$a + x$\ast$b} \mbox{\Hypertarget{namespacescene_objects_ad69be0396a78765395413b2a9e6f8ba9}\label{namespacescene_objects_ad69be0396a78765395413b2a9e6f8ba9}} 
+\index{sceneObjects@{sceneObjects}!modulus@{modulus}}
+\index{modulus@{modulus}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{modulus()}{modulus()}}
+{\footnotesize\ttfamily double scene\+Objects\+::modulus (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+a modulus function which is \textquotesingle{}correct\textquotesingle{} about negatives 
+
+returns {\ttfamily x -\/ y$\ast$floor(x/y)} \mbox{\Hypertarget{namespacescene_objects_a300f24d7bded37b38293e85ec1e94dbf}\label{namespacescene_objects_a300f24d7bded37b38293e85ec1e94dbf}} 
+\index{sceneObjects@{sceneObjects}!perlin@{perlin}}
+\index{perlin@{perlin}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{perlin()}{perlin()}}
+{\footnotesize\ttfamily double scene\+Objects\+::perlin (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z,  }\item[{double}]{repeat }\end{DoxyParamCaption})}
+
+
+
+generates perlin noise at coordinates {\ttfamily x},{\ttfamily y},{\ttfamily z}, with a repeat size of {\ttfamily repeat} 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacescene_objects_a49c8330ef743ecb7a25bd11b5393811a}\label{namespacescene_objects_a49c8330ef743ecb7a25bd11b5393811a}} 
+\index{sceneObjects@{sceneObjects}!perlinPerms@{perlinPerms}}
+\index{perlinPerms@{perlinPerms}!sceneObjects@{sceneObjects}}
+\doxysubsubsection{\texorpdfstring{perlinPerms}{perlinPerms}}
+{\footnotesize\ttfamily int scene\+Objects\+::perlin\+Perms\hspace{0.3cm}{\ttfamily [extern]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ 151,160,137,91,90,15,                 }
+\DoxyCodeLine{                        131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,    }
+\DoxyCodeLine{                        190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}
+\DoxyCodeLine{                        88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,}
+\DoxyCodeLine{                        77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}
+\DoxyCodeLine{                        102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,}
+\DoxyCodeLine{                        135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,}
+\DoxyCodeLine{                        5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}
+\DoxyCodeLine{                        223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,}
+\DoxyCodeLine{                        129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,}
+\DoxyCodeLine{                        251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,}
+\DoxyCodeLine{                        49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,}
+\DoxyCodeLine{                        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180,}
+\DoxyCodeLine{}
+\DoxyCodeLine{                        151,160,137,91,90,15,                 }
+\DoxyCodeLine{                        131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,}
+\DoxyCodeLine{                        190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}
+\DoxyCodeLine{                        88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,}
+\DoxyCodeLine{                        77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}
+\DoxyCodeLine{                        102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,}
+\DoxyCodeLine{                        135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,}
+\DoxyCodeLine{                        5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}
+\DoxyCodeLine{                        223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,}
+\DoxyCodeLine{                        129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,}
+\DoxyCodeLine{                        251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,}
+\DoxyCodeLine{                        49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,}
+\DoxyCodeLine{                        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180}
+\DoxyCodeLine{                    \}}
+
+\end{DoxyCode}
+
+
+stores the table of permutations required to generate perlin noise 
+

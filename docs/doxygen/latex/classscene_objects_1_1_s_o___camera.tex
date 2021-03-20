@@ -1,0 +1,192 @@
+\hypertarget{classscene_objects_1_1_s_o___camera}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Camera Class Reference}
+\label{classscene_objects_1_1_s_o___camera}\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+
+
+A 3D camera capable of creating view/projection matrices to linked shader programs on call.  
+
+
+
+
+{\ttfamily \#include $<$scene\+Objects.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___camera_ac808d40d9217a719c275ef718e83d081}{S\+O\+\_\+\+Camera}} (float fov\+In=45.\+0f, float aspect\+Ratio\+In=1.\+0f, float near\+Clip\+In=0.\+1f, float far\+Clip\+In=100.\+0, glm\+::vec3 position\+In=glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f), glm\+::vec3 front\+In=glm\+::vec3(0.\+0f, 0.\+0f, -\/1.\+0f), glm\+::vec3 up\+In=glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f))
+\begin{DoxyCompactList}\small\item\em Constructor for a camera object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a790f7b97f5636d3c604c80b66db47137}{link\+Shader}} (\mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} $\ast$shader\+Ref\+In)
+\begin{DoxyCompactList}\small\item\em link a shader passed in by pointer to the camera object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_aa82b06b12f21c24cd3f871af6ad216ac}{unlink\+Shader}} (\mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} $\ast$shader\+Ref\+In)
+\begin{DoxyCompactList}\small\item\em unlink a shader passed in by pointer from the camera object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_ac7e19d1848b7b606602eb0787e41e8d4}{update\+View\+Matrix}} (void)
+\begin{DoxyCompactList}\small\item\em update the view matrices of all linked shaders to the cameras current settings \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a564ca4e151b155ebc946860dfd4309d0}{update\+Projection\+Matrix}} (void)
+\begin{DoxyCompactList}\small\item\em update the projection (proj) matrices of all linked shaders to the cameras current settings \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a832f7fe1eed52f64fd1db557280573a3}{fov}}
+\begin{DoxyCompactList}\small\item\em the field of view in degrees \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a5a2d910a3c0fb298ac460e690ad61e2c}{aspect\+Ratio}}
+\begin{DoxyCompactList}\small\item\em The aspect ratio of the camera. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_ae8e9d5f6de1c1f78315dfe76d167a6f7}{near\+Clip}}
+\begin{DoxyCompactList}\small\item\em The distance to the near clipping plane -\/ fragments closer than this distance will not be rendered. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a5462944bda5c622f2e451e7f1f7e3b72}{far\+Clip}}
+\begin{DoxyCompactList}\small\item\em The distance to the far clipping plane -\/ fragments further than this will not be rendered. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a0da7a0d313e790197b3b75b94029aff4}{position}}
+\begin{DoxyCompactList}\small\item\em The position of the camera in world space. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a73c6f5e2d6301258a214501e4fb72bfd}{front}}
+\begin{DoxyCompactList}\small\item\em A vec3 pointing in the direction of the centre of the camera\textquotesingle{}s F\+OV. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_af828bbf603ea418bf8725f724833ec17}{up}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} $\ast$ $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a1894f7707dd4471b62ec773790414058}{shader\+Pointers}}
+\begin{DoxyCompactList}\small\item\em A vector of pointers to the shaders which must be updated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A 3D camera capable of creating view/projection matrices to linked shader programs on call. 
+
+This camera class is designed to allow multiple objects to be kept in the same scene by automatically updating the relevant view and projection matrices with the \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_ac7e19d1848b7b606602eb0787e41e8d4}{update\+View\+Matrix()}} and \mbox{\hyperlink{classscene_objects_1_1_s_o___camera_a564ca4e151b155ebc946860dfd4309d0}{update\+Projection\+Matrix()}} methods. Any derived class of \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} can be added to the camera. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_ac808d40d9217a719c275ef718e83d081}\label{classscene_objects_1_1_s_o___camera_ac808d40d9217a719c275ef718e83d081}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!SO\_Camera@{SO\_Camera}}
+\index{SO\_Camera@{SO\_Camera}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{SO\_Camera()}{SO\_Camera()}}
+{\footnotesize\ttfamily scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::\+S\+O\+\_\+\+Camera (\begin{DoxyParamCaption}\item[{float}]{fov\+In = {\ttfamily 45.0f},  }\item[{float}]{aspect\+Ratio\+In = {\ttfamily 1.0f},  }\item[{float}]{near\+Clip\+In = {\ttfamily 0.1f},  }\item[{float}]{far\+Clip\+In = {\ttfamily 100.0},  }\item[{glm\+::vec3}]{position\+In = {\ttfamily glm\+:\+:vec3(0.0f,~0.0f,~0.0f)},  }\item[{glm\+::vec3}]{front\+In = {\ttfamily glm\+:\+:vec3(0.0f,~0.0f,~-\/1.0f)},  }\item[{glm\+::vec3}]{up\+In = {\ttfamily glm\+:\+:vec3(0.0f,~1.0f,~0.0f)} }\end{DoxyParamCaption})}
+
+
+
+Constructor for a camera object. 
+
+{\ttfamily float fov} the field of view in degrees {\ttfamily float aspect\+Ratio} The aspect ratio of the camera {\ttfamily float near\+Clip} The distance to the near clipping plane -\/ fragments closer than this distance will not be rendered {\ttfamily float far\+Clip} The distance to the far clipping plane -\/ fragments further than this will not be rendered {\ttfamily glm\+::vec3 position} The position of the camera in world space {\ttfamily glm\+::vec3 front} A vec3 pointing in the direction of the centre of the camera\textquotesingle{}s F\+OV {\ttfamily glm\+::vec3 up} A vec3 pointing in the upwards direction of the camera\textquotesingle{}s frame 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a790f7b97f5636d3c604c80b66db47137}\label{classscene_objects_1_1_s_o___camera_a790f7b97f5636d3c604c80b66db47137}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!linkShader@{linkShader}}
+\index{linkShader@{linkShader}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{linkShader()}{linkShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::link\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}} $\ast$}]{shader\+Ref\+In }\end{DoxyParamCaption})}
+
+
+
+link a shader passed in by pointer to the camera object 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_aa82b06b12f21c24cd3f871af6ad216ac}\label{classscene_objects_1_1_s_o___camera_aa82b06b12f21c24cd3f871af6ad216ac}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!unlinkShader@{unlinkShader}}
+\index{unlinkShader@{unlinkShader}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{unlinkShader()}{unlinkShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::unlink\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}} $\ast$}]{shader\+Ref\+In }\end{DoxyParamCaption})}
+
+
+
+unlink a shader passed in by pointer from the camera object 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a564ca4e151b155ebc946860dfd4309d0}\label{classscene_objects_1_1_s_o___camera_a564ca4e151b155ebc946860dfd4309d0}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!updateProjectionMatrix@{updateProjectionMatrix}}
+\index{updateProjectionMatrix@{updateProjectionMatrix}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{updateProjectionMatrix()}{updateProjectionMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::update\+Projection\+Matrix (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+update the projection (proj) matrices of all linked shaders to the cameras current settings 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_ac7e19d1848b7b606602eb0787e41e8d4}\label{classscene_objects_1_1_s_o___camera_ac7e19d1848b7b606602eb0787e41e8d4}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!updateViewMatrix@{updateViewMatrix}}
+\index{updateViewMatrix@{updateViewMatrix}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{updateViewMatrix()}{updateViewMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::update\+View\+Matrix (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+update the view matrices of all linked shaders to the cameras current settings 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a5a2d910a3c0fb298ac460e690ad61e2c}\label{classscene_objects_1_1_s_o___camera_a5a2d910a3c0fb298ac460e690ad61e2c}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!aspectRatio@{aspectRatio}}
+\index{aspectRatio@{aspectRatio}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{aspectRatio}{aspectRatio}}
+{\footnotesize\ttfamily float scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::aspect\+Ratio}
+
+
+
+The aspect ratio of the camera. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a5462944bda5c622f2e451e7f1f7e3b72}\label{classscene_objects_1_1_s_o___camera_a5462944bda5c622f2e451e7f1f7e3b72}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!farClip@{farClip}}
+\index{farClip@{farClip}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{farClip}{farClip}}
+{\footnotesize\ttfamily float scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::far\+Clip}
+
+
+
+The distance to the far clipping plane -\/ fragments further than this will not be rendered. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a832f7fe1eed52f64fd1db557280573a3}\label{classscene_objects_1_1_s_o___camera_a832f7fe1eed52f64fd1db557280573a3}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!fov@{fov}}
+\index{fov@{fov}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{fov}{fov}}
+{\footnotesize\ttfamily float scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::fov}
+
+
+
+the field of view in degrees 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a73c6f5e2d6301258a214501e4fb72bfd}\label{classscene_objects_1_1_s_o___camera_a73c6f5e2d6301258a214501e4fb72bfd}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!front@{front}}
+\index{front@{front}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{front}{front}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::front}
+
+
+
+A vec3 pointing in the direction of the centre of the camera\textquotesingle{}s F\+OV. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_ae8e9d5f6de1c1f78315dfe76d167a6f7}\label{classscene_objects_1_1_s_o___camera_ae8e9d5f6de1c1f78315dfe76d167a6f7}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!nearClip@{nearClip}}
+\index{nearClip@{nearClip}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{nearClip}{nearClip}}
+{\footnotesize\ttfamily float scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::near\+Clip}
+
+
+
+The distance to the near clipping plane -\/ fragments closer than this distance will not be rendered. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a0da7a0d313e790197b3b75b94029aff4}\label{classscene_objects_1_1_s_o___camera_a0da7a0d313e790197b3b75b94029aff4}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!position@{position}}
+\index{position@{position}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::position}
+
+
+
+The position of the camera in world space. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_a1894f7707dd4471b62ec773790414058}\label{classscene_objects_1_1_s_o___camera_a1894f7707dd4471b62ec773790414058}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!shaderPointers@{shaderPointers}}
+\index{shaderPointers@{shaderPointers}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{shaderPointers}{shaderPointers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}}$\ast$$>$ scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::shader\+Pointers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A vector of pointers to the shaders which must be updated. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___camera_af828bbf603ea418bf8725f724833ec17}\label{classscene_objects_1_1_s_o___camera_af828bbf603ea418bf8725f724833ec17}} 
+\index{sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}!up@{up}}
+\index{up@{up}!sceneObjects::SO\_Camera@{sceneObjects::SO\_Camera}}
+\doxysubsubsection{\texorpdfstring{up}{up}}
+{\footnotesize\ttfamily glm\+::vec3 scene\+Objects\+::\+S\+O\+\_\+\+Camera\+::up}
+
+A vec3 pointing in the upwards direction of the camera\textquotesingle{}s frame 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_objects_8hpp}{scene\+Objects.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___camera_8cpp}{S\+O\+\_\+\+Camera.\+cpp}}\end{DoxyCompactItemize}

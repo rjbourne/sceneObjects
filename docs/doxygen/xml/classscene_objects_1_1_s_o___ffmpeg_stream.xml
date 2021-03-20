@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="classscene_objects_1_1_s_o___ffmpeg_stream" kind="class" language="C++" prot="public">
+    <compoundname>sceneObjects::SO_FfmpegStream</compoundname>
+    <includes refid="scene_objects_8hpp" local="no">sceneObjects.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1aab566a3a1c031893feb01a4866d2f927" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string sceneObjects::SO_FfmpegStream::filepath</definition>
+        <argsstring></argsstring>
+        <name>filepath</name>
+        <briefdescription>
+<para>The filepath and filename to stream into. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="281" column="17" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1aad83095c83756d62fd11965dc9056411" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sceneObjects::SO_FfmpegStream::streaming</definition>
+        <argsstring></argsstring>
+        <name>streaming</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Whether the object is currently streaming. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="282" column="10" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a9956e52d5f1023d8340fd00fde08f7ff" prot="private" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* sceneObjects::SO_FfmpegStream::ffmpeg</definition>
+        <argsstring></argsstring>
+        <name>ffmpeg</name>
+        <briefdescription>
+<para>The file object that is being streamed into. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="283" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1ae181099d8b9ce162161175acd1dde1fd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sceneObjects::SO_FfmpegStream::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+<para>The width (px) of the video. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="284" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1aa406c0f80f67af7aec2dc0444fe5128b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sceneObjects::SO_FfmpegStream::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+<para>The height (px) of the video. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="285" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a21556e170b56cf7b0c3e0bd5ad6d496e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sceneObjects::SO_FfmpegStream::fps</definition>
+        <argsstring></argsstring>
+        <name>fps</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+<para>The target fps of the video (may not match fps of interactive program unless designed in by user) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="286" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a7ce8c4159d210b2e16fa4f76491abf9d" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; int[]&gt;</type>
+        <definition>std::unique_ptr&lt;int[]&gt; sceneObjects::SO_FfmpegStream::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+<para>A buffer to store the frame data passed out by OpenGL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="287" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a28fdc0c03c1a4d1fc83a78c716f6741f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sceneObjects::SO_FfmpegStream::SO_FfmpegStream</definition>
+        <argsstring>(std::string filepathIn)</argsstring>
+        <name>SO_FfmpegStream</name>
+        <param>
+          <type>std::string</type>
+          <declname>filepathIn</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for an <ref refid="classscene_objects_1_1_s_o___ffmpeg_stream" kindref="compound">SO_FfmpegStream</ref> which takes in <computeroutput>string filepathIn</computeroutput> as the filepath and filename to stream into. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="290" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp" bodystart="4" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___ffmpeg_stream_1aafe02614a4cafbbfa7f7490638e3f3b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_FfmpegStream::setFilepath</definition>
+        <argsstring>(std::string filepathIn)</argsstring>
+        <name>setFilepath</name>
+        <param>
+          <type>std::string</type>
+          <declname>filepathIn</declname>
+        </param>
+        <briefdescription>
+<para>Allows the filepath to be changed without creating a new stream object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="292" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp" bodystart="9" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a58ec0425175cb11a51b27d27c3943936" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_FfmpegStream::openStream</definition>
+        <argsstring>(int widthIn, int heightIn, int fpsIn=60)</argsstring>
+        <name>openStream</name>
+        <param>
+          <type>int</type>
+          <declname>widthIn</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>heightIn</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fpsIn</declname>
+          <defval>60</defval>
+        </param>
+        <briefdescription>
+<para>Begin streaming into file with resolution <computeroutput>widthIn</computeroutput>x<computeroutput>heightIn</computeroutput> at <computeroutput>fpsIn</computeroutput> frames per second. Note that fps is target and not enforced unless by user. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="294" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp" bodystart="15" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a1ac6ffd43a058b0aaad081fb75ce288a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_FfmpegStream::renderFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>renderFrame</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Render the current OpenGL screen into a frame of the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="296" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___ffmpeg_stream_1a5356b50497d9d4929a1e9d1a5fa70406" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_FfmpegStream::closeStream</definition>
+        <argsstring>(void)</argsstring>
+        <name>closeStream</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Finish streaming into file and save the file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="298" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class capable of rendering to a ffmpeg stream. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class can render frames to a ffmpeg stream and hence to video <simplesect kind="warning"><para>This class is currently only available on Windows </para>
+</simplesect>
+<simplesect kind="warning"><para>This class requires ffmpef to be installed </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="280" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="280" bodyend="300"/>
+    <listofallmembers>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a7ce8c4159d210b2e16fa4f76491abf9d" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>buffer</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a5356b50497d9d4929a1e9d1a5fa70406" prot="public" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>closeStream</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a9956e52d5f1023d8340fd00fde08f7ff" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>ffmpeg</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aab566a3a1c031893feb01a4866d2f927" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>filepath</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a21556e170b56cf7b0c3e0bd5ad6d496e" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>fps</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aa406c0f80f67af7aec2dc0444fe5128b" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>height</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a58ec0425175cb11a51b27d27c3943936" prot="public" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>openStream</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a1ac6ffd43a058b0aaad081fb75ce288a" prot="public" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>renderFrame</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aafe02614a4cafbbfa7f7490638e3f3b5" prot="public" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>setFilepath</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a28fdc0c03c1a4d1fc83a78c716f6741f" prot="public" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>SO_FfmpegStream</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aad83095c83756d62fd11965dc9056411" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>streaming</name></member>
+      <member refid="classscene_objects_1_1_s_o___ffmpeg_stream_1ae181099d8b9ce162161175acd1dde1fd" prot="private" virt="non-virtual"><scope>sceneObjects::SO_FfmpegStream</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

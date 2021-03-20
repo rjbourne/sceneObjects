@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="classscene_objects_1_1_s_o___shader" kind="class" language="C++" prot="public">
+    <compoundname>sceneObjects::SO_Shader</compoundname>
+    <derivedcompoundref refid="classscene_objects_1_1_s_o___assimp_shader" prot="public" virt="non-virtual">sceneObjects::SO_AssimpShader</derivedcompoundref>
+    <derivedcompoundref refid="classscene_objects_1_1_s_o___phong_shader" prot="public" virt="non-virtual">sceneObjects::SO_PhongShader</derivedcompoundref>
+    <derivedcompoundref refid="classscene_objects_1_1_s_o___skybox_shader" prot="public" virt="non-virtual">sceneObjects::SO_SkyboxShader</derivedcompoundref>
+    <includes refid="scene_objects_8hpp" local="no">sceneObjects.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a3bddab0e05819c68a16136488033764e" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_Shader::programID</definition>
+        <argsstring></argsstring>
+        <name>programID</name>
+        <briefdescription>
+<para>The OpenGL program ID used to reference the program when performing tasks such as useProgram() </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="37" column="12" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a34141357f0e1e47358e038ea9a17d33a" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_Shader::vertexShaderID</definition>
+        <argsstring></argsstring>
+        <name>vertexShaderID</name>
+        <briefdescription>
+<para>The OpenGL shader ID associated with the vertex shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="38" column="12" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a86949036217179a82ec0b4ed7e762e65" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_Shader::fragmentShaderID</definition>
+        <argsstring></argsstring>
+        <name>fragmentShaderID</name>
+        <briefdescription>
+<para>The OpenGL shader ID associated with the fragment shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="39" column="12" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a4cad0deb7c1d7a5fdc94013d97ded420" prot="private" static="no" mutable="no">
+        <type>GLint</type>
+        <definition>GLint sceneObjects::SO_Shader::modelMatrixLoc</definition>
+        <argsstring></argsstring>
+        <name>modelMatrixLoc</name>
+        <briefdescription>
+<para>The OpenGL location of the mat4 uniform named &quot;model&quot; in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="40" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a8e83085cb6f6829f6218b4c3514219c9" prot="private" static="no" mutable="no">
+        <type>GLint</type>
+        <definition>GLint sceneObjects::SO_Shader::viewMatrixLoc</definition>
+        <argsstring></argsstring>
+        <name>viewMatrixLoc</name>
+        <briefdescription>
+<para>The OpenGL location of the mat4 uniform named &quot;view&quot; in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="41" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a28bbb65858a7246ba21cbe47c9342920" prot="private" static="no" mutable="no">
+        <type>GLint</type>
+        <definition>GLint sceneObjects::SO_Shader::projectionMatrixLoc</definition>
+        <argsstring></argsstring>
+        <name>projectionMatrixLoc</name>
+        <briefdescription>
+<para>The OpenGL location of the mat4 uniform named &quot;proj&quot; in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="42" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___shader_1a72081ae01daf467a90963fd55c712457" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sceneObjects::SO_Shader::programCreated</definition>
+        <argsstring></argsstring>
+        <name>programCreated</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Whether a program has yet been successfully linked by the class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="43" column="10" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a1089f63927aca4120f238916f4adb7a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sceneObjects::SO_Shader::~SO_Shader</definition>
+        <argsstring>(void)</argsstring>
+        <name>~SO_Shader</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>The custom destructor for the <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The custom destructor for this class is implemented with non-default behaviour to destory the program that has been created. Note that any VAOs, VBOs, etc. are not managed by the class and are therefore not deleted - this must be handled by the user. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="50" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="96" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a21ef07de1a025f555741a7db4fe5c3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::createVertexShader</definition>
+        <argsstring>(const char *vertexSource)</argsstring>
+        <name>createVertexShader</name>
+        <param>
+          <type>const char *</type>
+          <declname>vertexSource</declname>
+        </param>
+        <briefdescription>
+<para>Creates a vertex shader for the shader program using the char* argument. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="52" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="5" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a88e296911a8c6245ff6a01406ad627b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::createFragmentShader</definition>
+        <argsstring>(const char *fragmentSource)</argsstring>
+        <name>createFragmentShader</name>
+        <param>
+          <type>const char *</type>
+          <declname>fragmentSource</declname>
+        </param>
+        <briefdescription>
+<para>Creates a fragment shader for the shader program using the char* input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="54" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="24" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1aa780feaae596dfabf590287397cca39a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::linkProgram</definition>
+        <argsstring>(void)</argsstring>
+        <name>linkProgram</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Links the vertex and fragment shaders into a program. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="56" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="42" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1af20a5f6692ee551d05997a1cd0aad875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_Shader::getProgramID</definition>
+        <argsstring>(void)</argsstring>
+        <name>getProgramID</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>returns the OpenGL program ID associated with the shader program for use in functions like useProgram() </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="58" column="16" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a469e22af8baa4fdf1e1eb84f25a6b086" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::setModelMatrix</definition>
+        <argsstring>(glm::mat4 modelMatrix)</argsstring>
+        <name>setModelMatrix</name>
+        <reimplementedby refid="classscene_objects_1_1_s_o___assimp_shader_1a16427fc3cc435d3631cb76cee6bfcef0">setModelMatrix</reimplementedby>
+        <reimplementedby refid="classscene_objects_1_1_s_o___phong_shader_1ae3d206f91193b86296eb3f12227c2415">setModelMatrix</reimplementedby>
+        <reimplementedby refid="classscene_objects_1_1_s_o___skybox_shader_1a5235f5d0187cbe3d17a7485912ccff87">setModelMatrix</reimplementedby>
+        <param>
+          <type>glm::mat4</type>
+          <declname>modelMatrix</declname>
+        </param>
+        <briefdescription>
+<para>Sets the mat4 &quot;model&quot; uniform in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the &quot;model&quot; uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class implement a &quot;model&quot; uniform even if it is unused. The model matrix transforms from model space to world space </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="65" column="22" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a686a2c3bf7c954e54dec34134ebd1260" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::setViewMatrix</definition>
+        <argsstring>(glm::mat4 viewMatrix)</argsstring>
+        <name>setViewMatrix</name>
+        <reimplementedby refid="classscene_objects_1_1_s_o___skybox_shader_1a62235d4c9d9d9ddf394453feb0a250d0">setViewMatrix</reimplementedby>
+        <param>
+          <type>glm::mat4</type>
+          <declname>viewMatrix</declname>
+        </param>
+        <briefdescription>
+<para>Sets the mat4 &quot;view&quot; uniform in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the &quot;view&quot; uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class implement a &quot;view&quot; uniform even if it is unused. The view matrix transforms from world space to camera space </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="72" column="22" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1ace394ba61101dbcf3f35931f9107513c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::setViewPosition</definition>
+        <argsstring>(glm::vec3 viewPosition)</argsstring>
+        <name>setViewPosition</name>
+        <reimplementedby refid="classscene_objects_1_1_s_o___assimp_shader_1a22579eb2e1f36180807c9d12de009e0c">setViewPosition</reimplementedby>
+        <reimplementedby refid="classscene_objects_1_1_s_o___phong_shader_1a911a249b7e7113a2bf72f5589396aaf5">setViewPosition</reimplementedby>
+        <param>
+          <type>glm::vec3</type>
+          <declname>viewPosition</declname>
+        </param>
+        <briefdescription>
+<para>Sets the unused vec3 &quot;viewPos&quot; uniform in the shader - DOES NOTHING. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the &quot;viewPos&quot; uniform must be done outside the shader - this function is blank as of present. It is NOT a requirement that shaders utilising the <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class implement a &quot;viewPos&quot; uniform. The viewPos gives the position of the camera in world space </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="79" column="22" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___shader_1a064bc26e370a8ebfe8046d5400d83518" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_Shader::setProjectionMatrix</definition>
+        <argsstring>(glm::mat4 projectionMatrix)</argsstring>
+        <name>setProjectionMatrix</name>
+        <param>
+          <type>glm::mat4</type>
+          <declname>projectionMatrix</declname>
+        </param>
+        <briefdescription>
+<para>Sets the mat4 &quot;proj&quot; uniform in the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the &quot;proj&quot; uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class implement a &quot;proj&quot; uniform even if it is unused. The proj matrix transforms between camera space and projection space </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="86" column="22" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Shader.cpp" bodystart="91" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>generic shader program class </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">SO_Shader</ref> class is the base class for all shader classes in the <ref refid="namespacescene_objects" kindref="compound">sceneObjects</ref> library. It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, as well as the ability to supply three matrix uniforms - intended for use in 3D projection these must be of type mat4 in the glsl with names &quot;model&quot;, &quot;view&quot;, and &quot;proj&quot; for use with the setter functions </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sceneObjects::SO_PhongShader</label>
+        <link refid="classscene_objects_1_1_s_o___phong_shader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sceneObjects::SO_AssimpShader</label>
+        <link refid="classscene_objects_1_1_s_o___assimp_shader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sceneObjects::SO_Shader</label>
+        <link refid="classscene_objects_1_1_s_o___shader"/>
+      </node>
+      <node id="4">
+        <label>sceneObjects::SO_SkyboxShader</label>
+        <link refid="classscene_objects_1_1_s_o___skybox_shader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="36" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="36" bodyend="87"/>
+    <listofallmembers>
+      <member refid="classscene_objects_1_1_s_o___shader_1a88e296911a8c6245ff6a01406ad627b2" prot="public" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>createFragmentShader</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a21ef07de1a025f555741a7db4fe5c3fc" prot="public" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>createVertexShader</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a86949036217179a82ec0b4ed7e762e65" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>fragmentShaderID</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1af20a5f6692ee551d05997a1cd0aad875" prot="public" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>getProgramID</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1aa780feaae596dfabf590287397cca39a" prot="public" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>linkProgram</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a4cad0deb7c1d7a5fdc94013d97ded420" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>modelMatrixLoc</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a72081ae01daf467a90963fd55c712457" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>programCreated</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a3bddab0e05819c68a16136488033764e" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>programID</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a28bbb65858a7246ba21cbe47c9342920" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>projectionMatrixLoc</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a469e22af8baa4fdf1e1eb84f25a6b086" prot="public" virt="virtual"><scope>sceneObjects::SO_Shader</scope><name>setModelMatrix</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a064bc26e370a8ebfe8046d5400d83518" prot="public" virt="virtual"><scope>sceneObjects::SO_Shader</scope><name>setProjectionMatrix</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a686a2c3bf7c954e54dec34134ebd1260" prot="public" virt="virtual"><scope>sceneObjects::SO_Shader</scope><name>setViewMatrix</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1ace394ba61101dbcf3f35931f9107513c" prot="public" virt="virtual"><scope>sceneObjects::SO_Shader</scope><name>setViewPosition</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a34141357f0e1e47358e038ea9a17d33a" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>vertexShaderID</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a8e83085cb6f6829f6218b4c3514219c9" prot="private" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>viewMatrixLoc</name></member>
+      <member refid="classscene_objects_1_1_s_o___shader_1a1089f63927aca4120f238916f4adb7a4" prot="public" virt="non-virtual"><scope>sceneObjects::SO_Shader</scope><name>~SO_Shader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

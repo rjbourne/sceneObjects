@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="_s_o___ffmpeg_stream_8cpp" kind="file" language="C++">
+    <compoundname>SO_FfmpegStream.cpp</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="scene_objects_8hpp" kindref="compound">sceneObjects.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a28fdc0c03c1a4d1fc83a78c716f6741f" kindref="member">sceneObjects::SO_FfmpegStream::SO_FfmpegStream</ref>(std::string<sp/>filepathIn)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aafe02614a4cafbbfa7f7490638e3f3b5" kindref="member">setFilepath</ref>(filepathIn);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//takes<sp/>an<sp/>std::string<sp/>to<sp/>set<sp/>the<sp/>filepath<sp/>of<sp/>the<sp/>next<sp/>stream<sp/>opened</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1aafe02614a4cafbbfa7f7490638e3f3b5" kindref="member">sceneObjects::SO_FfmpegStream::setFilepath</ref>(std::string<sp/>filepathIn)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>filepath<sp/>=<sp/>filepathIn;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//start<sp/>a<sp/>stream<sp/>to<sp/>an<sp/>ffmpeg<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a58ec0425175cb11a51b27d27c3943936" kindref="member">sceneObjects::SO_FfmpegStream::openStream</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>widthIn,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>heightIn,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fpsIn)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//http://blog.mmacklin.com/2013/06/11/real-time-video-capture-with-ffmpeg/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>width<sp/>=<sp/>widthIn;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>height<sp/>=<sp/>heightIn;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>fps<sp/>=<sp/>fpsIn;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>cmd<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ffmpeg<sp/>-r<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::to_string(fps)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>-f<sp/>rawvideo<sp/>-pix_fmt<sp/>rgba<sp/>-s<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::to_string(width)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::to_string(height)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>-i<sp/>-<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;-threads<sp/>0<sp/>-preset<sp/>fast<sp/>-y<sp/>-pix_fmt<sp/>yuv420p<sp/>-crf<sp/>21<sp/>-vf<sp/>vflip<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>filepath;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>ffmpeg<sp/>=<sp/>_popen(cmd.c_str(),<sp/></highlight><highlight class="stringliteral">&quot;wb&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer<sp/>=<sp/>std::make_unique&lt;int[]&gt;(width*height);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>streaming<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//render<sp/>a<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a1ac6ffd43a058b0aaad081fb75ce288a" kindref="member">sceneObjects::SO_FfmpegStream::renderFrame</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>glReadPixels(0,<sp/>0,<sp/>width,<sp/>height,<sp/>GL_RGBA,<sp/>GL_UNSIGNED_BYTE,<sp/>buffer.get());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(buffer.get(),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*width*height,<sp/>1,<sp/>ffmpeg);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___ffmpeg_stream_1a5356b50497d9d4929a1e9d1a5fa70406" kindref="member">sceneObjects::SO_FfmpegStream::closeStream</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>_pclose(ffmpeg);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_FfmpegStream.cpp"/>
+  </compounddef>
+</doxygen>

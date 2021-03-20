@@ -1,0 +1,447 @@
+\hypertarget{classscene_objects_1_1_s_o___phong_shader}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Phong\+Shader Class Reference}
+\label{classscene_objects_1_1_s_o___phong_shader}\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+
+
+3D Phong model lighting class  
+
+
+
+
+{\ttfamily \#include $<$scene\+Objects.\+hpp$>$}
+
+Inheritance diagram for scene\+Objects\+::S\+O\+\_\+\+Phong\+Shader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscene_objects_1_1_s_o___phong_shader}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ae9dcc4a95ecb204d8013eb68d7a65a35}{generate}} (int number\+Lights\+In=1, unsigned int options\+In=0)
+\begin{DoxyCompactList}\small\item\em the generate function creates the vertex and fragment shaders and links them into a program \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ae3d206f91193b86296eb3f12227c2415}{set\+Model\+Matrix}} (glm\+::mat4 model\+Matrix) override
+\begin{DoxyCompactList}\small\item\em An override of the base class method which also calculates the transformation for normal vectors and passes this into the shader. Applied in world space before instance matrix if using instancing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a75dcf3546f39fa45891e513a029b8a42}{set\+Post\+Model\+Matrix}} (glm\+::mat4 model\+Matrix)
+\begin{DoxyCompactList}\small\item\em The Post\+Model\+Matrix is the model matrix applied in world space after the instancing matrix -\/ available only if instancing enabled. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a911a249b7e7113a2bf72f5589396aaf5}{set\+View\+Position}} (glm\+::vec3 view\+Position) override
+\begin{DoxyCompactList}\small\item\em Set the position of the camera in world space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ad6871de997e401d9c59061ac780112d8}{set\+Light\+Position}} (int index, glm\+::vec3 light\+Position)
+\begin{DoxyCompactList}\small\item\em Set the position of light number \textquotesingle{}index\textquotesingle{} in world space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_aa356fe9cf434ae3d48127f87bc75d692}{set\+Light\+Constant}} (int index, float light\+Constant)
+\begin{DoxyCompactList}\small\item\em Set the constant term of the lights attenuation factor\+: 1 for a constant brightness source with distance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a242628db9b1f67458fe15ff516a24f4a}{set\+Light\+Linear}} (int index, float light\+Linear)
+\begin{DoxyCompactList}\small\item\em Set the linear term of the lights attenuation factor\+: 0 for a constant brightness source with distance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ad1824fa57d7216dcefdf97693858d26c}{set\+Light\+Quadratic}} (int index, float light\+Quadratic)
+\begin{DoxyCompactList}\small\item\em Set the quadratic term of the lights attenuation factor\+: 0 for a constant brightness source with distance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ac5d6445607c1d49ca957e3e450ce2b64}{set\+Light\+Ambient}} (int index, glm\+::vec3 light\+Ambient)
+\begin{DoxyCompactList}\small\item\em Set the colour and strength of the lights ambient factor -\/ independent of material properties. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a29b3859bb3eb69e093f68d8285c59358}{set\+Light\+Diffuse}} (int index, glm\+::vec3 light\+Diffuse)
+\begin{DoxyCompactList}\small\item\em Set the colour and strength of the lights diffuse factor -\/ independent of material properties. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_af0029b8619e7da10bbd8500981e2ba70}{set\+Light\+Specular}} (int index, glm\+::vec3 light\+Specular)
+\begin{DoxyCompactList}\small\item\em Set the colour and strength of the lights specular factor -\/ independent of material properties. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ac5d07d044185288642a28801d18e5a19}{set\+Material\+Ambient}} (glm\+::vec3 ambient\+Material)
+\begin{DoxyCompactList}\small\item\em Set the materials ambient colour -\/ available only if material mode enabled with ambient as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_aa5cd652ce6a236bd7caa88b7a22e2ab7}{set\+Material\+Diffuse}} (glm\+::vec3 diffuse\+Material)
+\begin{DoxyCompactList}\small\item\em Set the materials diffuse colour -\/ available only if material mode enabled with diffuse as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a661a1a10ec19c8739fa9483a77c3dda9}{set\+Material\+Specular}} (glm\+::vec3 specular\+Material)
+\begin{DoxyCompactList}\small\item\em Set the materials specular colour -\/ available only if material mode enabled with specular as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a88d9cae57e7331f8ec854f42309846b9}{set\+Material\+Alpha}} (float alpha\+Material)
+\begin{DoxyCompactList}\small\item\em Set the materials alpha transparency -\/ available only if material mode and alpha enabled as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a955e7ed6225dd0794145c337a6d51143}{set\+Color}} (glm\+::vec3 color)
+\begin{DoxyCompactList}\small\item\em Set the color of the object -\/ available only is material mode not enabled and alpha not enabled with colour as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a77392bb591b43f2a764414790b4679ee}{set\+Color}} (glm\+::vec4 color)
+\begin{DoxyCompactList}\small\item\em Set the color of the object -\/ available only is material mode not enabled and alpha enabled with colour as uniforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a2e6eea302993cd9ab32fa7ec4c56d57a}{set\+Specular\+Power}} (unsigned int spec\+Power)
+\begin{DoxyCompactList}\small\item\em Set the power of the specular highlights -\/ higher integers produce \textquotesingle{}sharper\textquotesingle{} spots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a21ef07de1a025f555741a7db4fe5c3fc}{create\+Vertex\+Shader}} (const char $\ast$vertex\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a vertex shader for the shader program using the char$\ast$ argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a88e296911a8c6245ff6a01406ad627b2}{create\+Fragment\+Shader}} (const char $\ast$fragment\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a fragment shader for the shader program using the char$\ast$ input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_aa780feaae596dfabf590287397cca39a}{link\+Program}} (void)
+\begin{DoxyCompactList}\small\item\em Links the vertex and fragment shaders into a program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a6f4f09c77616e848f049b793a61fadd5}{number\+Lights}}
+\begin{DoxyCompactList}\small\item\em number of point light sources in the scene \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a6f3acfd29111a5c7894dcf01fd1c0ba0}{options}}
+\begin{DoxyCompactList}\small\item\em the options to be used -\/ passed in as enums but stored here as an unsigned int \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ac1fd3f3db1049baf015085f7cea5185e}{normal\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}normal\+Matrix\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_afe829def560f59d49524a0682d0c5f67}{view\+Position\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the vec3 uniform named \char`\"{}view\+Pos\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a747444761f80a704e1e80abae9974eb7}{post\+Model\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}post\+Model\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a84ff59c0ad502fa3279841a8c24f9127}{post\+Normal\+Matrix\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the mat4 uniform named \char`\"{}post\+Normal\+Matrix\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a5c4e44ce01176b880a29dbbd80475806}{ambient\+Mat\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the vec3 uniform named \char`\"{}ambient\+Mat\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_af2cb7986e3754f7c5070fa217b342ef5}{diffuse\+Mat\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the vec3 uniform named \char`\"{}diffuse\+Mat\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_ac3716befcaea25f0a53af1f342d565ff}{specular\+Mat\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the vec3 uniform named \char`\"{}specular\+Mat\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_abc30421d6cdf3c3615a356be51f23294}{alpha\+Mat\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the float uniform named \char`\"{}alpha\+Mat\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_af0cfebc3f7e0f11c95887ccb5857cc58}{color\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the vec3/4 (depending on S\+O\+\_\+\+Alpha) uniform named \char`\"{}\+Color\char`\"{} in the shader. \end{DoxyCompactList}\item 
+G\+Lint \mbox{\hyperlink{classscene_objects_1_1_s_o___phong_shader_a3ea6e1907f0a853e36d55fb7b239de51}{specular\+Power\+Loc}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL location of the unsigned int uniform named \char`\"{}spec\+Power\char`\"{} in the shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+3D Phong model lighting class 
+
+A class which provides a wide range of shaders for different circumstances -\/ utilkising a basic phong shader model. For more advanced features such as normal mapping and specular mapping models with UV mapped textures can be uesd with \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model}{S\+O\+\_\+\+Assimp\+Model}}. The functionaility required is selected by use of the S\+O\+\_\+\+Shader\+Options enums. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a88e296911a8c6245ff6a01406ad627b2}\label{classscene_objects_1_1_s_o___phong_shader_a88e296911a8c6245ff6a01406ad627b2}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!createFragmentShader@{createFragmentShader}}
+\index{createFragmentShader@{createFragmentShader}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{createFragmentShader()}{createFragmentShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Fragment\+Shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a fragment shader for the shader program using the char$\ast$ input. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a21ef07de1a025f555741a7db4fe5c3fc}\label{classscene_objects_1_1_s_o___phong_shader_a21ef07de1a025f555741a7db4fe5c3fc}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!createVertexShader@{createVertexShader}}
+\index{createVertexShader@{createVertexShader}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{createVertexShader()}{createVertexShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Vertex\+Shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a vertex shader for the shader program using the char$\ast$ argument. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ae9dcc4a95ecb204d8013eb68d7a65a35}\label{classscene_objects_1_1_s_o___phong_shader_ae9dcc4a95ecb204d8013eb68d7a65a35}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!generate@{generate}}
+\index{generate@{generate}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::generate (\begin{DoxyParamCaption}\item[{int}]{number\+Lights\+In = {\ttfamily 1},  }\item[{unsigned int}]{options\+In = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+the generate function creates the vertex and fragment shaders and links them into a program 
+
+The args are {\ttfamily number\+Lights\+In} which gives the number of point light sources in the scene, and {\ttfamily options\+In} which is the S\+O\+\_\+\+Shader\+Options enums. \mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_aa780feaae596dfabf590287397cca39a}\label{classscene_objects_1_1_s_o___phong_shader_aa780feaae596dfabf590287397cca39a}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!linkProgram@{linkProgram}}
+\index{linkProgram@{linkProgram}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{linkProgram()}{linkProgram()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::link\+Program (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Links the vertex and fragment shaders into a program. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a955e7ed6225dd0794145c337a6d51143}\label{classscene_objects_1_1_s_o___phong_shader_a955e7ed6225dd0794145c337a6d51143}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setColor@{setColor}}
+\index{setColor@{setColor}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the color of the object -\/ available only is material mode not enabled and alpha not enabled with colour as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a77392bb591b43f2a764414790b4679ee}\label{classscene_objects_1_1_s_o___phong_shader_a77392bb591b43f2a764414790b4679ee}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setColor@{setColor}}
+\index{setColor@{setColor}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the color of the object -\/ available only is material mode not enabled and alpha enabled with colour as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ac5d6445607c1d49ca957e3e450ce2b64}\label{classscene_objects_1_1_s_o___phong_shader_ac5d6445607c1d49ca957e3e450ce2b64}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightAmbient@{setLightAmbient}}
+\index{setLightAmbient@{setLightAmbient}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightAmbient()}{setLightAmbient()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Ambient (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{glm\+::vec3}]{light\+Ambient }\end{DoxyParamCaption})}
+
+
+
+Set the colour and strength of the lights ambient factor -\/ independent of material properties. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_aa356fe9cf434ae3d48127f87bc75d692}\label{classscene_objects_1_1_s_o___phong_shader_aa356fe9cf434ae3d48127f87bc75d692}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightConstant@{setLightConstant}}
+\index{setLightConstant@{setLightConstant}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightConstant()}{setLightConstant()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Constant (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{float}]{light\+Constant }\end{DoxyParamCaption})}
+
+
+
+Set the constant term of the lights attenuation factor\+: 1 for a constant brightness source with distance. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a29b3859bb3eb69e093f68d8285c59358}\label{classscene_objects_1_1_s_o___phong_shader_a29b3859bb3eb69e093f68d8285c59358}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightDiffuse@{setLightDiffuse}}
+\index{setLightDiffuse@{setLightDiffuse}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightDiffuse()}{setLightDiffuse()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Diffuse (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{glm\+::vec3}]{light\+Diffuse }\end{DoxyParamCaption})}
+
+
+
+Set the colour and strength of the lights diffuse factor -\/ independent of material properties. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a242628db9b1f67458fe15ff516a24f4a}\label{classscene_objects_1_1_s_o___phong_shader_a242628db9b1f67458fe15ff516a24f4a}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightLinear@{setLightLinear}}
+\index{setLightLinear@{setLightLinear}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightLinear()}{setLightLinear()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Linear (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{float}]{light\+Linear }\end{DoxyParamCaption})}
+
+
+
+Set the linear term of the lights attenuation factor\+: 0 for a constant brightness source with distance. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ad6871de997e401d9c59061ac780112d8}\label{classscene_objects_1_1_s_o___phong_shader_ad6871de997e401d9c59061ac780112d8}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightPosition@{setLightPosition}}
+\index{setLightPosition@{setLightPosition}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightPosition()}{setLightPosition()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Position (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{glm\+::vec3}]{light\+Position }\end{DoxyParamCaption})}
+
+
+
+Set the position of light number \textquotesingle{}index\textquotesingle{} in world space. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ad1824fa57d7216dcefdf97693858d26c}\label{classscene_objects_1_1_s_o___phong_shader_ad1824fa57d7216dcefdf97693858d26c}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightQuadratic@{setLightQuadratic}}
+\index{setLightQuadratic@{setLightQuadratic}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightQuadratic()}{setLightQuadratic()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Quadratic (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{float}]{light\+Quadratic }\end{DoxyParamCaption})}
+
+
+
+Set the quadratic term of the lights attenuation factor\+: 0 for a constant brightness source with distance. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_af0029b8619e7da10bbd8500981e2ba70}\label{classscene_objects_1_1_s_o___phong_shader_af0029b8619e7da10bbd8500981e2ba70}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setLightSpecular@{setLightSpecular}}
+\index{setLightSpecular@{setLightSpecular}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setLightSpecular()}{setLightSpecular()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Light\+Specular (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{glm\+::vec3}]{light\+Specular }\end{DoxyParamCaption})}
+
+
+
+Set the colour and strength of the lights specular factor -\/ independent of material properties. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a88d9cae57e7331f8ec854f42309846b9}\label{classscene_objects_1_1_s_o___phong_shader_a88d9cae57e7331f8ec854f42309846b9}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setMaterialAlpha@{setMaterialAlpha}}
+\index{setMaterialAlpha@{setMaterialAlpha}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setMaterialAlpha()}{setMaterialAlpha()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Material\+Alpha (\begin{DoxyParamCaption}\item[{float}]{alpha\+Material }\end{DoxyParamCaption})}
+
+
+
+Set the materials alpha transparency -\/ available only if material mode and alpha enabled as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ac5d07d044185288642a28801d18e5a19}\label{classscene_objects_1_1_s_o___phong_shader_ac5d07d044185288642a28801d18e5a19}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setMaterialAmbient@{setMaterialAmbient}}
+\index{setMaterialAmbient@{setMaterialAmbient}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setMaterialAmbient()}{setMaterialAmbient()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Material\+Ambient (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{ambient\+Material }\end{DoxyParamCaption})}
+
+
+
+Set the materials ambient colour -\/ available only if material mode enabled with ambient as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_aa5cd652ce6a236bd7caa88b7a22e2ab7}\label{classscene_objects_1_1_s_o___phong_shader_aa5cd652ce6a236bd7caa88b7a22e2ab7}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setMaterialDiffuse@{setMaterialDiffuse}}
+\index{setMaterialDiffuse@{setMaterialDiffuse}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setMaterialDiffuse()}{setMaterialDiffuse()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Material\+Diffuse (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{diffuse\+Material }\end{DoxyParamCaption})}
+
+
+
+Set the materials diffuse colour -\/ available only if material mode enabled with diffuse as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a661a1a10ec19c8739fa9483a77c3dda9}\label{classscene_objects_1_1_s_o___phong_shader_a661a1a10ec19c8739fa9483a77c3dda9}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setMaterialSpecular@{setMaterialSpecular}}
+\index{setMaterialSpecular@{setMaterialSpecular}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setMaterialSpecular()}{setMaterialSpecular()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Material\+Specular (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{specular\+Material }\end{DoxyParamCaption})}
+
+
+
+Set the materials specular colour -\/ available only if material mode enabled with specular as uniforms. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ae3d206f91193b86296eb3f12227c2415}\label{classscene_objects_1_1_s_o___phong_shader_ae3d206f91193b86296eb3f12227c2415}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setModelMatrix@{setModelMatrix}}
+\index{setModelMatrix@{setModelMatrix}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setModelMatrix()}{setModelMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Model\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{model\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+An override of the base class method which also calculates the transformation for normal vectors and passes this into the shader. Applied in world space before instance matrix if using instancing. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a469e22af8baa4fdf1e1eb84f25a6b086}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}}.
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a75dcf3546f39fa45891e513a029b8a42}\label{classscene_objects_1_1_s_o___phong_shader_a75dcf3546f39fa45891e513a029b8a42}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setPostModelMatrix@{setPostModelMatrix}}
+\index{setPostModelMatrix@{setPostModelMatrix}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setPostModelMatrix()}{setPostModelMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Post\+Model\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{model\+Matrix }\end{DoxyParamCaption})}
+
+
+
+The Post\+Model\+Matrix is the model matrix applied in world space after the instancing matrix -\/ available only if instancing enabled. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a2e6eea302993cd9ab32fa7ec4c56d57a}\label{classscene_objects_1_1_s_o___phong_shader_a2e6eea302993cd9ab32fa7ec4c56d57a}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setSpecularPower@{setSpecularPower}}
+\index{setSpecularPower@{setSpecularPower}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setSpecularPower()}{setSpecularPower()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+Specular\+Power (\begin{DoxyParamCaption}\item[{unsigned int}]{spec\+Power }\end{DoxyParamCaption})}
+
+
+
+Set the power of the specular highlights -\/ higher integers produce \textquotesingle{}sharper\textquotesingle{} spots. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a911a249b7e7113a2bf72f5589396aaf5}\label{classscene_objects_1_1_s_o___phong_shader_a911a249b7e7113a2bf72f5589396aaf5}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!setViewPosition@{setViewPosition}}
+\index{setViewPosition@{setViewPosition}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{setViewPosition()}{setViewPosition()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::set\+View\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{view\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the position of the camera in world space. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_ace394ba61101dbcf3f35931f9107513c}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_abc30421d6cdf3c3615a356be51f23294}\label{classscene_objects_1_1_s_o___phong_shader_abc30421d6cdf3c3615a356be51f23294}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!alphaMatLoc@{alphaMatLoc}}
+\index{alphaMatLoc@{alphaMatLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{alphaMatLoc}{alphaMatLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::alpha\+Mat\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the float uniform named \char`\"{}alpha\+Mat\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a5c4e44ce01176b880a29dbbd80475806}\label{classscene_objects_1_1_s_o___phong_shader_a5c4e44ce01176b880a29dbbd80475806}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!ambientMatLoc@{ambientMatLoc}}
+\index{ambientMatLoc@{ambientMatLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{ambientMatLoc}{ambientMatLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::ambient\+Mat\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the vec3 uniform named \char`\"{}ambient\+Mat\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_af0cfebc3f7e0f11c95887ccb5857cc58}\label{classscene_objects_1_1_s_o___phong_shader_af0cfebc3f7e0f11c95887ccb5857cc58}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!colorLoc@{colorLoc}}
+\index{colorLoc@{colorLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{colorLoc}{colorLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::color\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the vec3/4 (depending on S\+O\+\_\+\+Alpha) uniform named \char`\"{}\+Color\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_af2cb7986e3754f7c5070fa217b342ef5}\label{classscene_objects_1_1_s_o___phong_shader_af2cb7986e3754f7c5070fa217b342ef5}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!diffuseMatLoc@{diffuseMatLoc}}
+\index{diffuseMatLoc@{diffuseMatLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{diffuseMatLoc}{diffuseMatLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::diffuse\+Mat\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the vec3 uniform named \char`\"{}diffuse\+Mat\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ac1fd3f3db1049baf015085f7cea5185e}\label{classscene_objects_1_1_s_o___phong_shader_ac1fd3f3db1049baf015085f7cea5185e}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!normalMatrixLoc@{normalMatrixLoc}}
+\index{normalMatrixLoc@{normalMatrixLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{normalMatrixLoc}{normalMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::normal\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}normal\+Matrix\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a6f4f09c77616e848f049b793a61fadd5}\label{classscene_objects_1_1_s_o___phong_shader_a6f4f09c77616e848f049b793a61fadd5}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!numberLights@{numberLights}}
+\index{numberLights@{numberLights}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{numberLights}{numberLights}}
+{\footnotesize\ttfamily int scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::number\+Lights\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number of point light sources in the scene 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a6f3acfd29111a5c7894dcf01fd1c0ba0}\label{classscene_objects_1_1_s_o___phong_shader_a6f3acfd29111a5c7894dcf01fd1c0ba0}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!options@{options}}
+\index{options@{options}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily unsigned int scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::options\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+the options to be used -\/ passed in as enums but stored here as an unsigned int 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a747444761f80a704e1e80abae9974eb7}\label{classscene_objects_1_1_s_o___phong_shader_a747444761f80a704e1e80abae9974eb7}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!postModelMatrixLoc@{postModelMatrixLoc}}
+\index{postModelMatrixLoc@{postModelMatrixLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{postModelMatrixLoc}{postModelMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::post\+Model\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}post\+Model\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a84ff59c0ad502fa3279841a8c24f9127}\label{classscene_objects_1_1_s_o___phong_shader_a84ff59c0ad502fa3279841a8c24f9127}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!postNormalMatrixLoc@{postNormalMatrixLoc}}
+\index{postNormalMatrixLoc@{postNormalMatrixLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{postNormalMatrixLoc}{postNormalMatrixLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::post\+Normal\+Matrix\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the mat4 uniform named \char`\"{}post\+Normal\+Matrix\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_ac3716befcaea25f0a53af1f342d565ff}\label{classscene_objects_1_1_s_o___phong_shader_ac3716befcaea25f0a53af1f342d565ff}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!specularMatLoc@{specularMatLoc}}
+\index{specularMatLoc@{specularMatLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{specularMatLoc}{specularMatLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::specular\+Mat\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the vec3 uniform named \char`\"{}specular\+Mat\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_a3ea6e1907f0a853e36d55fb7b239de51}\label{classscene_objects_1_1_s_o___phong_shader_a3ea6e1907f0a853e36d55fb7b239de51}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!specularPowerLoc@{specularPowerLoc}}
+\index{specularPowerLoc@{specularPowerLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{specularPowerLoc}{specularPowerLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::specular\+Power\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the unsigned int uniform named \char`\"{}spec\+Power\char`\"{} in the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___phong_shader_afe829def560f59d49524a0682d0c5f67}\label{classscene_objects_1_1_s_o___phong_shader_afe829def560f59d49524a0682d0c5f67}} 
+\index{sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}!viewPositionLoc@{viewPositionLoc}}
+\index{viewPositionLoc@{viewPositionLoc}!sceneObjects::SO\_PhongShader@{sceneObjects::SO\_PhongShader}}
+\doxysubsubsection{\texorpdfstring{viewPositionLoc}{viewPositionLoc}}
+{\footnotesize\ttfamily G\+Lint scene\+Objects\+::\+S\+O\+\_\+\+Phong\+Shader\+::view\+Position\+Loc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL location of the vec3 uniform named \char`\"{}view\+Pos\char`\"{} in the shader. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_objects_8hpp}{scene\+Objects.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___phong_shader_8cpp}{S\+O\+\_\+\+Phong\+Shader.\+cpp}}\end{DoxyCompactItemize}

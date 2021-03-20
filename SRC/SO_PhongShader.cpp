@@ -226,6 +226,7 @@ GLuint sceneObjects::SO_PhongShader::generate(int numberLightsIn, unsigned int o
     return this->getProgramID();
 }
 
+
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
 //also creates and applies the corresponding normal matrix

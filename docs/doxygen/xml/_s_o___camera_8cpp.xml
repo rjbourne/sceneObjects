@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="_s_o___camera_8cpp" kind="file" language="C++">
+    <compoundname>SO_Camera.cpp</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="scene_objects_8hpp" kindref="compound">sceneObjects.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classscene_objects_1_1_s_o___camera_1ac808d40d9217a719c275ef718e83d081" kindref="member">sceneObjects::SO_Camera::SO_Camera</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fovIn,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>aspectRatioIn,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>nearClipIn,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>farClipIn,<sp/>glm::vec3<sp/>positionIn,<sp/>glm::vec3<sp/>frontIn,<sp/>glm::vec3<sp/>upIn)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a832f7fe1eed52f64fd1db557280573a3" kindref="member">fov</ref><sp/>=<sp/>fovIn;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a5a2d910a3c0fb298ac460e690ad61e2c" kindref="member">aspectRatio</ref><sp/>=<sp/>aspectRatioIn;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1ae8e9d5f6de1c1f78315dfe76d167a6f7" kindref="member">nearClip</ref><sp/>=<sp/>nearClipIn;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a5462944bda5c622f2e451e7f1f7e3b72" kindref="member">farClip</ref><sp/>=<sp/>farClipIn;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a0da7a0d313e790197b3b75b94029aff4" kindref="member">position</ref><sp/>=<sp/>positionIn;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a73c6f5e2d6301258a214501e4fb72bfd" kindref="member">front</ref><sp/>=<sp/>frontIn;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classscene_objects_1_1_s_o___camera_1af828bbf603ea418bf8725f724833ec17" kindref="member">up</ref><sp/>=<sp/>upIn;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//update<sp/>the<sp/>view<sp/>matrix<sp/>of<sp/>all<sp/>linked<sp/>shaders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___camera_1ac7e19d1848b7b606602eb0787e41e8d4" kindref="member">sceneObjects::SO_Camera::updateViewMatrix</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>glm::mat4<sp/>viewMatrix<sp/>=<sp/>glm::lookAt(position,<sp/>position+front,<sp/>up);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>shaderPointers.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shaderPointers[i]-&gt;setViewMatrix(viewMatrix);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shaderPointers[i]-&gt;setViewPosition(position);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//update<sp/>the<sp/>projection<sp/>matrix<sp/>of<sp/>all<sp/>linked<sp/>shaders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a564ca4e151b155ebc946860dfd4309d0" kindref="member">sceneObjects::SO_Camera::updateProjectionMatrix</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>glm::mat4<sp/>projectionMatrix<sp/>=<sp/>glm::perspective(glm::radians(fov),<sp/>aspectRatio,<sp/>nearClip,<sp/>farClip);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>shaderPointers.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shaderPointers[i]-&gt;setProjectionMatrix(projectionMatrix);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//link<sp/>the<sp/>camera<sp/>to<sp/>the<sp/>shader<sp/>program<sp/>given<sp/>by<sp/>pointer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___camera_1a790f7b97f5636d3c604c80b66db47137" kindref="member">sceneObjects::SO_Camera::linkShader</ref>(<ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">sceneObjects::SO_Shader</ref><sp/>*shaderRefIn)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>shaderPointers.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(shaderPointers[i]<sp/>==<sp/>shaderRefIn)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>shaderPointers.push_back(shaderRefIn);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//unlink<sp/>the<sp/>camera<sp/>to<sp/>the<sp/>shader<sp/>program<sp/>given<sp/>by<sp/>pointer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classscene_objects_1_1_s_o___camera_1aa82b06b12f21c24cd3f871af6ad216ac" kindref="member">sceneObjects::SO_Camera::unlinkShader</ref>(<ref refid="classscene_objects_1_1_s_o___shader" kindref="compound">sceneObjects::SO_Shader</ref><sp/>*shaderRefIn)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>shaderPointers.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(shaderPointers[i]<sp/>==<sp/>shaderRefIn)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shaderPointers.erase(shaderPointers.begin()<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_Camera.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="namespacescene_objects" kind="namespace" language="C++">
+    <compoundname>sceneObjects</compoundname>
+    <innerclass refid="classscene_objects_1_1_s_o___assimp_mesh" prot="public">sceneObjects::SO_AssimpMesh</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___assimp_model" prot="public">sceneObjects::SO_AssimpModel</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___assimp_shader" prot="public">sceneObjects::SO_AssimpShader</innerclass>
+    <innerclass refid="structscene_objects_1_1_s_o___assimp_texture" prot="public">sceneObjects::SO_AssimpTexture</innerclass>
+    <innerclass refid="structscene_objects_1_1_s_o___assimp_vertex" prot="public">sceneObjects::SO_AssimpVertex</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___camera" prot="public">sceneObjects::SO_Camera</innerclass>
+    <innerclass refid="structscene_objects_1_1_s_o___color_map" prot="public">sceneObjects::SO_ColorMap</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___ffmpeg_stream" prot="public">sceneObjects::SO_FfmpegStream</innerclass>
+    <innerclass refid="structscene_objects_1_1_s_o___mesh_data" prot="public">sceneObjects::SO_MeshData</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___phong_shader" prot="public">sceneObjects::SO_PhongShader</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___shader" prot="public">sceneObjects::SO_Shader</innerclass>
+    <innerclass refid="classscene_objects_1_1_s_o___skybox_shader" prot="public">sceneObjects::SO_SkyboxShader</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59" prot="public" static="no" strong="no">
+        <type>unsigned int</type>
+        <name>SO_ShaderOptions</name>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59ab46d5619ba61008aa949a5b23a84e053" prot="public">
+          <name>SO_ALPHA</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Enables the alpha channel on the object. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>If enabled then an alpha value can be passed into the shader using setColor(vec4) or setMaterialAlpha if alpha is a uniform, or as a vertex attribute if it is not a vertex uniform. It is expected that objects with alpha values are rendered last and with careful culling settings. for example the following code may be used <programlisting filename=".cpp"><codeline><highlight class="normal">glDepthMask(GL_FALSE);</highlight></codeline>
+<codeline><highlight class="normal">glCullFace(GL_FRONT);<sp/></highlight><highlight class="comment">//<sp/>render<sp/>back<sp/>of<sp/>cube<sp/>first<sp/>-<sp/>do<sp/>not<sp/>need<sp/>polygon<sp/>z<sp/>sorting<sp/>as<sp/>cube<sp/>is<sp/>convex</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">glDrawElements(GL_TRIANGLES,<sp/>elements.size(),<sp/>GL_UNSIGNED_INT,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal">glCullFace(GL_BACK);</highlight></codeline>
+<codeline><highlight class="normal">glDrawElements(GL_TRIANGLES,<sp/>elements.size(),<sp/>GL_UNSIGNED_INT,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal">glDepthMask(GL_TRUE);</highlight></codeline>
+</programlisting> </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59a34f4602000f79a19051e92a925ee3f8c" prot="public">
+          <name>SO_INSTANCED</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Enables instanced rendering of an object. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>If enabled then the shader acts on instanced objects - it expects to recieve the matrix &quot;postModel&quot; as a uniform, as well as to recieve the &quot;instanceMatrix&quot; and &quot;normalInst Matrix&quot; as vertex attributes set to be instanced with glVertexAttribDivisor. Additionally glDrawElementsInstanced should be called in preference to glDrawElements </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59a4bf50d0f5e7329cb1e8d7eb315b6845c" prot="public">
+          <name>SO_MATERIAL</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Enables the use of material shaders rather than fixed colours. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>If enabled then the alternative rendering settings of ambient/diffuse/speccular are used rather than a default colour. Each of these can be set separately as either uniforms or vertex attributes using further shaderOptions. The material choice is separate from the ambient/diffuse/specular lighting colours - it provides additional variation in material under the same lighting </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59affee27d801c942710393d065d3412a8e" prot="public">
+          <name>SO_AMBIENT_ATTRIBUTE</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+<para>Enables the ambient colour to be passed as a vertex attribute as opposed to a uniform using setMaterialAmbient() </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59afe123b98c45a6da56c2983e5693d0d0a" prot="public">
+          <name>SO_DIFFUSE_ATTRIBUTE</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+<para>Enables the diffuse colour to be passed as a vertex attribute as opposed to a uniform using setMaterialDiffuse() </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59aef134e3aafeec3681ca063d6a821a5c1" prot="public">
+          <name>SO_SPECULAR_ATTRIBUTE</name>
+          <initializer>= 32</initializer>
+          <briefdescription>
+<para>Enables the specular colour to be passed as a vertex attribute as opposed to a uniform using setMaterialSpecular() </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59a25171d3b39ec70b8a7e720e41a64dab3" prot="public">
+          <name>SO_ALPHA_ATTRIBUTE</name>
+          <initializer>= 64</initializer>
+          <briefdescription>
+<para>Enables the alpha colour to be passed as a vertex attribute in material mode as opposed to a uniform using setMaterialAlpha() </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacescene_objects_1a97fb2e6562dc9a261e6c5925cdbccd59a0ba6951a4cbb45ce90b0cae2ad9bf7fb" prot="public">
+          <name>SO_COLOR_ATTRIBUTE</name>
+          <initializer>= 128</initializer>
+          <briefdescription>
+<para>Enables the colour to be passed as a vertex attribute in colour mode as opposed to a uniform using setColor() </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The options which can be passed into <ref refid="classscene_objects_1_1_s_o___phong_shader" kindref="compound">SO_PhongShader</ref> to control the exact behaviour. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="90" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="90" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacescene_objects_1a49c8330ef743ecb7a25bd11b5393811a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sceneObjects::perlinPerms</definition>
+        <argsstring>[512]</argsstring>
+        <name>perlinPerms</name>
+        <initializer>= { 151,160,137,91,90,15,                 
+                        131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,    
+                        190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
+                        88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,
+                        77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,
+                        102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,
+                        135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,
+                        5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,
+                        223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,
+                        129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,
+                        251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,
+                        49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
+                        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180,
+
+                        151,160,137,91,90,15,                 
+                        131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
+                        190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
+                        88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,
+                        77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,
+                        102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,
+                        135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,
+                        5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,
+                        223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,
+                        129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,
+                        251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,
+                        49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
+                        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180
+                    }</initializer>
+        <briefdescription>
+<para>stores the table of permutations required to generate perlin noise </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="353" column="12" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="56" bodyend="-1" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="353" declcolumn="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacescene_objects_1a68e19ab4cc523ffa7b31eef60d35745a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::createRatioVector</definition>
+        <argsstring>(int subdivisions, int division, glm::vec3 vector1, glm::vec3 vector2)</argsstring>
+        <name>createRatioVector</name>
+        <param>
+          <type>int</type>
+          <declname>subdivisions</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>division</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>vector1</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>vector2</declname>
+        </param>
+        <briefdescription>
+<para>creates a weighted sum of two vectors </para>
+        </briefdescription>
+        <detaileddescription>
+<para>creates the weighted sum of vectors (<computeroutput>subdivisions</computeroutput>-<computeroutput>division</computeroutput>)/<computeroutput>subdivisions</computeroutput>*<computeroutput>vector1</computeroutput> + <computeroutput>division</computeroutput>/<computeroutput>subdivisions</computeroutput>*<computeroutput>vector2</computeroutput> If vector1 and vector2 are position vectors then this gives the position vector to a point <computeroutput>division</computeroutput>/<computeroutput>subdivitions</computeroutput> from vector1 to vector2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="321" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="5" bodyend="7" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="321" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1a32b10fae4fe3a240ba3e600c1858db50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structscene_objects_1_1_s_o___mesh_data" kindref="compound">SO_MeshData</ref></type>
+        <definition>sceneObjects::SO_MeshData sceneObjects::createIcosphere</definition>
+        <argsstring>(int subdivisions)</argsstring>
+        <name>createIcosphere</name>
+        <param>
+          <type>int</type>
+          <declname>subdivisions</declname>
+        </param>
+        <briefdescription>
+<para>creates a sphere mesh beginning from an icosahedron </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a sphere mesh by taking an icosahedron and dividing each edge into <computeroutput>subdivisions</computeroutput> sections. Then the faces of the icosahedron are split up from the cuts of the edges. Finally all the vertices are normalised to s distance 1 from the origin </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="329" column="13" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/meshFunctions.cpp" bodystart="5" bodyend="141" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="329" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1a91799fbed28322ded909d788aa004951" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sceneObjects::fade</definition>
+        <argsstring>(double x)</argsstring>
+        <name>fade</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Return 6t^5-15t^4+10t^3 - a smooth function between (0,0) and (1,1) with gradient 0 at each point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="332" column="8" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="10" bodyend="17" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="332" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1ab0bd7d10d194763d90775dc4d49f7d25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int sceneObjects::inc</definition>
+        <argsstring>(int num, int repeat)</argsstring>
+        <name>inc</name>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>repeat</declname>
+        </param>
+        <briefdescription>
+<para>increments a number <computeroutput>num</computeroutput> looping around to 0 at the value of <computeroutput>repeat</computeroutput> (i.e. returns (num+1)repeat if num &gt;0) - not mod since it doesn&apos;t loop negative values </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="334" column="5" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="20" bodyend="26" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="334" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1a3850d54716e5b08fdc38e23ab4243f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sceneObjects::grad</definition>
+        <argsstring>(int hash, double x, double y, double z)</argsstring>
+        <name>grad</name>
+        <param>
+          <type>int</type>
+          <declname>hash</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>gets the gradient of perlin corner (see algorithm) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="336" column="8" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="29" bodyend="49" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="336" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1aadeed623ab9621c624babc1d53dfb799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T sceneObjects::lerp</definition>
+        <argsstring>(T a, T b, float x)</argsstring>
+        <name>lerp</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>linear interpolation for any type T with mulitplication an addition defined </para>
+        </briefdescription>
+        <detaileddescription>
+<para>i.e. returns <computeroutput>(1-x)*a + x*b</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="342" column="15" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" bodystart="342" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1ad69be0396a78765395413b2a9e6f8ba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sceneObjects::modulus</definition>
+        <argsstring>(double x, double y)</argsstring>
+        <name>modulus</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>a modulus function which is &apos;correct&apos; about negatives </para>
+        </briefdescription>
+        <detaileddescription>
+<para>returns <computeroutput>x - y*floor(x/y)</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="350" column="8" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="52" bodyend="54" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="350" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1a300f24d7bded37b38293e85ec1e94dbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sceneObjects::perlin</definition>
+        <argsstring>(double x, double y, double z, double repeat)</argsstring>
+        <name>perlin</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>repeat</declname>
+        </param>
+        <briefdescription>
+<para>generates perlin noise at coordinates <computeroutput>x</computeroutput>,<computeroutput>y</computeroutput>,<computeroutput>z</computeroutput>, with a repeat size of <computeroutput>repeat</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="356" column="8" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="86" bodyend="136" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="356" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacescene_objects_1a8dba26f2db6ab8e4d76fcbcb756e7c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::getLerpColor</definition>
+        <argsstring>(SO_ColorMap &amp;map, float min, float max, float value)</argsstring>
+        <name>getLerpColor</name>
+        <param>
+          <type><ref refid="structscene_objects_1_1_s_o___color_map" kindref="compound">SO_ColorMap</ref> &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Extracts the colour from a colourmap gradient given the <computeroutput>min</computeroutput> and <computeroutput>max</computeroutput> values and a <computeroutput>value</computeroutput> between those. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" line="366" column="11" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/helperFunctions.cpp" bodystart="139" bodyend="150" declfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneObjects.hpp" declline="366" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The namespace containing all classes, members, structs involved in the <ref refid="namespacescene_objects" kindref="compound">sceneObjects</ref> library. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>

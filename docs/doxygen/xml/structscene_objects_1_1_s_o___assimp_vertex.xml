@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="structscene_objects_1_1_s_o___assimp_vertex" kind="struct" language="C++" prot="public">
+    <compoundname>sceneObjects::SO_AssimpVertex</compoundname>
+    <includes refid="scene_models_8hpp" local="no">sceneModels.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structscene_objects_1_1_s_o___assimp_vertex_1a26a94e66bf8ffa55ab402dda27259f7a" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::SO_AssimpVertex::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <initializer>= glm::vec3(0.0f, 0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The position of the vertex in modelSpace. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="17" column="15" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscene_objects_1_1_s_o___assimp_vertex_1a955cba23a03408b4497abe3a64e9bb69" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::SO_AssimpVertex::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <initializer>= glm::vec3(0.0f, 0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The normal to the surface in model space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="18" column="15" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscene_objects_1_1_s_o___assimp_vertex_1a3ee0951c04de67aad02690443265c9ad" prot="public" static="no" mutable="no">
+        <type>glm::vec2</type>
+        <definition>glm::vec2 sceneObjects::SO_AssimpVertex::texCoords</definition>
+        <argsstring></argsstring>
+        <name>texCoords</name>
+        <initializer>= glm::vec2(0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The coords of the texture at this vertex 2D (u,v) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="19" column="15" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscene_objects_1_1_s_o___assimp_vertex_1a036f7ea6cbabcfe18bdae0c1af91dfa5" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 sceneObjects::SO_AssimpVertex::tangent</definition>
+        <argsstring></argsstring>
+        <name>tangent</name>
+        <initializer>= glm::vec3(0.0f, 0.0f, 0.0f)</initializer>
+        <briefdescription>
+<para>The tangent vector lies along the u axis of the texture - the bitangent is not stored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="20" column="15" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The container for a single vertex imported with the assimp system. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="16" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="16" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structscene_objects_1_1_s_o___assimp_vertex_1a955cba23a03408b4497abe3a64e9bb69" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpVertex</scope><name>normal</name></member>
+      <member refid="structscene_objects_1_1_s_o___assimp_vertex_1a26a94e66bf8ffa55ab402dda27259f7a" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpVertex</scope><name>position</name></member>
+      <member refid="structscene_objects_1_1_s_o___assimp_vertex_1a036f7ea6cbabcfe18bdae0c1af91dfa5" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpVertex</scope><name>tangent</name></member>
+      <member refid="structscene_objects_1_1_s_o___assimp_vertex_1a3ee0951c04de67aad02690443265c9ad" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpVertex</scope><name>texCoords</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

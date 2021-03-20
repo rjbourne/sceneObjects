@@ -1,0 +1,161 @@
+\hypertarget{classscene_objects_1_1_s_o___assimp_model}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Assimp\+Model Class Reference}
+\label{classscene_objects_1_1_s_o___assimp_model}\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+
+
+A class which can load in object files using the assimp library.  
+
+
+
+
+{\ttfamily \#include $<$scene\+Models.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_af637698997ba32d952ff914dd012d05b}{S\+O\+\_\+\+Assimp\+Model}} (std\+::string path, int ai\+Options)
+\begin{DoxyCompactList}\small\item\em constructor for assimp model (currently only allows 1 pair of texture coords per mesh) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_af2627a84b58024a6dc9ea4bc4374cec9}{load\+Model}} (std\+::string path, int ai\+Options)
+\begin{DoxyCompactList}\small\item\em loader for assimp model if constructor not used (currently only allows 1 pair of texture coords per mesh) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_aae8418a134d18915371b6efd3c4b1afd}{process\+Node}} (ai\+Node $\ast$node, const ai\+Scene $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Process each node of an assimp model, may contain multiple meshes and have its own relative coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_acb9c655cd71e6c7eef2cccb842625c7c}{process\+Mesh}} (ai\+Mesh $\ast$mesh, const ai\+Scene $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Convert each mesh of an assimp node into an \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a91765e737d2642711bdd16ab2182c1b8}{load\+Material\+Textures}} (ai\+Material $\ast$material, ai\+Texture\+Type type)
+\begin{DoxyCompactList}\small\item\em Load all the required textures of an assimp mesh. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a1a3099c21f2c1b57c88472b28ed1b191}{load\+Texture\+From\+File}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Loads a texture from an image file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a13a67bd9123327fcdfccf28b20e0364c}{render}} ()
+\begin{DoxyCompactList}\small\item\em renders the model by calling the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a13a67bd9123327fcdfccf28b20e0364c}{render()}} method of each child \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a04fa6f9a5597626e24175ad471b8e088}{create\+Shaders}} (int number\+Lights)
+\begin{DoxyCompactList}\small\item\em Calls each \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} to create its own shaders using the number of pointlight sources given. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_af92b99364dd3ea010cd5d3d250f14134}{meshes}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}} $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a9afd613e97d49c48f4729fbe62a4c07f}{global\+Textures}}
+\begin{DoxyCompactList}\small\item\em A vector of the textures in all involved meshes -\/ prevents loading multiple instances of the same texture for different meshes. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a85bf694c4a9092587340fa7afb64de96}{directory}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which can load in object files using the assimp library. 
+
+This class can load in object files from many formats using the assimp library. It currently supports loading diffuse, normal and specular textures as well as the mesh. It supports multiple-\/mesh files, storing each as an individual \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_af637698997ba32d952ff914dd012d05b}\label{classscene_objects_1_1_s_o___assimp_model_af637698997ba32d952ff914dd012d05b}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!SO\_AssimpModel@{SO\_AssimpModel}}
+\index{SO\_AssimpModel@{SO\_AssimpModel}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{SO\_AssimpModel()}{SO\_AssimpModel()}}
+{\footnotesize\ttfamily scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::\+S\+O\+\_\+\+Assimp\+Model (\begin{DoxyParamCaption}\item[{std\+::string}]{path,  }\item[{int}]{ai\+Options }\end{DoxyParamCaption})}
+
+
+
+constructor for assimp model (currently only allows 1 pair of texture coords per mesh) 
+
+{\ttfamily ai\+Options} should be members of the {\ttfamily ai\+Post\+Proccess\+Steps} enum e.\+g. -\/ai\+Process\+\_\+\+Flip\+U\+Vs -\/ai\+Process\+\_\+\+Gen\+Normals -\/ai\+Process\+\_\+\+Optimize\+Meshes -\/ai\+Process\+\_\+\+Optimize\+Graph Note that ai\+Triangulate is always called -\/ the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} only deals with triangular faces. This constructor duplicates the behavious of \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_af2627a84b58024a6dc9ea4bc4374cec9}{load\+Model()}}, which is in fact called by the constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a04fa6f9a5597626e24175ad471b8e088}\label{classscene_objects_1_1_s_o___assimp_model_a04fa6f9a5597626e24175ad471b8e088}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!createShaders@{createShaders}}
+\index{createShaders@{createShaders}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{createShaders()}{createShaders()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::create\+Shaders (\begin{DoxyParamCaption}\item[{int}]{number\+Lights }\end{DoxyParamCaption})}
+
+
+
+Calls each \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} to create its own shaders using the number of pointlight sources given. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a91765e737d2642711bdd16ab2182c1b8}\label{classscene_objects_1_1_s_o___assimp_model_a91765e737d2642711bdd16ab2182c1b8}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!loadMaterialTextures@{loadMaterialTextures}}
+\index{loadMaterialTextures@{loadMaterialTextures}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{loadMaterialTextures()}{loadMaterialTextures()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Texture}} $>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::load\+Material\+Textures (\begin{DoxyParamCaption}\item[{ai\+Material $\ast$}]{material,  }\item[{ai\+Texture\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Load all the required textures of an assimp mesh. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_af2627a84b58024a6dc9ea4bc4374cec9}\label{classscene_objects_1_1_s_o___assimp_model_af2627a84b58024a6dc9ea4bc4374cec9}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!loadModel@{loadModel}}
+\index{loadModel@{loadModel}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{loadModel()}{loadModel()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::load\+Model (\begin{DoxyParamCaption}\item[{std\+::string}]{path,  }\item[{int}]{ai\+Options }\end{DoxyParamCaption})}
+
+
+
+loader for assimp model if constructor not used (currently only allows 1 pair of texture coords per mesh) 
+
+{\ttfamily ai\+Options} should be members of the {\ttfamily ai\+Post\+Proccess\+Steps} enum e.\+g. -\/ai\+Process\+\_\+\+Flip\+U\+Vs -\/ai\+Process\+\_\+\+Gen\+Normals -\/ai\+Process\+\_\+\+Optimize\+Meshes -\/ai\+Process\+\_\+\+Optimize\+Graph Note that ai\+Triangulate is always called -\/ the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} only deals with triangular faces. \mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a1a3099c21f2c1b57c88472b28ed1b191}\label{classscene_objects_1_1_s_o___assimp_model_a1a3099c21f2c1b57c88472b28ed1b191}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!loadTextureFromFile@{loadTextureFromFile}}
+\index{loadTextureFromFile@{loadTextureFromFile}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{loadTextureFromFile()}{loadTextureFromFile()}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::load\+Texture\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Loads a texture from an image file. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_acb9c655cd71e6c7eef2cccb842625c7c}\label{classscene_objects_1_1_s_o___assimp_model_acb9c655cd71e6c7eef2cccb842625c7c}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!processMesh@{processMesh}}
+\index{processMesh@{processMesh}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{processMesh()}{processMesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Mesh}} scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::process\+Mesh (\begin{DoxyParamCaption}\item[{ai\+Mesh $\ast$}]{mesh,  }\item[{const ai\+Scene $\ast$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Convert each mesh of an assimp node into an \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}}. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_aae8418a134d18915371b6efd3c4b1afd}\label{classscene_objects_1_1_s_o___assimp_model_aae8418a134d18915371b6efd3c4b1afd}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!processNode@{processNode}}
+\index{processNode@{processNode}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{processNode()}{processNode()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::process\+Node (\begin{DoxyParamCaption}\item[{ai\+Node $\ast$}]{node,  }\item[{const ai\+Scene $\ast$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Process each node of an assimp model, may contain multiple meshes and have its own relative coordinates. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a13a67bd9123327fcdfccf28b20e0364c}\label{classscene_objects_1_1_s_o___assimp_model_a13a67bd9123327fcdfccf28b20e0364c}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!render@{render}}
+\index{render@{render}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renders the model by calling the \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_model_a13a67bd9123327fcdfccf28b20e0364c}{render()}} method of each child \mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}} 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a85bf694c4a9092587340fa7afb64de96}\label{classscene_objects_1_1_s_o___assimp_model_a85bf694c4a9092587340fa7afb64de96}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!directory@{directory}}
+\index{directory@{directory}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{directory}{directory}}
+{\footnotesize\ttfamily std\+::string scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::directory}
+
+The filepath and filname of the model file \mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_a9afd613e97d49c48f4729fbe62a4c07f}\label{classscene_objects_1_1_s_o___assimp_model_a9afd613e97d49c48f4729fbe62a4c07f}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!globalTextures@{globalTextures}}
+\index{globalTextures@{globalTextures}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{globalTextures}{globalTextures}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structscene_objects_1_1_s_o___assimp_texture}{S\+O\+\_\+\+Assimp\+Texture}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::global\+Textures}
+
+
+
+A vector of the textures in all involved meshes -\/ prevents loading multiple instances of the same texture for different meshes. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___assimp_model_af92b99364dd3ea010cd5d3d250f14134}\label{classscene_objects_1_1_s_o___assimp_model_af92b99364dd3ea010cd5d3d250f14134}} 
+\index{sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}!meshes@{meshes}}
+\index{meshes@{meshes}!sceneObjects::SO\_AssimpModel@{sceneObjects::SO\_AssimpModel}}
+\doxysubsubsection{\texorpdfstring{meshes}{meshes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classscene_objects_1_1_s_o___assimp_mesh}{S\+O\+\_\+\+Assimp\+Mesh}}$>$ scene\+Objects\+::\+S\+O\+\_\+\+Assimp\+Model\+::meshes}
+
+The meshes in the file -\/ for simple objects usually only 1 mesh is created 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_models_8hpp}{scene\+Models.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___assimp_model_8cpp}{S\+O\+\_\+\+Assimp\+Model.\+cpp}}\end{DoxyCompactItemize}

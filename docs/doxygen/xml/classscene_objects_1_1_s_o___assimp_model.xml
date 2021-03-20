@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="classscene_objects_1_1_s_o___assimp_model" kind="class" language="C++" prot="public">
+    <compoundname>sceneObjects::SO_AssimpModel</compoundname>
+    <includes refid="scene_models_8hpp" local="no">sceneModels.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_model_1af92b99364dd3ea010cd5d3d250f14134" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpMesh&gt; sceneObjects::SO_AssimpModel::meshes</definition>
+        <argsstring></argsstring>
+        <name>meshes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The meshes in the file - for simple objects usually only 1 mesh is created </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="110" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_model_1a9afd613e97d49c48f4729fbe62a4c07f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_texture" kindref="compound">SO_AssimpTexture</ref> &gt;</type>
+        <definition>std::vector&lt;SO_AssimpTexture&gt; sceneObjects::SO_AssimpModel::globalTextures</definition>
+        <argsstring></argsstring>
+        <name>globalTextures</name>
+        <briefdescription>
+<para>A vector of the textures in all involved meshes - prevents loading multiple instances of the same texture for different meshes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="112" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classscene_objects_1_1_s_o___assimp_model_1a85bf694c4a9092587340fa7afb64de96" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string sceneObjects::SO_AssimpModel::directory</definition>
+        <argsstring></argsstring>
+        <name>directory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The filepath and filname of the model file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="113" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1af637698997ba32d952ff914dd012d05b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sceneObjects::SO_AssimpModel::SO_AssimpModel</definition>
+        <argsstring>(std::string path, int aiOptions)</argsstring>
+        <name>SO_AssimpModel</name>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aiOptions</declname>
+        </param>
+        <briefdescription>
+<para>constructor for assimp model (currently only allows 1 pair of texture coords per mesh) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>aiOptions</computeroutput> should be members of the <computeroutput>aiPostProccessSteps</computeroutput> enum e.g. -aiProcess_FlipUVs -aiProcess_GenNormals -aiProcess_OptimizeMeshes -aiProcess_OptimizeGraph Note that aiTriangulate is always called - the <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> only deals with triangular faces. This constructor duplicates the behavious of <ref refid="classscene_objects_1_1_s_o___assimp_model_1af2627a84b58024a6dc9ea4bc4374cec9" kindref="member">loadModel()</ref>, which is in fact called by the constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="124" column="9" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1af2627a84b58024a6dc9ea4bc4374cec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_AssimpModel::loadModel</definition>
+        <argsstring>(std::string path, int aiOptions)</argsstring>
+        <name>loadModel</name>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>aiOptions</declname>
+        </param>
+        <briefdescription>
+<para>loader for assimp model if constructor not used (currently only allows 1 pair of texture coords per mesh) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>aiOptions</computeroutput> should be members of the <computeroutput>aiPostProccessSteps</computeroutput> enum e.g. -aiProcess_FlipUVs -aiProcess_GenNormals -aiProcess_OptimizeMeshes -aiProcess_OptimizeGraph Note that aiTriangulate is always called - the <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> only deals with triangular faces. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="134" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="25" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1aae8418a134d18915371b6efd3c4b1afd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_AssimpModel::processNode</definition>
+        <argsstring>(aiNode *node, const aiScene *scene)</argsstring>
+        <name>processNode</name>
+        <param>
+          <type>aiNode *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const aiScene *</type>
+          <declname>scene</declname>
+        </param>
+        <briefdescription>
+<para>Process each node of an assimp model, may contain multiple meshes and have its own relative coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="135" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="46" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1acb9c655cd71e6c7eef2cccb842625c7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref></type>
+        <definition>sceneObjects::SO_AssimpMesh sceneObjects::SO_AssimpModel::processMesh</definition>
+        <argsstring>(aiMesh *mesh, const aiScene *scene)</argsstring>
+        <name>processMesh</name>
+        <param>
+          <type>aiMesh *</type>
+          <declname>mesh</declname>
+        </param>
+        <param>
+          <type>const aiScene *</type>
+          <declname>scene</declname>
+        </param>
+        <briefdescription>
+<para>Convert each mesh of an assimp node into an <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="136" column="23" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="57" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1a91765e737d2642711bdd16ab2182c1b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structscene_objects_1_1_s_o___assimp_texture" kindref="compound">SO_AssimpTexture</ref> &gt;</type>
+        <definition>std::vector&lt; sceneObjects::SO_AssimpTexture &gt; sceneObjects::SO_AssimpModel::loadMaterialTextures</definition>
+        <argsstring>(aiMaterial *material, aiTextureType type)</argsstring>
+        <name>loadMaterialTextures</name>
+        <param>
+          <type>aiMaterial *</type>
+          <declname>material</declname>
+        </param>
+        <param>
+          <type>aiTextureType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Load all the required textures of an assimp mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="137" column="21" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="108" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1a1a3099c21f2c1b57c88472b28ed1b191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint sceneObjects::SO_AssimpModel::loadTextureFromFile</definition>
+        <argsstring>(std::string path)</argsstring>
+        <name>loadTextureFromFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Loads a texture from an image file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="138" column="16" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="134" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1a13a67bd9123327fcdfccf28b20e0364c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_AssimpModel::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <briefdescription>
+<para>renders the model by calling the <ref refid="classscene_objects_1_1_s_o___assimp_model_1a13a67bd9123327fcdfccf28b20e0364c" kindref="member">render()</ref> method of each child <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="139" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="172" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classscene_objects_1_1_s_o___assimp_model_1a04fa6f9a5597626e24175ad471b8e088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sceneObjects::SO_AssimpModel::createShaders</definition>
+        <argsstring>(int numberLights)</argsstring>
+        <name>createShaders</name>
+        <param>
+          <type>int</type>
+          <declname>numberLights</declname>
+        </param>
+        <briefdescription>
+<para>Calls each <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> to create its own shaders using the number of pointlight sources given. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="140" column="14" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/SRC/SO_AssimpModel.cpp" bodystart="179" bodyend="183"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which can load in object files using the assimp library. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class can load in object files from many formats using the assimp library. It currently supports loading diffuse, normal and specular textures as well as the mesh. It supports multiple-mesh files, storing each as an individual <ref refid="classscene_objects_1_1_s_o___assimp_mesh" kindref="compound">SO_AssimpMesh</ref> </para>
+    </detaileddescription>
+    <location file="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" line="108" column="1" bodyfile="C:/Users/Robert/Documents/GitHub/sceneObjects/HEADERS/sceneModels.hpp" bodystart="108" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a04fa6f9a5597626e24175ad471b8e088" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>createShaders</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a85bf694c4a9092587340fa7afb64de96" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>directory</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a9afd613e97d49c48f4729fbe62a4c07f" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>globalTextures</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a91765e737d2642711bdd16ab2182c1b8" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>loadMaterialTextures</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1af2627a84b58024a6dc9ea4bc4374cec9" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>loadModel</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a1a3099c21f2c1b57c88472b28ed1b191" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>loadTextureFromFile</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1af92b99364dd3ea010cd5d3d250f14134" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>meshes</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1acb9c655cd71e6c7eef2cccb842625c7c" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>processMesh</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1aae8418a134d18915371b6efd3c4b1afd" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>processNode</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1a13a67bd9123327fcdfccf28b20e0364c" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>render</name></member>
+      <member refid="classscene_objects_1_1_s_o___assimp_model_1af637698997ba32d952ff914dd012d05b" prot="public" virt="non-virtual"><scope>sceneObjects::SO_AssimpModel</scope><name>SO_AssimpModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

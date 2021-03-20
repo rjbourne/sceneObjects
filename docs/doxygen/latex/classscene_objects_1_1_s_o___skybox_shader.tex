@@ -1,0 +1,201 @@
+\hypertarget{classscene_objects_1_1_s_o___skybox_shader}{}\doxysection{scene\+Objects\+::S\+O\+\_\+\+Skybox\+Shader Class Reference}
+\label{classscene_objects_1_1_s_o___skybox_shader}\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+
+
+Generate a skybox using 6 images which will appear in the background.  
+
+
+
+
+{\ttfamily \#include $<$scene\+Objects.\+hpp$>$}
+
+Inheritance diagram for scene\+Objects\+::S\+O\+\_\+\+Skybox\+Shader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscene_objects_1_1_s_o___skybox_shader}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_ac583fae22abfea2678674ab59067dbb3}{$\sim$\+S\+O\+\_\+\+Skybox\+Shader}} (void)
+\begin{DoxyCompactList}\small\item\em The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader}{S\+O\+\_\+\+Skybox\+Shader}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a5235f5d0187cbe3d17a7485912ccff87}{set\+Model\+Matrix}} (glm\+::mat4 model\+Matrix) override
+\begin{DoxyCompactList}\small\item\em An override of the base class method which removes translations as the skybox should be centred on the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a62235d4c9d9d9ddf394453feb0a250d0}{set\+View\+Matrix}} (glm\+::mat4 view\+Matrix) override
+\begin{DoxyCompactList}\small\item\em An override of the base class method which removes translations as the skybox should be centred on the camera. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_ac066952ecfc5862048bedf26371d0d8e}{generate}} (std\+::vector$<$ std\+::string $>$ image\+Files\+In)
+\begin{DoxyCompactList}\small\item\em the generate function creates the vertex and fragment shaders and links them into a program \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a4908bc7418875ede7be3897c8544d6a5}{render}} (G\+Lenum depth\+Func\+Reset=G\+L\+\_\+\+L\+E\+SS)
+\begin{DoxyCompactList}\small\item\em renders the skybox -\/ should be last render done for efficiency \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a21ef07de1a025f555741a7db4fe5c3fc}{create\+Vertex\+Shader}} (const char $\ast$vertex\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a vertex shader for the shader program using the char$\ast$ argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a88e296911a8c6245ff6a01406ad627b2}{create\+Fragment\+Shader}} (const char $\ast$fragment\+Source)
+\begin{DoxyCompactList}\small\item\em Creates a fragment shader for the shader program using the char$\ast$ input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_aa780feaae596dfabf590287397cca39a}{link\+Program}} (void)
+\begin{DoxyCompactList}\small\item\em Links the vertex and fragment shaders into a program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a29af717c378c23ae8bfc9bc6b000ae54}{image\+Files}}
+\begin{DoxyCompactList}\small\item\em Stores the file locations of the 6 asset images. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a37222a342005910a422b8ebd2b618f6b}{texture\+ID}}
+\begin{DoxyCompactList}\small\item\em The Open\+GL texture ID of the cubemap texture. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_a3c6db48f84b41192ec1b2eeb14729479}{skybox\+V\+AO}}
+\begin{DoxyCompactList}\small\item\em The vertex array object ID for the shader. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader_aae13f78bde28229e8b739a4259607cee}{skybox\+V\+BO}}
+\begin{DoxyCompactList}\small\item\em The vertex buffer object ID for the shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generate a skybox using 6 images which will appear in the background. 
+
+Generate a skybox using a vector of 6 images in order right (+x), left (-\/x), top (+y), bottom (-\/y), front (-\/z), back (+z) max size 2048x2048 (some frames delay in render function if larger) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_ac583fae22abfea2678674ab59067dbb3}\label{classscene_objects_1_1_s_o___skybox_shader_ac583fae22abfea2678674ab59067dbb3}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!````~SO\_SkyboxShader@{$\sim$SO\_SkyboxShader}}
+\index{````~SO\_SkyboxShader@{$\sim$SO\_SkyboxShader}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{$\sim$SO\_SkyboxShader()}{~SO\_SkyboxShader()}}
+{\footnotesize\ttfamily scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::$\sim$\+S\+O\+\_\+\+Skybox\+Shader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The custom destructor for the \mbox{\hyperlink{classscene_objects_1_1_s_o___skybox_shader}{S\+O\+\_\+\+Skybox\+Shader}} class. 
+
+The custom destructor for this class is implemented with non-\/default behaviour to destory the V\+A\+O/\+V\+BO that have been created. The parent \mbox{\hyperlink{classscene_objects_1_1_s_o___shader}{S\+O\+\_\+\+Shader}} destructor is called and destroys the program 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a88e296911a8c6245ff6a01406ad627b2}\label{classscene_objects_1_1_s_o___skybox_shader_a88e296911a8c6245ff6a01406ad627b2}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!createFragmentShader@{createFragmentShader}}
+\index{createFragmentShader@{createFragmentShader}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{createFragmentShader()}{createFragmentShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Fragment\+Shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a fragment shader for the shader program using the char$\ast$ input. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a21ef07de1a025f555741a7db4fe5c3fc}\label{classscene_objects_1_1_s_o___skybox_shader_a21ef07de1a025f555741a7db4fe5c3fc}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!createVertexShader@{createVertexShader}}
+\index{createVertexShader@{createVertexShader}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{createVertexShader()}{createVertexShader()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::create\+Vertex\+Shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a vertex shader for the shader program using the char$\ast$ argument. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_ac066952ecfc5862048bedf26371d0d8e}\label{classscene_objects_1_1_s_o___skybox_shader_ac066952ecfc5862048bedf26371d0d8e}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!generate@{generate}}
+\index{generate@{generate}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::generate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{image\+Files\+In }\end{DoxyParamCaption})}
+
+
+
+the generate function creates the vertex and fragment shaders and links them into a program 
+
+The arg {\ttfamily image\+Files\+In} is a vector of 6 image filepaths (as strings) to form the skybox in the order right (+x), left (-\/x), top (+y), bottom (-\/y), front (-\/z), back (+z) \mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_aa780feaae596dfabf590287397cca39a}\label{classscene_objects_1_1_s_o___skybox_shader_aa780feaae596dfabf590287397cca39a}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!linkProgram@{linkProgram}}
+\index{linkProgram@{linkProgram}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{linkProgram()}{linkProgram()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Shader\+::link\+Program (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Links the vertex and fragment shaders into a program. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a4908bc7418875ede7be3897c8544d6a5}\label{classscene_objects_1_1_s_o___skybox_shader_a4908bc7418875ede7be3897c8544d6a5}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!render@{render}}
+\index{render@{render}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::render (\begin{DoxyParamCaption}\item[{G\+Lenum}]{depth\+Func\+Reset = {\ttfamily GL\+\_\+LESS} }\end{DoxyParamCaption})}
+
+
+
+renders the skybox -\/ should be last render done for efficiency 
+
+\begin{DoxyWarning}{Warning}
+this operation leaves the shader program and V\+AO set on the skybox after calling use\+Program() and bind\+Vertex\+Array() must be recalled 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a5235f5d0187cbe3d17a7485912ccff87}\label{classscene_objects_1_1_s_o___skybox_shader_a5235f5d0187cbe3d17a7485912ccff87}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!setModelMatrix@{setModelMatrix}}
+\index{setModelMatrix@{setModelMatrix}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{setModelMatrix()}{setModelMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::set\+Model\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{model\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+An override of the base class method which removes translations as the skybox should be centred on the camera. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a469e22af8baa4fdf1e1eb84f25a6b086}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}}.
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a62235d4c9d9d9ddf394453feb0a250d0}\label{classscene_objects_1_1_s_o___skybox_shader_a62235d4c9d9d9ddf394453feb0a250d0}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!setViewMatrix@{setViewMatrix}}
+\index{setViewMatrix@{setViewMatrix}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{setViewMatrix()}{setViewMatrix()}}
+{\footnotesize\ttfamily void scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::set\+View\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{view\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+An override of the base class method which removes translations as the skybox should be centred on the camera. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classscene_objects_1_1_s_o___shader_a686a2c3bf7c954e54dec34134ebd1260}{scene\+Objects\+::\+S\+O\+\_\+\+Shader}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a29af717c378c23ae8bfc9bc6b000ae54}\label{classscene_objects_1_1_s_o___skybox_shader_a29af717c378c23ae8bfc9bc6b000ae54}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!imageFiles@{imageFiles}}
+\index{imageFiles@{imageFiles}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{imageFiles}{imageFiles}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::image\+Files\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores the file locations of the 6 asset images. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a3c6db48f84b41192ec1b2eeb14729479}\label{classscene_objects_1_1_s_o___skybox_shader_a3c6db48f84b41192ec1b2eeb14729479}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!skyboxVAO@{skyboxVAO}}
+\index{skyboxVAO@{skyboxVAO}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{skyboxVAO}{skyboxVAO}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::skybox\+V\+AO\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The vertex array object ID for the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_aae13f78bde28229e8b739a4259607cee}\label{classscene_objects_1_1_s_o___skybox_shader_aae13f78bde28229e8b739a4259607cee}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!skyboxVBO@{skyboxVBO}}
+\index{skyboxVBO@{skyboxVBO}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{skyboxVBO}{skyboxVBO}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::skybox\+V\+BO\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The vertex buffer object ID for the shader. 
+
+\mbox{\Hypertarget{classscene_objects_1_1_s_o___skybox_shader_a37222a342005910a422b8ebd2b618f6b}\label{classscene_objects_1_1_s_o___skybox_shader_a37222a342005910a422b8ebd2b618f6b}} 
+\index{sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}!textureID@{textureID}}
+\index{textureID@{textureID}!sceneObjects::SO\_SkyboxShader@{sceneObjects::SO\_SkyboxShader}}
+\doxysubsubsection{\texorpdfstring{textureID}{textureID}}
+{\footnotesize\ttfamily G\+Luint scene\+Objects\+::\+S\+O\+\_\+\+Skybox\+Shader\+::texture\+ID\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The Open\+GL texture ID of the cubemap texture. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+H\+E\+A\+D\+E\+R\+S/\mbox{\hyperlink{scene_objects_8hpp}{scene\+Objects.\+hpp}}\item 
+C\+:/\+Users/\+Robert/\+Documents/\+Git\+Hub/scene\+Objects/\+S\+R\+C/\mbox{\hyperlink{_s_o___skybox_shader_8cpp}{S\+O\+\_\+\+Skybox\+Shader.\+cpp}}\end{DoxyCompactItemize}
