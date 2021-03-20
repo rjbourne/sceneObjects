@@ -1,3 +1,4 @@
+/** \file SO_Camera.cpp */
 #include "sceneObjects.hpp"
 
 sceneObjects::SO_Camera::SO_Camera(float fovIn, float aspectRatioIn, float nearClipIn, float farClipIn, glm::vec3 positionIn, glm::vec3 frontIn, glm::vec3 upIn) {

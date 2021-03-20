@@ -1,3 +1,4 @@
+/** \file SO_AssimpMesh.cpp */
 #include "sceneObjects.hpp"
 #include "sceneModels.hpp"
 

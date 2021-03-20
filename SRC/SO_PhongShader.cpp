@@ -1,3 +1,4 @@
+/** \file SO_PhongShader.cpp */
 #include "sceneObjects.hpp"
 
 //numberLights gives number of point lights in the scene

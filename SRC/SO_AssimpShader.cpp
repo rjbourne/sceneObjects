@@ -1,3 +1,4 @@
+/** \file SO_AssimpShader.cpp */
 #include "sceneObjects.hpp"
 #include "sceneModels.hpp"
 
