@@ -16,6 +16,7 @@ double sceneObjects::fade(double x) {
     return x*x*x*(x*(x*6 - 15) + 10); //return 6t^5-15t^4+10t^3 smooth between (0,0) and (1,1)
 }
 
+
 //increments around a loop
 int sceneObjects::inc(int num, int repeat) {
     num++;
