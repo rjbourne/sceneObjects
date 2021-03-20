@@ -1,2 +1,8 @@
-Doxyfile in main is for gh-pages
-Doxyfile in docs is for readthedocs
+sceneObjects library for OpenGL
+===============================
+
+Check out the docs:
+
+RTD style: https://sceneobjects.readthedocs.io/en/latest/
+
+doxygen style: https://rjbourne.github.io/sceneObjects/
