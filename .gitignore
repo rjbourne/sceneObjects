@@ -1,3 +1,8 @@
 *.o
 *.exe
 *.a
+docs/_build
+docs/xml
+docs/latex
+docs/xml
+docs/api
