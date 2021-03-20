@@ -1,7 +1,6 @@
 #include "sceneObjects.hpp"
 
-sceneObjects::SO_Camera::SO_Camera(float fovIn=45.0f, float aspectRatioIn=1.0f, float nearClipIn=0.1f, float farClipIn=100.0f, 
-                        glm::vec3 positionIn=glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 frontIn=glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3 upIn=glm::vec3(0.0f, 1.0f, 0.0f)) {
+sceneObjects::SO_Camera::SO_Camera(float fovIn, float aspectRatioIn, float nearClipIn, float farClipIn, glm::vec3 positionIn, glm::vec3 frontIn, glm::vec3 upIn) {
     fov = fovIn;
     aspectRatio = aspectRatioIn;
     nearClip = nearClipIn;

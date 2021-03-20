@@ -48,7 +48,7 @@ double sceneObjects::grad(int hash, double x, double y, double z) {
     }
 }
 
-//moduus function without negatives
+//modulus function without negatives
 double sceneObjects::modulus(double x, double y) {
     return x - y*floor(x/y);
 }

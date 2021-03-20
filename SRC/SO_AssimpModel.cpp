@@ -169,9 +169,9 @@ GLuint sceneObjects::SO_AssimpModel::loadTextureFromFile(std::string path) {
 }
 
 //draws the scene - call at render time
-void sceneObjects::SO_AssimpModel::draw() {
+void sceneObjects::SO_AssimpModel::render() {
     for (unsigned int i = 0; i < meshes.size(); i++) {
-        meshes[i].draw();
+        meshes[i].render();
     }
 }
 

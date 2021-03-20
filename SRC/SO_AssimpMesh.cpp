@@ -39,7 +39,7 @@ sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int num
 
 
 //draws the mesh - call at render time
-void sceneObjects::SO_AssimpMesh::draw() {
+void sceneObjects::SO_AssimpMesh::render() {
     glUseProgram(shader.getProgramID());
     if (diffuseMaps.size() == 0) {
         glUniform3fv(glGetUniformLocation(shader.getProgramID(), "colorDiffuse"), 1, glm::value_ptr(diffuseColor));
