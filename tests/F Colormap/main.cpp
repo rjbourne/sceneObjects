@@ -1,6 +1,6 @@
 //includes
 #include <sceneObjects.hpp>
-#include <cstdio>
+#include <iostream>
 #include <cmath>
 #include <vector>
 #include <string>
@@ -38,13 +38,13 @@ int main(int argc, char *argv[]) {
     glewExperimental = GL_TRUE;
     glewInit();
 
-    glm::vec3 gradColors[] = {glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f)};
-    float gradPos[] = {0.0f, 1.0f};
+    glm::vec3 gradColors[] = {glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f)};
+    float gradPos[] = {0.0f, 0.5f, 1.0f};
 
     SO_ColorMap gradient;
-    gradient.length = 2;
-    gradient.colors = gradColors;
-    gradient.weights = gradPos;
+    for (int i = 0; i < sizeof(gradPos)/sizeof(float); i++) {
+        gradient.setValue(gradPos[i], gradColors[i]);
+    }
 
     std::vector<float> vertices;
     vertices.resize(WIDTH*HEIGHT*5);
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
             int start = 5*(w+h*WIDTH);
             vertices[start + 0] = -1.0f + 2.0f*((float)w/(WIDTH-1));
             vertices[start + 1] = -1.0f + 2.0f*((float)h/(HEIGHT-1));
-            glm::vec3 col = getLerpColor(gradient, -1.0f, 1.0f, vertices[start + 0]);
+            glm::vec3 col = gradient.getLerpColor(-1.0f, 1.0f, vertices[start + 0]);
             vertices[start + 2] = col.r;
             vertices[start + 3] = col.g;
             vertices[start + 4] = col.b;

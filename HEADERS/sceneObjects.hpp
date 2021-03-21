@@ -12,6 +12,7 @@
 #define GLEW_STATIC
 
 #include <vector>
+#include <map>
 #include <string>
 #include <stdio.h>
 #include <memory>
@@ -355,15 +356,30 @@ extern int perlinPerms[512];
 /// generates perlin noise at coordinates `x`,`y`,`z`, with a repeat size of `repeat`
 double perlin(double x, double y, double z, double repeat);
 
-/// Contains all the information required to create a colormap gradient
-struct SO_ColorMap {
-    int length;
-    glm::vec3* colors;
-    float* weights;
+/// A class which allows easy creation and use of colormaps
+/**
+ * This class contains a collection of key float positions and RGB colours. Standard positions are expected to lie between 0 and 1 
+ * however this is not required - positions outside this range represent values beyond the 'max' and 'min' range of the expected data.
+ * The class contains various methods for creating a spectrum of colours between the key positions.
+**/
+class SO_ColorMap {
+    private:
+        std::map<float, glm::vec3> colors; ///< The map of colours and associated positions
+    public:
+        void setValue(float position, glm::vec3 color); ///< Set a keyColor and position in the map
+        void deleteValue(float position); ///< Delete the keyColor at `position`. If no color is present at the position, there is no effect.
+        std::vector<float> getPositions(); ///< Returns an ordered vector of the key positions within the map
+        std::vector<glm::vec3> getColors(); ///< Returns an ordered vector of the key colours in the map - order corresponds with the vector returned by getPositions()
+        /// Returns a color from a linear interpolation of the keyColors
+        /**
+         * The SO_ColorMap is used to create a smooth color gradient. The `min` and `max` variables are taken as the expected extremes of the data, 
+         * and normalised laong with `value` to the range [0, 1]. If `value<min` or `value>max` then positions outside the range [0,1] can be accessed.
+         * This is not forbidden behaviour. If the requested `value` lies between two known key positions after normalisation then the linear interpolation
+         *  of the two key colors is returned. If the `value` beyond the minimum or maximum known key position then the minimum or maximum colors are returned.
+         * If the SO_ColorMap is empty then `glm::vec3(0.0f, 0.0f, 0.0f)` is returned.
+        **/
+        glm::vec3 getLerpColor(float min, float max, float value);
 };
-
-/// Extracts the colour from a colourmap gradient given the `min` and `max` values and a `value` between those.
-glm::vec3 getLerpColor(SO_ColorMap &map, float min, float max, float value);
 
 }
 #endif // FOO_H_

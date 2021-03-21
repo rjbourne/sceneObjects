@@ -135,16 +135,3 @@ double sceneObjects::perlin(double x, double y, double z, double repeat) { //htt
     return (lerp (y1, y2, w)+1)/2;
 }
 
-//get the linear interpolation color from a colormap
-glm::vec3 sceneObjects::getLerpColor(sceneObjects::SO_ColorMap &map, float min, float max, float value) {
-    value = (value - min)/(max - min); //normalise values
-    if (value <= map.weights[0]) {
-        return map.colors[0]; // if below min value return lowest value
-    }
-    for (int j = 1; j < map.length; j++) {
-        if (value <= map.weights[j]) {
-            return lerp(map.colors[j-1], map.colors[j], (value - map.weights[j-1])/(map.weights[j] - map.weights[j-1]));
-        }
-    }
-    return map.colors[map.length-1];
-}
