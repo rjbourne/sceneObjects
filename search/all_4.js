@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ebo_17',['ebo',['../classscene_objects_1_1_s_o___assimp_mesh.html#a3e1db6a9ecde32a45e5b3030e6cc38fe',1,'sceneObjects::SO_AssimpMesh']]],
-  ['elements_18',['elements',['../classscene_objects_1_1_s_o___assimp_mesh.html#a857b7596625d8d6371deba2a0dc15be2',1,'sceneObjects::SO_AssimpMesh']]]
+  ['ebo_18',['ebo',['../classscene_objects_1_1_s_o___model_mesh.html#ab30d2a19dc43ef332cd160df8b2d2b03',1,'sceneObjects::SO_ModelMesh']]],
+  ['elements_19',['elements',['../classscene_objects_1_1_s_o___model_mesh.html#ad625f1051401af1c2b1afa0aee6c9f2e',1,'sceneObjects::SO_ModelMesh']]]
 ];

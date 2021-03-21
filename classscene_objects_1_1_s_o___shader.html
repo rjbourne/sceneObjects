@@ -84,7 +84,7 @@ Inheritance diagram for sceneObjects::SO_Shader:</div>
  <div class="center">
   <img src="classscene_objects_1_1_s_o___shader.png" usemap="#sceneObjects::SO_5FShader_map" alt=""/>
   <map id="sceneObjects::SO_5FShader_map" name="sceneObjects::SO_5FShader_map">
-<area href="classscene_objects_1_1_s_o___assimp_shader.html" title="The shader for an SO_AssimpMesh object." alt="sceneObjects::SO_AssimpShader" shape="rect" coords="0,56,202,80"/>
+<area href="classscene_objects_1_1_s_o___model_shader.html" title="The shader for an SO_ModelMesh object." alt="sceneObjects::SO_ModelShader" shape="rect" coords="0,56,202,80"/>
 <area href="classscene_objects_1_1_s_o___phong_shader.html" title="3D Phong model lighting class" alt="sceneObjects::SO_PhongShader" shape="rect" coords="212,56,414,80"/>
 <area href="classscene_objects_1_1_s_o___skybox_shader.html" title="Generate a skybox using 6 images which will appear in the background." alt="sceneObjects::SO_SkyboxShader" shape="rect" coords="424,56,626,80"/>
   </map>
@@ -277,7 +277,7 @@ Private Attributes</h2></td></tr>
 <p>Sets the mat4 "model" uniform in the shader. </p>
 <p>Setting the "model" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "model" uniform even if it is unused. The model matrix transforms from model space to world space </p>
 
-<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html#a5235f5d0187cbe3d17a7485912ccff87">sceneObjects::SO_SkyboxShader</a>, <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#ae3d206f91193b86296eb3f12227c2415">sceneObjects::SO_PhongShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a16427fc3cc435d3631cb76cee6bfcef0">sceneObjects::SO_AssimpShader</a>.</p>
+<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ab6541ab1909f0858abeb08fb073f2749">sceneObjects::SO_ModelShader</a>, <a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html#a5235f5d0187cbe3d17a7485912ccff87">sceneObjects::SO_SkyboxShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#ae3d206f91193b86296eb3f12227c2415">sceneObjects::SO_PhongShader</a>.</p>
 
 </div>
 </div>
@@ -368,7 +368,7 @@ Private Attributes</h2></td></tr>
 <p>Sets the unused vec3 "viewPos" uniform in the shader - DOES NOTHING. </p>
 <p>Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is NOT a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "viewPos" uniform. The viewPos gives the position of the camera in world space </p>
 
-<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a911a249b7e7113a2bf72f5589396aaf5">sceneObjects::SO_PhongShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a22579eb2e1f36180807c9d12de009e0c">sceneObjects::SO_AssimpShader</a>.</p>
+<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a486070fcb5bb331bc9fee3b98294be15">sceneObjects::SO_ModelShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a911a249b7e7113a2bf72f5589396aaf5">sceneObjects::SO_PhongShader</a>.</p>
 
 </div>
 </div>

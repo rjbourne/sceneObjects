@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tangent_129',['tangent',['../structscene_objects_1_1_s_o___assimp_vertex.html#a036f7ea6cbabcfe18bdae0c1af91dfa5',1,'sceneObjects::SO_AssimpVertex']]],
-  ['texcoords_130',['texCoords',['../structscene_objects_1_1_s_o___assimp_vertex.html#a3ee0951c04de67aad02690443265c9ad',1,'sceneObjects::SO_AssimpVertex']]],
-  ['textureid_131',['textureId',['../structscene_objects_1_1_s_o___assimp_texture.html#a710c7a56a655199620c902a34f70114d',1,'sceneObjects::SO_AssimpTexture']]],
-  ['textureid_132',['textureID',['../classscene_objects_1_1_s_o___skybox_shader.html#a37222a342005910a422b8ebd2b618f6b',1,'sceneObjects::SO_SkyboxShader']]]
+  ['tangent_133',['tangent',['../structscene_objects_1_1_s_o___model_vertex.html#a7a2c2a658d2de1e29c4153a5f0486fbb',1,'sceneObjects::SO_ModelVertex']]],
+  ['texcoords_134',['texCoords',['../structscene_objects_1_1_s_o___model_vertex.html#a7a34ab24148a16413b70363634363135',1,'sceneObjects::SO_ModelVertex']]],
+  ['textureid_135',['textureID',['../classscene_objects_1_1_s_o___skybox_shader.html#a37222a342005910a422b8ebd2b618f6b',1,'sceneObjects::SO_SkyboxShader']]],
+  ['textureid_136',['textureId',['../structscene_objects_1_1_s_o___model_texture.html#a6f859afbba8f8d61951fae6a360dadbc',1,'sceneObjects::SO_ModelTexture']]]
 ];

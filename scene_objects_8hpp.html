@@ -92,6 +92,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html">sceneObjects::SO_SkyboxShader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a skybox using 6 images which will appear in the background.  <a href="classscene_objects_1_1_s_o___skybox_shader.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscene_objects_1_1_s_o___model_vertex.html">sceneObjects::SO_ModelVertex</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The container for a single vertex in an <a class="el" href="classscene_objects_1_1_s_o___model_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_ModelMesh</a>.  <a href="structscene_objects_1_1_s_o___model_vertex.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscene_objects_1_1_s_o___model_texture.html">sceneObjects::SO_ModelTexture</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a texture for an <a class="el" href="classscene_objects_1_1_s_o___assimp_model.html" title="A class which can load in object files using the assimp library.">SO_AssimpModel</a>.  <a href="structscene_objects_1_1_s_o___model_texture.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html">sceneObjects::SO_ModelShader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The shader for an <a class="el" href="classscene_objects_1_1_s_o___model_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_ModelMesh</a> object.  <a href="classscene_objects_1_1_s_o___model_shader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_mesh.html">sceneObjects::SO_ModelMesh</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which stores an advanced mesh object - including textures.  <a href="classscene_objects_1_1_s_o___model_mesh.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___camera.html">sceneObjects::SO_Camera</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 3D camera capable of creating view/projection matrices to linked shader programs on call.  <a href="classscene_objects_1_1_s_o___camera.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,8 +113,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscene_objects_1_1_s_o___mesh_data.html">sceneObjects::SO_MeshData</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">struct containing data for a simple mesh which can be used or manipulated by the user  <a href="structscene_objects_1_1_s_o___mesh_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscene_objects_1_1_s_o___color_map.html">sceneObjects::SO_ColorMap</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all the information required to create a colormap gradient.  <a href="structscene_objects_1_1_s_o___color_map.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___color_map.html">sceneObjects::SO_ColorMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which allows easy creation and use of colormaps.  <a href="classscene_objects_1_1_s_o___color_map.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -155,9 +167,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a300f24d7bded37b38293e85ec1e94dbf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescene_objects.html#a300f24d7bded37b38293e85ec1e94dbf">sceneObjects::perlin</a> (double x, double y, double z, double repeat)</td></tr>
 <tr class="memdesc:a300f24d7bded37b38293e85ec1e94dbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates perlin noise at coordinates <code>x</code>,<code>y</code>,<code>z</code>, with a repeat size of <code>repeat</code>  <a href="namespacescene_objects.html#a300f24d7bded37b38293e85ec1e94dbf">More...</a><br /></td></tr>
 <tr class="separator:a300f24d7bded37b38293e85ec1e94dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dba26f2db6ab8e4d76fcbcb756e7c58"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescene_objects.html#a8dba26f2db6ab8e4d76fcbcb756e7c58">sceneObjects::getLerpColor</a> (SO_ColorMap &amp;map, float min, float max, float value)</td></tr>
-<tr class="memdesc:a8dba26f2db6ab8e4d76fcbcb756e7c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the colour from a colourmap gradient given the <code>min</code> and <code>max</code> values and a <code>value</code> between those.  <a href="namespacescene_objects.html#a8dba26f2db6ab8e4d76fcbcb756e7c58">More...</a><br /></td></tr>
-<tr class="separator:a8dba26f2db6ab8e4d76fcbcb756e7c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace543b047e7ff2b3bdd00c55b7db971a"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescene_objects.html#ace543b047e7ff2b3bdd00c55b7db971a">sceneObjects::loadTextureFromFile</a> (std::string path)</td></tr>
+<tr class="memdesc:ace543b047e7ff2b3bdd00c55b7db971a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a texture from an image file - returns OpenGL texture ID.  <a href="namespacescene_objects.html#ace543b047e7ff2b3bdd00c55b7db971a">More...</a><br /></td></tr>
+<tr class="separator:ace543b047e7ff2b3bdd00c55b7db971a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

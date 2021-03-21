@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fade_180',['fade',['../namespacescene_objects.html#a91799fbed28322ded909d788aa004951',1,'sceneObjects']]]
+  ['deletevalue_184',['deleteValue',['../classscene_objects_1_1_s_o___color_map.html#a1282c9fb419edad6365e88576888fb36',1,'sceneObjects::SO_ColorMap']]]
 ];

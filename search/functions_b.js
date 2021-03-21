@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7eso_5fassimpmesh_224',['~SO_AssimpMesh',['../classscene_objects_1_1_s_o___assimp_mesh.html#ab02d518dd5997303a9e716b695e2698b',1,'sceneObjects::SO_AssimpMesh']]],
-  ['_7eso_5fshader_225',['~SO_Shader',['../classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4',1,'sceneObjects::SO_Shader']]],
-  ['_7eso_5fskyboxshader_226',['~SO_SkyboxShader',['../classscene_objects_1_1_s_o___skybox_shader.html#ac583fae22abfea2678674ab59067dbb3',1,'sceneObjects::SO_SkyboxShader']]]
+  ['unlinkshader_229',['unlinkShader',['../classscene_objects_1_1_s_o___camera.html#aa82b06b12f21c24cd3f871af6ad216ac',1,'sceneObjects::SO_Camera']]],
+  ['updateprojectionmatrix_230',['updateProjectionMatrix',['../classscene_objects_1_1_s_o___camera.html#a564ca4e151b155ebc946860dfd4309d0',1,'sceneObjects::SO_Camera']]],
+  ['updateviewmatrix_231',['updateViewMatrix',['../classscene_objects_1_1_s_o___camera.html#ac7e19d1848b7b606602eb0787e41e8d4',1,'sceneObjects::SO_Camera']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: sceneObjects::SO_AssimpShader Class Reference</title>
+<title>My Project: sceneObjects::SO_ModelShader Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacescene_objects.html">sceneObjects</a></li><li class="navelem"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html">SO_AssimpShader</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescene_objects.html">sceneObjects</a></li><li class="navelem"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html">SO_ModelShader</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,61 +69,61 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="classscene_objects_1_1_s_o___assimp_shader-members.html">List of all members</a>  </div>
+<a href="classscene_objects_1_1_s_o___model_shader-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sceneObjects::SO_AssimpShader Class Reference</div>  </div>
+<div class="title">sceneObjects::SO_ModelShader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The shader for an <a class="el" href="classscene_objects_1_1_s_o___assimp_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_AssimpMesh</a> object.  
- <a href="classscene_objects_1_1_s_o___assimp_shader.html#details">More...</a></p>
+<p>The shader for an <a class="el" href="classscene_objects_1_1_s_o___model_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_ModelMesh</a> object.  
+ <a href="classscene_objects_1_1_s_o___model_shader.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="scene_models_8hpp_source.html">sceneModels.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="scene_objects_8hpp_source.html">sceneObjects.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sceneObjects::SO_AssimpShader:</div>
+Inheritance diagram for sceneObjects::SO_ModelShader:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classscene_objects_1_1_s_o___assimp_shader.png" usemap="#sceneObjects::SO_5FAssimpShader_map" alt=""/>
-  <map id="sceneObjects::SO_5FAssimpShader_map" name="sceneObjects::SO_5FAssimpShader_map">
-<area href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class" alt="sceneObjects::SO_Shader" shape="rect" coords="0,0,201,24"/>
+  <img src="classscene_objects_1_1_s_o___model_shader.png" usemap="#sceneObjects::SO_5FModelShader_map" alt=""/>
+  <map id="sceneObjects::SO_5FModelShader_map" name="sceneObjects::SO_5FModelShader_map">
+<area href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class" alt="sceneObjects::SO_Shader" shape="rect" coords="0,0,196,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a19f4a529473055d5257a8cf24c8a57aa"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a19f4a529473055d5257a8cf24c8a57aa">generate</a> (int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures)</td></tr>
-<tr class="memdesc:a19f4a529473055d5257a8cf24c8a57aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the shader program using the number of lights/textures of each type as provided.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a19f4a529473055d5257a8cf24c8a57aa">More...</a><br /></td></tr>
-<tr class="separator:a19f4a529473055d5257a8cf24c8a57aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16427fc3cc435d3631cb76cee6bfcef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a16427fc3cc435d3631cb76cee6bfcef0">setModelMatrix</a> (glm::mat4 modelMatrix) override</td></tr>
-<tr class="memdesc:a16427fc3cc435d3631cb76cee6bfcef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">An override of the base class method which also calculates the transformation for normal vectors and passes this into the shader.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a16427fc3cc435d3631cb76cee6bfcef0">More...</a><br /></td></tr>
-<tr class="separator:a16427fc3cc435d3631cb76cee6bfcef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22579eb2e1f36180807c9d12de009e0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a22579eb2e1f36180807c9d12de009e0c">setViewPosition</a> (glm::vec3 viewPosition) override</td></tr>
-<tr class="memdesc:a22579eb2e1f36180807c9d12de009e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the camera in world space.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a22579eb2e1f36180807c9d12de009e0c">More...</a><br /></td></tr>
-<tr class="separator:a22579eb2e1f36180807c9d12de009e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcf89df4a74b6363e816440835dfb66e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#afcf89df4a74b6363e816440835dfb66e">setLightPosition</a> (int index, glm::vec3 lightPosition)</td></tr>
-<tr class="memdesc:afcf89df4a74b6363e816440835dfb66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of light number 'index' in world space.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#afcf89df4a74b6363e816440835dfb66e">More...</a><br /></td></tr>
-<tr class="separator:afcf89df4a74b6363e816440835dfb66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51a2fa51de9f9fcafc912d9015286163"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a51a2fa51de9f9fcafc912d9015286163">setLightConstant</a> (int index, float lightConstant)</td></tr>
-<tr class="memdesc:a51a2fa51de9f9fcafc912d9015286163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the constant term of the lights attenuation factor: 1 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a51a2fa51de9f9fcafc912d9015286163">More...</a><br /></td></tr>
-<tr class="separator:a51a2fa51de9f9fcafc912d9015286163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ab939b24816e0422a4fa2c652191d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a65ab939b24816e0422a4fa2c652191d8">setLightLinear</a> (int index, float lightLinear)</td></tr>
-<tr class="memdesc:a65ab939b24816e0422a4fa2c652191d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the linear term of the lights attenuation factor: 0 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a65ab939b24816e0422a4fa2c652191d8">More...</a><br /></td></tr>
-<tr class="separator:a65ab939b24816e0422a4fa2c652191d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9b52842b3f18c50f0790b9009d2809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a4b9b52842b3f18c50f0790b9009d2809">setLightQuadratic</a> (int index, float lightQuadratic)</td></tr>
-<tr class="memdesc:a4b9b52842b3f18c50f0790b9009d2809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the quadratic term of the lights attenuation factor: 0 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a4b9b52842b3f18c50f0790b9009d2809">More...</a><br /></td></tr>
-<tr class="separator:a4b9b52842b3f18c50f0790b9009d2809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b7fdd8471a21fa32c7d2e4be702005"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#aa0b7fdd8471a21fa32c7d2e4be702005">setLightAmbient</a> (int index, glm::vec3 lightAmbient)</td></tr>
-<tr class="memdesc:aa0b7fdd8471a21fa32c7d2e4be702005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights ambient factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#aa0b7fdd8471a21fa32c7d2e4be702005">More...</a><br /></td></tr>
-<tr class="separator:aa0b7fdd8471a21fa32c7d2e4be702005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dd3f87ba92f485ce0ac7eee7f32bb1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a3dd3f87ba92f485ce0ac7eee7f32bb1c">setLightDiffuse</a> (int index, glm::vec3 lightDiffuse)</td></tr>
-<tr class="memdesc:a3dd3f87ba92f485ce0ac7eee7f32bb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights diffuse factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a3dd3f87ba92f485ce0ac7eee7f32bb1c">More...</a><br /></td></tr>
-<tr class="separator:a3dd3f87ba92f485ce0ac7eee7f32bb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa43d9c62abe6dbddbd579d4da733805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#aaa43d9c62abe6dbddbd579d4da733805">setLightSpecular</a> (int index, glm::vec3 lightSpecular)</td></tr>
-<tr class="memdesc:aaa43d9c62abe6dbddbd579d4da733805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights specular factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#aaa43d9c62abe6dbddbd579d4da733805">More...</a><br /></td></tr>
-<tr class="separator:aaa43d9c62abe6dbddbd579d4da733805"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9818c0da9374f29aa2963cae830aa1e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a9818c0da9374f29aa2963cae830aa1e6">setSpecularPower</a> (unsigned int specPower)</td></tr>
-<tr class="memdesc:a9818c0da9374f29aa2963cae830aa1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the power of the specular highlights - higher integers produce 'sharper' spots.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a9818c0da9374f29aa2963cae830aa1e6">More...</a><br /></td></tr>
-<tr class="separator:a9818c0da9374f29aa2963cae830aa1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0e723bde21f5a05d4a31d45536e782"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#aca0e723bde21f5a05d4a31d45536e782">generate</a> (int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures)</td></tr>
+<tr class="memdesc:aca0e723bde21f5a05d4a31d45536e782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the shader program using the number of lights/textures of each type as provided.  <a href="classscene_objects_1_1_s_o___model_shader.html#aca0e723bde21f5a05d4a31d45536e782">More...</a><br /></td></tr>
+<tr class="separator:aca0e723bde21f5a05d4a31d45536e782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6541ab1909f0858abeb08fb073f2749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ab6541ab1909f0858abeb08fb073f2749">setModelMatrix</a> (glm::mat4 modelMatrix) override</td></tr>
+<tr class="memdesc:ab6541ab1909f0858abeb08fb073f2749"><td class="mdescLeft">&#160;</td><td class="mdescRight">An override of the base class method which also calculates the transformation for normal vectors and passes this into the shader.  <a href="classscene_objects_1_1_s_o___model_shader.html#ab6541ab1909f0858abeb08fb073f2749">More...</a><br /></td></tr>
+<tr class="separator:ab6541ab1909f0858abeb08fb073f2749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486070fcb5bb331bc9fee3b98294be15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a486070fcb5bb331bc9fee3b98294be15">setViewPosition</a> (glm::vec3 viewPosition) override</td></tr>
+<tr class="memdesc:a486070fcb5bb331bc9fee3b98294be15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the camera in world space.  <a href="classscene_objects_1_1_s_o___model_shader.html#a486070fcb5bb331bc9fee3b98294be15">More...</a><br /></td></tr>
+<tr class="separator:a486070fcb5bb331bc9fee3b98294be15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3546487534c3ee8149feacaf30fa1aa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a3546487534c3ee8149feacaf30fa1aa2">setLightPosition</a> (int index, glm::vec3 lightPosition)</td></tr>
+<tr class="memdesc:a3546487534c3ee8149feacaf30fa1aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of light number 'index' in world space.  <a href="classscene_objects_1_1_s_o___model_shader.html#a3546487534c3ee8149feacaf30fa1aa2">More...</a><br /></td></tr>
+<tr class="separator:a3546487534c3ee8149feacaf30fa1aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae00b745e6133297cfbb31f004bd8e3b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ae00b745e6133297cfbb31f004bd8e3b8">setLightConstant</a> (int index, float lightConstant)</td></tr>
+<tr class="memdesc:ae00b745e6133297cfbb31f004bd8e3b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the constant term of the lights attenuation factor: 1 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___model_shader.html#ae00b745e6133297cfbb31f004bd8e3b8">More...</a><br /></td></tr>
+<tr class="separator:ae00b745e6133297cfbb31f004bd8e3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52942f7b5fb1cb0cd23db2c3d0f7e3c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a52942f7b5fb1cb0cd23db2c3d0f7e3c0">setLightLinear</a> (int index, float lightLinear)</td></tr>
+<tr class="memdesc:a52942f7b5fb1cb0cd23db2c3d0f7e3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the linear term of the lights attenuation factor: 0 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___model_shader.html#a52942f7b5fb1cb0cd23db2c3d0f7e3c0">More...</a><br /></td></tr>
+<tr class="separator:a52942f7b5fb1cb0cd23db2c3d0f7e3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae268b158e5a36df011369889ca75b5c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ae268b158e5a36df011369889ca75b5c2">setLightQuadratic</a> (int index, float lightQuadratic)</td></tr>
+<tr class="memdesc:ae268b158e5a36df011369889ca75b5c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the quadratic term of the lights attenuation factor: 0 for a constant brightness source with distance.  <a href="classscene_objects_1_1_s_o___model_shader.html#ae268b158e5a36df011369889ca75b5c2">More...</a><br /></td></tr>
+<tr class="separator:ae268b158e5a36df011369889ca75b5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f1a39916733a46efe49f3419cdd0d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a48f1a39916733a46efe49f3419cdd0d3">setLightAmbient</a> (int index, glm::vec3 lightAmbient)</td></tr>
+<tr class="memdesc:a48f1a39916733a46efe49f3419cdd0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights ambient factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___model_shader.html#a48f1a39916733a46efe49f3419cdd0d3">More...</a><br /></td></tr>
+<tr class="separator:a48f1a39916733a46efe49f3419cdd0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb23b3ce43eb6c20833e09556922d165"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#aeb23b3ce43eb6c20833e09556922d165">setLightDiffuse</a> (int index, glm::vec3 lightDiffuse)</td></tr>
+<tr class="memdesc:aeb23b3ce43eb6c20833e09556922d165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights diffuse factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___model_shader.html#aeb23b3ce43eb6c20833e09556922d165">More...</a><br /></td></tr>
+<tr class="separator:aeb23b3ce43eb6c20833e09556922d165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605fe70fb252594e2e185d027d7b0853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a605fe70fb252594e2e185d027d7b0853">setLightSpecular</a> (int index, glm::vec3 lightSpecular)</td></tr>
+<tr class="memdesc:a605fe70fb252594e2e185d027d7b0853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the colour and strength of the lights specular factor - independent of material properties.  <a href="classscene_objects_1_1_s_o___model_shader.html#a605fe70fb252594e2e185d027d7b0853">More...</a><br /></td></tr>
+<tr class="separator:a605fe70fb252594e2e185d027d7b0853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d2838a7b6658e6cebf7bcf07756116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a63d2838a7b6658e6cebf7bcf07756116">setSpecularPower</a> (unsigned int specPower)</td></tr>
+<tr class="memdesc:a63d2838a7b6658e6cebf7bcf07756116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the power of the specular highlights - higher integers produce 'sharper' spots.  <a href="classscene_objects_1_1_s_o___model_shader.html#a63d2838a7b6658e6cebf7bcf07756116">More...</a><br /></td></tr>
+<tr class="separator:a63d2838a7b6658e6cebf7bcf07756116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classscene_objects_1_1_s_o___shader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classscene_objects_1_1_s_o___shader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classscene_objects_1_1_s_o___shader.html">sceneObjects::SO_Shader</a></td></tr>
 <tr class="memitem:a1089f63927aca4120f238916f4adb7a4 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">~SO_Shader</a> (void)</td></tr>
 <tr class="memdesc:a1089f63927aca4120f238916f4adb7a4 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class.  <a href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">More...</a><br /></td></tr>
@@ -149,34 +149,34 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">createVertexShader</a> (const char *vertexSource)</td></tr>
-<tr class="memdesc:a21ef07de1a025f555741a7db4fe5c3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">More...</a><br /></td></tr>
+<tr class="memitem:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">createVertexShader</a> (const char *vertexSource)</td></tr>
+<tr class="memdesc:a21ef07de1a025f555741a7db4fe5c3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___model_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">More...</a><br /></td></tr>
 <tr class="separator:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e296911a8c6245ff6a01406ad627b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a88e296911a8c6245ff6a01406ad627b2">createFragmentShader</a> (const char *fragmentSource)</td></tr>
-<tr class="memdesc:a88e296911a8c6245ff6a01406ad627b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a88e296911a8c6245ff6a01406ad627b2">More...</a><br /></td></tr>
+<tr class="memitem:a88e296911a8c6245ff6a01406ad627b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a88e296911a8c6245ff6a01406ad627b2">createFragmentShader</a> (const char *fragmentSource)</td></tr>
+<tr class="memdesc:a88e296911a8c6245ff6a01406ad627b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___model_shader.html#a88e296911a8c6245ff6a01406ad627b2">More...</a><br /></td></tr>
 <tr class="separator:a88e296911a8c6245ff6a01406ad627b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa780feaae596dfabf590287397cca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#aa780feaae596dfabf590287397cca39a">linkProgram</a> (void)</td></tr>
-<tr class="memdesc:aa780feaae596dfabf590287397cca39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the vertex and fragment shaders into a program.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#aa780feaae596dfabf590287397cca39a">More...</a><br /></td></tr>
+<tr class="memitem:aa780feaae596dfabf590287397cca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#aa780feaae596dfabf590287397cca39a">linkProgram</a> (void)</td></tr>
+<tr class="memdesc:aa780feaae596dfabf590287397cca39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the vertex and fragment shaders into a program.  <a href="classscene_objects_1_1_s_o___model_shader.html#aa780feaae596dfabf590287397cca39a">More...</a><br /></td></tr>
 <tr class="separator:aa780feaae596dfabf590287397cca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a45e509ee4c09486482a344a02f0b6529"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a45e509ee4c09486482a344a02f0b6529">numberLights</a></td></tr>
-<tr class="memdesc:a45e509ee4c09486482a344a02f0b6529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of point light sources in the scene.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a45e509ee4c09486482a344a02f0b6529">More...</a><br /></td></tr>
-<tr class="separator:a45e509ee4c09486482a344a02f0b6529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f7e65d971a29692149807e8f6d0117"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a63f7e65d971a29692149807e8f6d0117">normalMatrixLoc</a></td></tr>
-<tr class="memdesc:a63f7e65d971a29692149807e8f6d0117"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "normalMatrix" in the shader.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a63f7e65d971a29692149807e8f6d0117">More...</a><br /></td></tr>
-<tr class="separator:a63f7e65d971a29692149807e8f6d0117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a082a5309ab9eb39b5e47b7dbe5199199"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#a082a5309ab9eb39b5e47b7dbe5199199">viewPositionLoc</a></td></tr>
-<tr class="memdesc:a082a5309ab9eb39b5e47b7dbe5199199"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the vec3 uniform named "viewPos" in the shader.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#a082a5309ab9eb39b5e47b7dbe5199199">More...</a><br /></td></tr>
-<tr class="separator:a082a5309ab9eb39b5e47b7dbe5199199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25ca2a719695f4c29abbe935ae89e1f"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___assimp_shader.html#ab25ca2a719695f4c29abbe935ae89e1f">specularPowerLoc</a></td></tr>
-<tr class="memdesc:ab25ca2a719695f4c29abbe935ae89e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the unsigned int uniform named "specPower" in the shader.  <a href="classscene_objects_1_1_s_o___assimp_shader.html#ab25ca2a719695f4c29abbe935ae89e1f">More...</a><br /></td></tr>
-<tr class="separator:ab25ca2a719695f4c29abbe935ae89e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e4d3a7d6a89acf653e270ecb6e8d1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a37e4d3a7d6a89acf653e270ecb6e8d1e">numberLights</a></td></tr>
+<tr class="memdesc:a37e4d3a7d6a89acf653e270ecb6e8d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of point light sources in the scene.  <a href="classscene_objects_1_1_s_o___model_shader.html#a37e4d3a7d6a89acf653e270ecb6e8d1e">More...</a><br /></td></tr>
+<tr class="separator:a37e4d3a7d6a89acf653e270ecb6e8d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b472913c46c44f3fec952a8a7cc3b4"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a48b472913c46c44f3fec952a8a7cc3b4">normalMatrixLoc</a></td></tr>
+<tr class="memdesc:a48b472913c46c44f3fec952a8a7cc3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "normalMatrix" in the shader.  <a href="classscene_objects_1_1_s_o___model_shader.html#a48b472913c46c44f3fec952a8a7cc3b4">More...</a><br /></td></tr>
+<tr class="separator:a48b472913c46c44f3fec952a8a7cc3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30dd61cd9c5f5b222424f89c72729429"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a30dd61cd9c5f5b222424f89c72729429">viewPositionLoc</a></td></tr>
+<tr class="memdesc:a30dd61cd9c5f5b222424f89c72729429"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the vec3 uniform named "viewPos" in the shader.  <a href="classscene_objects_1_1_s_o___model_shader.html#a30dd61cd9c5f5b222424f89c72729429">More...</a><br /></td></tr>
+<tr class="separator:a30dd61cd9c5f5b222424f89c72729429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f7ca8a3824a2b9477781b79df42f02"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ab4f7ca8a3824a2b9477781b79df42f02">specularPowerLoc</a></td></tr>
+<tr class="memdesc:ab4f7ca8a3824a2b9477781b79df42f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the unsigned int uniform named "specPower" in the shader.  <a href="classscene_objects_1_1_s_o___model_shader.html#ab4f7ca8a3824a2b9477781b79df42f02">More...</a><br /></td></tr>
+<tr class="separator:ab4f7ca8a3824a2b9477781b79df42f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The shader for an <a class="el" href="classscene_objects_1_1_s_o___assimp_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_AssimpMesh</a> object. </p>
-<p>This shader allows the use of diffuse, specular and normal maps if textures are provided It is intended to be used with the <a class="el" href="classscene_objects_1_1_s_o___assimp_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_AssimpMesh</a> class - although this is not a requirement </p>
+<div class="textblock"><p>The shader for an <a class="el" href="classscene_objects_1_1_s_o___model_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_ModelMesh</a> object. </p>
+<p>This shader allows the use of diffuse, specular and normal maps if textures are provided It is intended to be used with the <a class="el" href="classscene_objects_1_1_s_o___model_mesh.html" title="A class which stores an advanced mesh object - including textures.">SO_ModelMesh</a> class - although this is not a requirement </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a88e296911a8c6245ff6a01406ad627b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88e296911a8c6245ff6a01406ad627b2">&#9670;&nbsp;</a></span>createFragmentShader()</h2>
@@ -226,14 +226,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a19f4a529473055d5257a8cf24c8a57aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19f4a529473055d5257a8cf24c8a57aa">&#9670;&nbsp;</a></span>generate()</h2>
+<a id="aca0e723bde21f5a05d4a31d45536e782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0e723bde21f5a05d4a31d45536e782">&#9670;&nbsp;</a></span>generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLuint sceneObjects::SO_AssimpShader::generate </td>
+          <td class="memname">GLuint sceneObjects::SO_ModelShader::generate </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>numberLightsIn</em>, </td>
@@ -297,14 +297,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa0b7fdd8471a21fa32c7d2e4be702005"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0b7fdd8471a21fa32c7d2e4be702005">&#9670;&nbsp;</a></span>setLightAmbient()</h2>
+<a id="a48f1a39916733a46efe49f3419cdd0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f1a39916733a46efe49f3419cdd0d3">&#9670;&nbsp;</a></span>setLightAmbient()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightAmbient </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightAmbient </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -327,14 +327,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a51a2fa51de9f9fcafc912d9015286163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51a2fa51de9f9fcafc912d9015286163">&#9670;&nbsp;</a></span>setLightConstant()</h2>
+<a id="ae00b745e6133297cfbb31f004bd8e3b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae00b745e6133297cfbb31f004bd8e3b8">&#9670;&nbsp;</a></span>setLightConstant()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightConstant </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightConstant </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -357,14 +357,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3dd3f87ba92f485ce0ac7eee7f32bb1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dd3f87ba92f485ce0ac7eee7f32bb1c">&#9670;&nbsp;</a></span>setLightDiffuse()</h2>
+<a id="aeb23b3ce43eb6c20833e09556922d165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb23b3ce43eb6c20833e09556922d165">&#9670;&nbsp;</a></span>setLightDiffuse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightDiffuse </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightDiffuse </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -387,14 +387,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a65ab939b24816e0422a4fa2c652191d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65ab939b24816e0422a4fa2c652191d8">&#9670;&nbsp;</a></span>setLightLinear()</h2>
+<a id="a52942f7b5fb1cb0cd23db2c3d0f7e3c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52942f7b5fb1cb0cd23db2c3d0f7e3c0">&#9670;&nbsp;</a></span>setLightLinear()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightLinear </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightLinear </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -417,14 +417,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afcf89df4a74b6363e816440835dfb66e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcf89df4a74b6363e816440835dfb66e">&#9670;&nbsp;</a></span>setLightPosition()</h2>
+<a id="a3546487534c3ee8149feacaf30fa1aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3546487534c3ee8149feacaf30fa1aa2">&#9670;&nbsp;</a></span>setLightPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightPosition </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightPosition </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -447,14 +447,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4b9b52842b3f18c50f0790b9009d2809"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b9b52842b3f18c50f0790b9009d2809">&#9670;&nbsp;</a></span>setLightQuadratic()</h2>
+<a id="ae268b158e5a36df011369889ca75b5c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae268b158e5a36df011369889ca75b5c2">&#9670;&nbsp;</a></span>setLightQuadratic()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightQuadratic </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightQuadratic </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -477,14 +477,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa43d9c62abe6dbddbd579d4da733805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa43d9c62abe6dbddbd579d4da733805">&#9670;&nbsp;</a></span>setLightSpecular()</h2>
+<a id="a605fe70fb252594e2e185d027d7b0853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605fe70fb252594e2e185d027d7b0853">&#9670;&nbsp;</a></span>setLightSpecular()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setLightSpecular </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setLightSpecular </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>, </td>
@@ -507,8 +507,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a16427fc3cc435d3631cb76cee6bfcef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16427fc3cc435d3631cb76cee6bfcef0">&#9670;&nbsp;</a></span>setModelMatrix()</h2>
+<a id="ab6541ab1909f0858abeb08fb073f2749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6541ab1909f0858abeb08fb073f2749">&#9670;&nbsp;</a></span>setModelMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -517,7 +517,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setModelMatrix </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setModelMatrix </td>
           <td>(</td>
           <td class="paramtype">glm::mat4&#160;</td>
           <td class="paramname"><em>modelMatrix</em></td><td>)</td>
@@ -537,14 +537,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9818c0da9374f29aa2963cae830aa1e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9818c0da9374f29aa2963cae830aa1e6">&#9670;&nbsp;</a></span>setSpecularPower()</h2>
+<a id="a63d2838a7b6658e6cebf7bcf07756116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d2838a7b6658e6cebf7bcf07756116">&#9670;&nbsp;</a></span>setSpecularPower()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setSpecularPower </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setSpecularPower </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>specPower</em></td><td>)</td>
@@ -557,8 +557,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a22579eb2e1f36180807c9d12de009e0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22579eb2e1f36180807c9d12de009e0c">&#9670;&nbsp;</a></span>setViewPosition()</h2>
+<a id="a486070fcb5bb331bc9fee3b98294be15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a486070fcb5bb331bc9fee3b98294be15">&#9670;&nbsp;</a></span>setViewPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -567,7 +567,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sceneObjects::SO_AssimpShader::setViewPosition </td>
+          <td class="memname">void sceneObjects::SO_ModelShader::setViewPosition </td>
           <td>(</td>
           <td class="paramtype">glm::vec3&#160;</td>
           <td class="paramname"><em>viewPosition</em></td><td>)</td>
@@ -588,8 +588,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a63f7e65d971a29692149807e8f6d0117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63f7e65d971a29692149807e8f6d0117">&#9670;&nbsp;</a></span>normalMatrixLoc</h2>
+<a id="a48b472913c46c44f3fec952a8a7cc3b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b472913c46c44f3fec952a8a7cc3b4">&#9670;&nbsp;</a></span>normalMatrixLoc</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -598,7 +598,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GLint sceneObjects::SO_AssimpShader::normalMatrixLoc</td>
+          <td class="memname">GLint sceneObjects::SO_ModelShader::normalMatrixLoc</td>
         </tr>
       </table>
   </td>
@@ -612,8 +612,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45e509ee4c09486482a344a02f0b6529"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45e509ee4c09486482a344a02f0b6529">&#9670;&nbsp;</a></span>numberLights</h2>
+<a id="a37e4d3a7d6a89acf653e270ecb6e8d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e4d3a7d6a89acf653e270ecb6e8d1e">&#9670;&nbsp;</a></span>numberLights</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -622,7 +622,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int sceneObjects::SO_AssimpShader::numberLights</td>
+          <td class="memname">int sceneObjects::SO_ModelShader::numberLights</td>
         </tr>
       </table>
   </td>
@@ -636,8 +636,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab25ca2a719695f4c29abbe935ae89e1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab25ca2a719695f4c29abbe935ae89e1f">&#9670;&nbsp;</a></span>specularPowerLoc</h2>
+<a id="ab4f7ca8a3824a2b9477781b79df42f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f7ca8a3824a2b9477781b79df42f02">&#9670;&nbsp;</a></span>specularPowerLoc</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -646,7 +646,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GLint sceneObjects::SO_AssimpShader::specularPowerLoc</td>
+          <td class="memname">GLint sceneObjects::SO_ModelShader::specularPowerLoc</td>
         </tr>
       </table>
   </td>
@@ -660,8 +660,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a082a5309ab9eb39b5e47b7dbe5199199"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a082a5309ab9eb39b5e47b7dbe5199199">&#9670;&nbsp;</a></span>viewPositionLoc</h2>
+<a id="a30dd61cd9c5f5b222424f89c72729429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30dd61cd9c5f5b222424f89c72729429">&#9670;&nbsp;</a></span>viewPositionLoc</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -670,7 +670,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GLint sceneObjects::SO_AssimpShader::viewPositionLoc</td>
+          <td class="memname">GLint sceneObjects::SO_ModelShader::viewPositionLoc</td>
         </tr>
       </table>
   </td>
@@ -685,8 +685,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>workspace/HEADERS/<a class="el" href="scene_models_8hpp_source.html">sceneModels.hpp</a></li>
-<li>workspace/SRC/<a class="el" href="_s_o___assimp_shader_8cpp.html">SO_AssimpShader.cpp</a></li>
+<li>workspace/HEADERS/<a class="el" href="scene_objects_8hpp_source.html">sceneObjects.hpp</a></li>
+<li>workspace/SRC/<a class="el" href="_s_o___model_shader_8cpp.html">SO_ModelShader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
