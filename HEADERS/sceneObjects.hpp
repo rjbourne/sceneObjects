@@ -40,6 +40,7 @@ class SO_Shader {
     GLuint fragmentShaderID; ///< The OpenGL shader ID associated with the fragment shader
     GLint modelMatrixLoc; ///< The OpenGL location of the mat4 uniform named "model" in the shader
     GLint viewMatrixLoc; ///< The OpenGL location of the mat4 uniform named "view" in the shader
+    GLint viewPositionLoc; ///< The OpenGL location of the vec3 uniform named "viewPos" in the shader
     GLint projectionMatrixLoc; ///< The OpenGL location of the mat4 uniform named "proj" in the shader
     bool programCreated = false; ///< Whether a program has yet been successfully linked by the class
     public:
@@ -71,9 +72,9 @@ class SO_Shader {
          * The view matrix transforms from world space to camera space
         **/
         virtual void setViewMatrix(glm::mat4 viewMatrix);
-        /// Sets the unused vec3 "viewPos" uniform in the shader - DOES NOTHING
+        /// Sets the unused vec3 "viewPos" uniform in the shader
         /**
-         * Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is NOT a requirement that 
+         * Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is a requirement that 
          * shaders utilising the SO_Shader class implement a "viewPos" uniform.
          * The viewPos gives the position of the camera in world space
         **/
@@ -142,7 +143,6 @@ class SO_PhongShader : public SO_Shader {
         int numberLights; ///< number of point light sources in the scene
         unsigned int options; ///< the options to be used - passed in as enums but stored here as an unsigned int
         GLint normalMatrixLoc; ///< The OpenGL location of the mat4 uniform named "normalMatrix" in the shader
-        GLint viewPositionLoc; ///< The OpenGL location of the vec3 uniform named "viewPos" in the shader
         GLint postModelMatrixLoc; ///< The OpenGL location of the mat4 uniform named "postModel" in the shader
         GLint postNormalMatrixLoc; ///< The OpenGL location of the mat4 uniform named "postNormalMatrix" in the shader
         GLint ambientMatLoc; ///< The OpenGL location of the vec3 uniform named "ambientMat" in the shader
@@ -165,8 +165,6 @@ class SO_PhongShader : public SO_Shader {
         void setModelMatrix(glm::mat4 modelMatrix) override;
         /// The PostModelMatrix is the model matrix applied in world space after the instancing matrix - available only if instancing enabled
         void setPostModelMatrix(glm::mat4 modelMatrix);
-        /// Set the position of the camera in world space
-        void setViewPosition(glm::vec3 viewPosition) override;
         /// Set the position of light number 'index' in world space
         void setLightPosition(int index, glm::vec3 lightPosition);
         /// Set the constant term of the lights attenuation factor: 1 for a constant brightness source with distance.

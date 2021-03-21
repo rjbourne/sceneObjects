@@ -59,6 +59,7 @@ void sceneObjects::SO_Shader::linkProgram(void) {
     modelMatrixLoc = glGetUniformLocation(programID, "model");
     viewMatrixLoc = glGetUniformLocation(programID, "view");
     projectionMatrixLoc = glGetUniformLocation(programID, "proj");
+    viewPositionLoc = glGetUniformLocation(programID, "viewPos");
     programCreated = true;
     glDeleteShader(fragmentShaderID);
     glDeleteShader(vertexShaderID);
@@ -82,10 +83,11 @@ void sceneObjects::SO_Shader::setViewMatrix(glm::mat4 viewMatrix) {
 }
 
 //set the position of the camera in the shader program in worldspace
-//method has no effect in SO::Shader base class
+//position of camera in worldspace
 void sceneObjects::SO_Shader::setViewPosition(glm::vec3 viewPosition) {
-    return;
+    glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
 }
+
 
 //applies the projection matrix to the shader program
 //projection matrix transforms from cameraspace to clipspace
