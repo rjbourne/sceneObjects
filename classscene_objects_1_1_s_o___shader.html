@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>generic shader program class  
+<p>generic shader program class for use with <a class="el" href="classscene_objects_1_1_s_o___camera.html" title="A 3D camera capable of creating view/projection matrices to linked shader programs on call.">SO_Camera</a>  
  <a href="classscene_objects_1_1_s_o___shader.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="scene_objects_8hpp_source.html">sceneObjects.hpp</a>&gt;</code></p>
@@ -84,29 +84,18 @@ Inheritance diagram for sceneObjects::SO_Shader:</div>
  <div class="center">
   <img src="classscene_objects_1_1_s_o___shader.png" usemap="#sceneObjects::SO_5FShader_map" alt=""/>
   <map id="sceneObjects::SO_5FShader_map" name="sceneObjects::SO_5FShader_map">
-<area href="classscene_objects_1_1_s_o___model_shader.html" title="The shader for an SO_ModelMesh object." alt="sceneObjects::SO_ModelShader" shape="rect" coords="0,56,202,80"/>
-<area href="classscene_objects_1_1_s_o___phong_shader.html" title="3D Phong model lighting class" alt="sceneObjects::SO_PhongShader" shape="rect" coords="212,56,414,80"/>
-<area href="classscene_objects_1_1_s_o___skybox_shader.html" title="Generate a skybox using 6 images which will appear in the background." alt="sceneObjects::SO_SkyboxShader" shape="rect" coords="424,56,626,80"/>
+<area href="classscene_objects_1_1_s_o___base_shader.html" alt="sceneObjects::SO_BaseShader" shape="rect" coords="212,0,414,24"/>
+<area href="classscene_objects_1_1_s_o___model_shader.html" title="The shader for an SO_ModelMesh object." alt="sceneObjects::SO_ModelShader" shape="rect" coords="0,112,202,136"/>
+<area href="classscene_objects_1_1_s_o___phong_shader.html" title="3D Phong model lighting class" alt="sceneObjects::SO_PhongShader" shape="rect" coords="212,112,414,136"/>
+<area href="classscene_objects_1_1_s_o___skybox_shader.html" title="Generate a skybox using 6 images which will appear in the background." alt="sceneObjects::SO_SkyboxShader" shape="rect" coords="424,112,626,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1089f63927aca4120f238916f4adb7a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">~SO_Shader</a> (void)</td></tr>
-<tr class="memdesc:a1089f63927aca4120f238916f4adb7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class.  <a href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">More...</a><br /></td></tr>
-<tr class="separator:a1089f63927aca4120f238916f4adb7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a21ef07de1a025f555741a7db4fe5c3fc">createVertexShader</a> (const char *vertexSource)</td></tr>
-<tr class="memdesc:a21ef07de1a025f555741a7db4fe5c3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___shader.html#a21ef07de1a025f555741a7db4fe5c3fc">More...</a><br /></td></tr>
-<tr class="separator:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e296911a8c6245ff6a01406ad627b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a88e296911a8c6245ff6a01406ad627b2">createFragmentShader</a> (const char *fragmentSource)</td></tr>
-<tr class="memdesc:a88e296911a8c6245ff6a01406ad627b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___shader.html#a88e296911a8c6245ff6a01406ad627b2">More...</a><br /></td></tr>
-<tr class="separator:a88e296911a8c6245ff6a01406ad627b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa780feaae596dfabf590287397cca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#aa780feaae596dfabf590287397cca39a">linkProgram</a> (void)</td></tr>
-<tr class="memdesc:aa780feaae596dfabf590287397cca39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the vertex and fragment shaders into a program.  <a href="classscene_objects_1_1_s_o___shader.html#aa780feaae596dfabf590287397cca39a">More...</a><br /></td></tr>
-<tr class="separator:aa780feaae596dfabf590287397cca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20a5f6692ee551d05997a1cd0aad875"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#af20a5f6692ee551d05997a1cd0aad875">getProgramID</a> (void)</td></tr>
-<tr class="memdesc:af20a5f6692ee551d05997a1cd0aad875"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the OpenGL program ID associated with the shader program for use in functions like useProgram()  <a href="classscene_objects_1_1_s_o___shader.html#af20a5f6692ee551d05997a1cd0aad875">More...</a><br /></td></tr>
-<tr class="separator:af20a5f6692ee551d05997a1cd0aad875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b88a0a8cd494ef8a189f243b9842f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a79b88a0a8cd494ef8a189f243b9842f1">linkProgram</a> (void) override</td></tr>
+<tr class="memdesc:a79b88a0a8cd494ef8a189f243b9842f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> to also provide the locations of the set uniforms "model","view","proj" and "viewPos".  <a href="classscene_objects_1_1_s_o___shader.html#a79b88a0a8cd494ef8a189f243b9842f1">More...</a><br /></td></tr>
+<tr class="separator:a79b88a0a8cd494ef8a189f243b9842f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a469e22af8baa4fdf1e1eb84f25a6b086"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a469e22af8baa4fdf1e1eb84f25a6b086">setModelMatrix</a> (glm::mat4 modelMatrix)</td></tr>
 <tr class="memdesc:a469e22af8baa4fdf1e1eb84f25a6b086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mat4 "model" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a469e22af8baa4fdf1e1eb84f25a6b086">More...</a><br /></td></tr>
 <tr class="separator:a469e22af8baa4fdf1e1eb84f25a6b086"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,127 +103,52 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a686a2c3bf7c954e54dec34134ebd1260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mat4 "view" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a686a2c3bf7c954e54dec34134ebd1260">More...</a><br /></td></tr>
 <tr class="separator:a686a2c3bf7c954e54dec34134ebd1260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace394ba61101dbcf3f35931f9107513c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">setViewPosition</a> (glm::vec3 viewPosition)</td></tr>
-<tr class="memdesc:ace394ba61101dbcf3f35931f9107513c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unused vec3 "viewPos" uniform in the shader - DOES NOTHING.  <a href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">More...</a><br /></td></tr>
+<tr class="memdesc:ace394ba61101dbcf3f35931f9107513c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unused vec3 "viewPos" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">More...</a><br /></td></tr>
 <tr class="separator:ace394ba61101dbcf3f35931f9107513c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a064bc26e370a8ebfe8046d5400d83518"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a064bc26e370a8ebfe8046d5400d83518">setProjectionMatrix</a> (glm::mat4 projectionMatrix)</td></tr>
 <tr class="memdesc:a064bc26e370a8ebfe8046d5400d83518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mat4 "proj" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a064bc26e370a8ebfe8046d5400d83518">More...</a><br /></td></tr>
 <tr class="separator:a064bc26e370a8ebfe8046d5400d83518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classscene_objects_1_1_s_o___base_shader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classscene_objects_1_1_s_o___base_shader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">sceneObjects::SO_BaseShader</a></td></tr>
+<tr class="memitem:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#ab0c08183aa4698417f8fc755a132979e">~SO_BaseShader</a> (void)</td></tr>
+<tr class="memdesc:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> class.  <a href="classscene_objects_1_1_s_o___base_shader.html#ab0c08183aa4698417f8fc755a132979e">More...</a><br /></td></tr>
+<tr class="separator:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a2e2586a2c88aaed814f03fea7f932bdd">createVertexShader</a> (const char *vertexSource)</td></tr>
+<tr class="memdesc:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___base_shader.html#a2e2586a2c88aaed814f03fea7f932bdd">More...</a><br /></td></tr>
+<tr class="separator:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a3369bd8914c8f3d191944c6b21528862">createFragmentShader</a> (const char *fragmentSource)</td></tr>
+<tr class="memdesc:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___base_shader.html#a3369bd8914c8f3d191944c6b21528862">More...</a><br /></td></tr>
+<tr class="separator:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a981842a8c37a3ed4d36cf48a38f6ab3c">getProgramID</a> (void)</td></tr>
+<tr class="memdesc:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the OpenGL program ID associated with the shader program for use in functions like useProgram()  <a href="classscene_objects_1_1_s_o___base_shader.html#a981842a8c37a3ed4d36cf48a38f6ab3c">More...</a><br /></td></tr>
+<tr class="separator:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3bddab0e05819c68a16136488033764e"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a3bddab0e05819c68a16136488033764e">programID</a></td></tr>
-<tr class="memdesc:a3bddab0e05819c68a16136488033764e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL program ID used to reference the program when performing tasks such as useProgram()  <a href="classscene_objects_1_1_s_o___shader.html#a3bddab0e05819c68a16136488033764e">More...</a><br /></td></tr>
-<tr class="separator:a3bddab0e05819c68a16136488033764e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34141357f0e1e47358e038ea9a17d33a"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a34141357f0e1e47358e038ea9a17d33a">vertexShaderID</a></td></tr>
-<tr class="memdesc:a34141357f0e1e47358e038ea9a17d33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL shader ID associated with the vertex shader.  <a href="classscene_objects_1_1_s_o___shader.html#a34141357f0e1e47358e038ea9a17d33a">More...</a><br /></td></tr>
-<tr class="separator:a34141357f0e1e47358e038ea9a17d33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86949036217179a82ec0b4ed7e762e65"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a86949036217179a82ec0b4ed7e762e65">fragmentShaderID</a></td></tr>
-<tr class="memdesc:a86949036217179a82ec0b4ed7e762e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL shader ID associated with the fragment shader.  <a href="classscene_objects_1_1_s_o___shader.html#a86949036217179a82ec0b4ed7e762e65">More...</a><br /></td></tr>
-<tr class="separator:a86949036217179a82ec0b4ed7e762e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cad0deb7c1d7a5fdc94013d97ded420"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a4cad0deb7c1d7a5fdc94013d97ded420">modelMatrixLoc</a></td></tr>
 <tr class="memdesc:a4cad0deb7c1d7a5fdc94013d97ded420"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "model" in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a4cad0deb7c1d7a5fdc94013d97ded420">More...</a><br /></td></tr>
 <tr class="separator:a4cad0deb7c1d7a5fdc94013d97ded420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e83085cb6f6829f6218b4c3514219c9"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a8e83085cb6f6829f6218b4c3514219c9">viewMatrixLoc</a></td></tr>
 <tr class="memdesc:a8e83085cb6f6829f6218b4c3514219c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "view" in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a8e83085cb6f6829f6218b4c3514219c9">More...</a><br /></td></tr>
 <tr class="separator:a8e83085cb6f6829f6218b4c3514219c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25579724206ece820798096d5763e14"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#ad25579724206ece820798096d5763e14">viewPositionLoc</a></td></tr>
+<tr class="memdesc:ad25579724206ece820798096d5763e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the vec3 uniform named "viewPos" in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#ad25579724206ece820798096d5763e14">More...</a><br /></td></tr>
+<tr class="separator:ad25579724206ece820798096d5763e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28bbb65858a7246ba21cbe47c9342920"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a28bbb65858a7246ba21cbe47c9342920">projectionMatrixLoc</a></td></tr>
 <tr class="memdesc:a28bbb65858a7246ba21cbe47c9342920"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "proj" in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a28bbb65858a7246ba21cbe47c9342920">More...</a><br /></td></tr>
 <tr class="separator:a28bbb65858a7246ba21cbe47c9342920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72081ae01daf467a90963fd55c712457"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a72081ae01daf467a90963fd55c712457">programCreated</a> = false</td></tr>
-<tr class="memdesc:a72081ae01daf467a90963fd55c712457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether a program has yet been successfully linked by the class.  <a href="classscene_objects_1_1_s_o___shader.html#a72081ae01daf467a90963fd55c712457">More...</a><br /></td></tr>
-<tr class="separator:a72081ae01daf467a90963fd55c712457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>generic shader program class </p>
-<p>The <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class is the base class for all shader classes in the <a class="el" href="namespacescene_objects.html" title="The namespace containing all classes, members, structs involved in the sceneObjects library.">sceneObjects</a> library. It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, as well as the ability to supply three matrix uniforms - intended for use in 3D projection these must be of type mat4 in the glsl with names "model", "view", and "proj" for use with the setter functions </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1089f63927aca4120f238916f4adb7a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1089f63927aca4120f238916f4adb7a4">&#9670;&nbsp;</a></span>~SO_Shader()</h2>
+<div class="textblock"><p>generic shader program class for use with <a class="el" href="classscene_objects_1_1_s_o___camera.html" title="A 3D camera capable of creating view/projection matrices to linked shader programs on call.">SO_Camera</a> </p>
+<p>The <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera">SO_Shader</a> class is the base class for all shader classes in the <a class="el" href="namespacescene_objects.html" title="The namespace containing all classes, members, structs involved in the sceneObjects library.">sceneObjects</a> library compatiable with <a class="el" href="classscene_objects_1_1_s_o___camera.html" title="A 3D camera capable of creating view/projection matrices to linked shader programs on call.">SO_Camera</a>. It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, as well as the ability to supply three matrix uniforms - intended for use in 3D projection these must be of type mat4 in the glsl with names "model", "view", and "proj" for use with the setter functions. Additionally the vec3 uniform "viewPos" is required. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a79b88a0a8cd494ef8a189f243b9842f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b88a0a8cd494ef8a189f243b9842f1">&#9670;&nbsp;</a></span>linkProgram()</h2>
 
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sceneObjects::SO_Shader::~SO_Shader </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class. </p>
-<p>The custom destructor for this class is implemented with non-default behaviour to destory the program that has been created. Note that any VAOs, VBOs, etc. are not managed by the class and are therefore not deleted - this must be handled by the user. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a88e296911a8c6245ff6a01406ad627b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e296911a8c6245ff6a01406ad627b2">&#9670;&nbsp;</a></span>createFragmentShader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sceneObjects::SO_Shader::createFragmentShader </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fragmentSource</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a fragment shader for the shader program using the char* input. </p>
-
-</div>
-</div>
-<a id="a21ef07de1a025f555741a7db4fe5c3fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21ef07de1a025f555741a7db4fe5c3fc">&#9670;&nbsp;</a></span>createVertexShader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sceneObjects::SO_Shader::createVertexShader </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>vertexSource</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a vertex shader for the shader program using the char* argument. </p>
-
-</div>
-</div>
-<a id="af20a5f6692ee551d05997a1cd0aad875"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af20a5f6692ee551d05997a1cd0aad875">&#9670;&nbsp;</a></span>getProgramID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLuint sceneObjects::SO_Shader::getProgramID </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>returns the OpenGL program ID associated with the shader program for use in functions like useProgram() </p>
-
-</div>
-</div>
-<a id="aa780feaae596dfabf590287397cca39a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa780feaae596dfabf590287397cca39a">&#9670;&nbsp;</a></span>linkProgram()</h2>
-
-<div class="memitem">
-<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void sceneObjects::SO_Shader::linkProgram </td>
@@ -244,9 +158,18 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Links the vertex and fragment shaders into a program. </p>
+<p>Overrides the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> to also provide the locations of the set uniforms "model","view","proj" and "viewPos". </p>
+
+<p>Reimplemented from <a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a7db209b31e0bf2e65eb49d8bd75270dc">sceneObjects::SO_BaseShader</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a79b88a0a8cd494ef8a189f243b9842f1">sceneObjects::SO_ModelShader</a>, <a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html#a79b88a0a8cd494ef8a189f243b9842f1">sceneObjects::SO_SkyboxShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a79b88a0a8cd494ef8a189f243b9842f1">sceneObjects::SO_PhongShader</a>.</p>
 
 </div>
 </div>
@@ -275,7 +198,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the mat4 "model" uniform in the shader. </p>
-<p>Setting the "model" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "model" uniform even if it is unused. The model matrix transforms from model space to world space </p>
+<p>Setting the "model" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera">SO_Shader</a> class implement a "model" uniform even if it is unused. The model matrix transforms from model space to world space </p>
 
 <p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#ab6541ab1909f0858abeb08fb073f2749">sceneObjects::SO_ModelShader</a>, <a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html#a5235f5d0187cbe3d17a7485912ccff87">sceneObjects::SO_SkyboxShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#ae3d206f91193b86296eb3f12227c2415">sceneObjects::SO_PhongShader</a>.</p>
 
@@ -306,7 +229,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the mat4 "proj" uniform in the shader. </p>
-<p>Setting the "proj" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "proj" uniform even if it is unused. The proj matrix transforms between camera space and projection space </p>
+<p>Setting the "proj" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera">SO_Shader</a> class implement a "proj" uniform even if it is unused. The proj matrix transforms between camera space and projection space </p>
 
 </div>
 </div>
@@ -335,7 +258,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the mat4 "view" uniform in the shader. </p>
-<p>Setting the "view" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "view" uniform even if it is unused. The view matrix transforms from world space to camera space </p>
+<p>Setting the "view" uniform requires the uniform to have been defined within the shader. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera">SO_Shader</a> class implement a "view" uniform even if it is unused. The view matrix transforms from world space to camera space </p>
 
 <p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___skybox_shader.html#a62235d4c9d9d9ddf394453feb0a250d0">sceneObjects::SO_SkyboxShader</a>.</p>
 
@@ -365,38 +288,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the unused vec3 "viewPos" uniform in the shader - DOES NOTHING. </p>
-<p>Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is NOT a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class implement a "viewPos" uniform. The viewPos gives the position of the camera in world space </p>
+<p>Sets the unused vec3 "viewPos" uniform in the shader. </p>
+<p>Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is a requirement that shaders utilising the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera">SO_Shader</a> class implement a "viewPos" uniform. The viewPos gives the position of the camera in world space </p>
 
-<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a486070fcb5bb331bc9fee3b98294be15">sceneObjects::SO_ModelShader</a>, and <a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a911a249b7e7113a2bf72f5589396aaf5">sceneObjects::SO_PhongShader</a>.</p>
+<p>Reimplemented in <a class="el" href="classscene_objects_1_1_s_o___model_shader.html#a486070fcb5bb331bc9fee3b98294be15">sceneObjects::SO_ModelShader</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a86949036217179a82ec0b4ed7e762e65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86949036217179a82ec0b4ed7e762e65">&#9670;&nbsp;</a></span>fragmentShaderID</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLuint sceneObjects::SO_Shader::fragmentShaderID</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The OpenGL shader ID associated with the fragment shader. </p>
-
-</div>
-</div>
 <a id="a4cad0deb7c1d7a5fdc94013d97ded420"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4cad0deb7c1d7a5fdc94013d97ded420">&#9670;&nbsp;</a></span>modelMatrixLoc</h2>
 
@@ -418,54 +317,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The OpenGL location of the mat4 uniform named "model" in the shader. </p>
-
-</div>
-</div>
-<a id="a72081ae01daf467a90963fd55c712457"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72081ae01daf467a90963fd55c712457">&#9670;&nbsp;</a></span>programCreated</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sceneObjects::SO_Shader::programCreated = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Whether a program has yet been successfully linked by the class. </p>
-
-</div>
-</div>
-<a id="a3bddab0e05819c68a16136488033764e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bddab0e05819c68a16136488033764e">&#9670;&nbsp;</a></span>programID</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLuint sceneObjects::SO_Shader::programID</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The OpenGL program ID used to reference the program when performing tasks such as useProgram() </p>
 
 </div>
 </div>
@@ -493,30 +344,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a34141357f0e1e47358e038ea9a17d33a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34141357f0e1e47358e038ea9a17d33a">&#9670;&nbsp;</a></span>vertexShaderID</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLuint sceneObjects::SO_Shader::vertexShaderID</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The OpenGL shader ID associated with the vertex shader. </p>
-
-</div>
-</div>
 <a id="a8e83085cb6f6829f6218b4c3514219c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e83085cb6f6829f6218b4c3514219c9">&#9670;&nbsp;</a></span>viewMatrixLoc</h2>
 
@@ -538,6 +365,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The OpenGL location of the mat4 uniform named "view" in the shader. </p>
+
+</div>
+</div>
+<a id="ad25579724206ece820798096d5763e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25579724206ece820798096d5763e14">&#9670;&nbsp;</a></span>viewPositionLoc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint sceneObjects::SO_Shader::viewPositionLoc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The OpenGL location of the vec3 uniform named "viewPos" in the shader. </p>
 
 </div>
 </div>

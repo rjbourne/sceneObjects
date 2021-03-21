@@ -85,7 +85,8 @@ Inheritance diagram for sceneObjects::SO_PhongShader:</div>
  <div class="center">
   <img src="classscene_objects_1_1_s_o___phong_shader.png" usemap="#sceneObjects::SO_5FPhongShader_map" alt=""/>
   <map id="sceneObjects::SO_5FPhongShader_map" name="sceneObjects::SO_5FPhongShader_map">
-<area href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class" alt="sceneObjects::SO_Shader" shape="rect" coords="0,0,197,24"/>
+<area href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class for use with SO_Camera" alt="sceneObjects::SO_Shader" shape="rect" coords="0,56,197,80"/>
+<area href="classscene_objects_1_1_s_o___base_shader.html" alt="sceneObjects::SO_BaseShader" shape="rect" coords="0,0,197,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -100,9 +101,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75dcf3546f39fa45891e513a029b8a42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a75dcf3546f39fa45891e513a029b8a42">setPostModelMatrix</a> (glm::mat4 modelMatrix)</td></tr>
 <tr class="memdesc:a75dcf3546f39fa45891e513a029b8a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PostModelMatrix is the model matrix applied in world space after the instancing matrix - available only if instancing enabled.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a75dcf3546f39fa45891e513a029b8a42">More...</a><br /></td></tr>
 <tr class="separator:a75dcf3546f39fa45891e513a029b8a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a911a249b7e7113a2bf72f5589396aaf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a911a249b7e7113a2bf72f5589396aaf5">setViewPosition</a> (glm::vec3 viewPosition) override</td></tr>
-<tr class="memdesc:a911a249b7e7113a2bf72f5589396aaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the camera in world space.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a911a249b7e7113a2bf72f5589396aaf5">More...</a><br /></td></tr>
-<tr class="separator:a911a249b7e7113a2bf72f5589396aaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6871de997e401d9c59061ac780112d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#ad6871de997e401d9c59061ac780112d8">setLightPosition</a> (int index, glm::vec3 lightPosition)</td></tr>
 <tr class="memdesc:ad6871de997e401d9c59061ac780112d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of light number 'index' in world space.  <a href="classscene_objects_1_1_s_o___phong_shader.html#ad6871de997e401d9c59061ac780112d8">More...</a><br /></td></tr>
 <tr class="separator:ad6871de997e401d9c59061ac780112d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,39 +144,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2e6eea302993cd9ab32fa7ec4c56d57a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the power of the specular highlights - higher integers produce 'sharper' spots.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a2e6eea302993cd9ab32fa7ec4c56d57a">More...</a><br /></td></tr>
 <tr class="separator:a2e6eea302993cd9ab32fa7ec4c56d57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classscene_objects_1_1_s_o___shader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classscene_objects_1_1_s_o___shader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classscene_objects_1_1_s_o___shader.html">sceneObjects::SO_Shader</a></td></tr>
-<tr class="memitem:a1089f63927aca4120f238916f4adb7a4 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">~SO_Shader</a> (void)</td></tr>
-<tr class="memdesc:a1089f63927aca4120f238916f4adb7a4 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___shader.html" title="generic shader program class">SO_Shader</a> class.  <a href="classscene_objects_1_1_s_o___shader.html#a1089f63927aca4120f238916f4adb7a4">More...</a><br /></td></tr>
-<tr class="separator:a1089f63927aca4120f238916f4adb7a4 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21ef07de1a025f555741a7db4fe5c3fc inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a21ef07de1a025f555741a7db4fe5c3fc">createVertexShader</a> (const char *vertexSource)</td></tr>
-<tr class="memdesc:a21ef07de1a025f555741a7db4fe5c3fc inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___shader.html#a21ef07de1a025f555741a7db4fe5c3fc">More...</a><br /></td></tr>
-<tr class="separator:a21ef07de1a025f555741a7db4fe5c3fc inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e296911a8c6245ff6a01406ad627b2 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a88e296911a8c6245ff6a01406ad627b2">createFragmentShader</a> (const char *fragmentSource)</td></tr>
-<tr class="memdesc:a88e296911a8c6245ff6a01406ad627b2 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___shader.html#a88e296911a8c6245ff6a01406ad627b2">More...</a><br /></td></tr>
-<tr class="separator:a88e296911a8c6245ff6a01406ad627b2 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa780feaae596dfabf590287397cca39a inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#aa780feaae596dfabf590287397cca39a">linkProgram</a> (void)</td></tr>
-<tr class="memdesc:aa780feaae596dfabf590287397cca39a inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the vertex and fragment shaders into a program.  <a href="classscene_objects_1_1_s_o___shader.html#aa780feaae596dfabf590287397cca39a">More...</a><br /></td></tr>
-<tr class="separator:aa780feaae596dfabf590287397cca39a inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20a5f6692ee551d05997a1cd0aad875 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#af20a5f6692ee551d05997a1cd0aad875">getProgramID</a> (void)</td></tr>
-<tr class="memdesc:af20a5f6692ee551d05997a1cd0aad875 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the OpenGL program ID associated with the shader program for use in functions like useProgram()  <a href="classscene_objects_1_1_s_o___shader.html#af20a5f6692ee551d05997a1cd0aad875">More...</a><br /></td></tr>
-<tr class="separator:af20a5f6692ee551d05997a1cd0aad875 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a686a2c3bf7c954e54dec34134ebd1260 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a686a2c3bf7c954e54dec34134ebd1260">setViewMatrix</a> (glm::mat4 viewMatrix)</td></tr>
 <tr class="memdesc:a686a2c3bf7c954e54dec34134ebd1260 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mat4 "view" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a686a2c3bf7c954e54dec34134ebd1260">More...</a><br /></td></tr>
 <tr class="separator:a686a2c3bf7c954e54dec34134ebd1260 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace394ba61101dbcf3f35931f9107513c inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">setViewPosition</a> (glm::vec3 viewPosition)</td></tr>
+<tr class="memdesc:ace394ba61101dbcf3f35931f9107513c inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unused vec3 "viewPos" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">More...</a><br /></td></tr>
+<tr class="separator:ace394ba61101dbcf3f35931f9107513c inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a064bc26e370a8ebfe8046d5400d83518 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___shader.html#a064bc26e370a8ebfe8046d5400d83518">setProjectionMatrix</a> (glm::mat4 projectionMatrix)</td></tr>
 <tr class="memdesc:a064bc26e370a8ebfe8046d5400d83518 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mat4 "proj" uniform in the shader.  <a href="classscene_objects_1_1_s_o___shader.html#a064bc26e370a8ebfe8046d5400d83518">More...</a><br /></td></tr>
 <tr class="separator:a064bc26e370a8ebfe8046d5400d83518 inherit pub_methods_classscene_objects_1_1_s_o___shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classscene_objects_1_1_s_o___base_shader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classscene_objects_1_1_s_o___base_shader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">sceneObjects::SO_BaseShader</a></td></tr>
+<tr class="memitem:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#ab0c08183aa4698417f8fc755a132979e">~SO_BaseShader</a> (void)</td></tr>
+<tr class="memdesc:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom destructor for the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> class.  <a href="classscene_objects_1_1_s_o___base_shader.html#ab0c08183aa4698417f8fc755a132979e">More...</a><br /></td></tr>
+<tr class="separator:ab0c08183aa4698417f8fc755a132979e inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a2e2586a2c88aaed814f03fea7f932bdd">createVertexShader</a> (const char *vertexSource)</td></tr>
+<tr class="memdesc:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___base_shader.html#a2e2586a2c88aaed814f03fea7f932bdd">More...</a><br /></td></tr>
+<tr class="separator:a2e2586a2c88aaed814f03fea7f932bdd inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a3369bd8914c8f3d191944c6b21528862">createFragmentShader</a> (const char *fragmentSource)</td></tr>
+<tr class="memdesc:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___base_shader.html#a3369bd8914c8f3d191944c6b21528862">More...</a><br /></td></tr>
+<tr class="separator:a3369bd8914c8f3d191944c6b21528862 inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memItemLeft" align="right" valign="top">virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___base_shader.html#a981842a8c37a3ed4d36cf48a38f6ab3c">getProgramID</a> (void)</td></tr>
+<tr class="memdesc:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the OpenGL program ID associated with the shader program for use in functions like useProgram()  <a href="classscene_objects_1_1_s_o___base_shader.html#a981842a8c37a3ed4d36cf48a38f6ab3c">More...</a><br /></td></tr>
+<tr class="separator:a981842a8c37a3ed4d36cf48a38f6ab3c inherit pub_methods_classscene_objects_1_1_s_o___base_shader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">createVertexShader</a> (const char *vertexSource)</td></tr>
-<tr class="memdesc:a21ef07de1a025f555741a7db4fe5c3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vertex shader for the shader program using the char* argument.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a21ef07de1a025f555741a7db4fe5c3fc">More...</a><br /></td></tr>
-<tr class="separator:a21ef07de1a025f555741a7db4fe5c3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e296911a8c6245ff6a01406ad627b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a88e296911a8c6245ff6a01406ad627b2">createFragmentShader</a> (const char *fragmentSource)</td></tr>
-<tr class="memdesc:a88e296911a8c6245ff6a01406ad627b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a fragment shader for the shader program using the char* input.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a88e296911a8c6245ff6a01406ad627b2">More...</a><br /></td></tr>
-<tr class="separator:a88e296911a8c6245ff6a01406ad627b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa780feaae596dfabf590287397cca39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#aa780feaae596dfabf590287397cca39a">linkProgram</a> (void)</td></tr>
-<tr class="memdesc:aa780feaae596dfabf590287397cca39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the vertex and fragment shaders into a program.  <a href="classscene_objects_1_1_s_o___phong_shader.html#aa780feaae596dfabf590287397cca39a">More...</a><br /></td></tr>
-<tr class="separator:aa780feaae596dfabf590287397cca39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b88a0a8cd494ef8a189f243b9842f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a79b88a0a8cd494ef8a189f243b9842f1">linkProgram</a> (void) override</td></tr>
+<tr class="memdesc:a79b88a0a8cd494ef8a189f243b9842f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> to also provide the locations of the set uniforms "model","view","proj" and "viewPos".  <a href="classscene_objects_1_1_s_o___phong_shader.html#a79b88a0a8cd494ef8a189f243b9842f1">More...</a><br /></td></tr>
+<tr class="separator:a79b88a0a8cd494ef8a189f243b9842f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -191,9 +184,6 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ac1fd3f3db1049baf015085f7cea5185e"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#ac1fd3f3db1049baf015085f7cea5185e">normalMatrixLoc</a></td></tr>
 <tr class="memdesc:ac1fd3f3db1049baf015085f7cea5185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "normalMatrix" in the shader.  <a href="classscene_objects_1_1_s_o___phong_shader.html#ac1fd3f3db1049baf015085f7cea5185e">More...</a><br /></td></tr>
 <tr class="separator:ac1fd3f3db1049baf015085f7cea5185e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe829def560f59d49524a0682d0c5f67"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#afe829def560f59d49524a0682d0c5f67">viewPositionLoc</a></td></tr>
-<tr class="memdesc:afe829def560f59d49524a0682d0c5f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the vec3 uniform named "viewPos" in the shader.  <a href="classscene_objects_1_1_s_o___phong_shader.html#afe829def560f59d49524a0682d0c5f67">More...</a><br /></td></tr>
-<tr class="separator:afe829def560f59d49524a0682d0c5f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747444761f80a704e1e80abae9974eb7"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene_objects_1_1_s_o___phong_shader.html#a747444761f80a704e1e80abae9974eb7">postModelMatrixLoc</a></td></tr>
 <tr class="memdesc:a747444761f80a704e1e80abae9974eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenGL location of the mat4 uniform named "postModel" in the shader.  <a href="classscene_objects_1_1_s_o___phong_shader.html#a747444761f80a704e1e80abae9974eb7">More...</a><br /></td></tr>
 <tr class="separator:a747444761f80a704e1e80abae9974eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,54 +213,6 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p>3D Phong model lighting class </p>
 <p>A class which provides a wide range of shaders for different circumstances - utilkising a basic phong shader model. For more advanced features such as normal mapping and specular mapping models with UV mapped textures can be uesd with <a class="el" href="classscene_objects_1_1_s_o___assimp_model.html" title="A class which can load in object files using the assimp library.">SO_AssimpModel</a>. The functionaility required is selected by use of the SO_ShaderOptions enums. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a88e296911a8c6245ff6a01406ad627b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e296911a8c6245ff6a01406ad627b2">&#9670;&nbsp;</a></span>createFragmentShader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sceneObjects::SO_Shader::createFragmentShader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a fragment shader for the shader program using the char* input. </p>
-
-</div>
-</div>
-<a id="a21ef07de1a025f555741a7db4fe5c3fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21ef07de1a025f555741a7db4fe5c3fc">&#9670;&nbsp;</a></span>createVertexShader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sceneObjects::SO_Shader::createVertexShader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a vertex shader for the shader program using the char* argument. </p>
-
-</div>
-</div>
 <a id="ae9dcc4a95ecb204d8013eb68d7a65a35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9dcc4a95ecb204d8013eb68d7a65a35">&#9670;&nbsp;</a></span>generate()</h2>
 
@@ -302,8 +244,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa780feaae596dfabf590287397cca39a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa780feaae596dfabf590287397cca39a">&#9670;&nbsp;</a></span>linkProgram()</h2>
+<a id="a79b88a0a8cd494ef8a189f243b9842f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b88a0a8cd494ef8a189f243b9842f1">&#9670;&nbsp;</a></span>linkProgram()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,12 +263,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Links the vertex and fragment shaders into a program. </p>
+<p>Overrides the <a class="el" href="classscene_objects_1_1_s_o___base_shader.html">SO_BaseShader</a> to also provide the locations of the set uniforms "model","view","proj" and "viewPos". </p>
+
+<p>Reimplemented from <a class="el" href="classscene_objects_1_1_s_o___shader.html#a79b88a0a8cd494ef8a189f243b9842f1">sceneObjects::SO_Shader</a>.</p>
 
 </div>
 </div>
@@ -730,36 +674,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a911a249b7e7113a2bf72f5589396aaf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a911a249b7e7113a2bf72f5589396aaf5">&#9670;&nbsp;</a></span>setViewPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sceneObjects::SO_PhongShader::setViewPosition </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>viewPosition</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the position of the camera in world space. </p>
-
-<p>Reimplemented from <a class="el" href="classscene_objects_1_1_s_o___shader.html#ace394ba61101dbcf3f35931f9107513c">sceneObjects::SO_Shader</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="abc30421d6cdf3c3615a356be51f23294"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc30421d6cdf3c3615a356be51f23294">&#9670;&nbsp;</a></span>alphaMatLoc</h2>
@@ -1022,30 +936,6 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The OpenGL location of the unsigned int uniform named "specPower" in the shader. </p>
-
-</div>
-</div>
-<a id="afe829def560f59d49524a0682d0c5f67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe829def560f59d49524a0682d0c5f67">&#9670;&nbsp;</a></span>viewPositionLoc</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLint sceneObjects::SO_PhongShader::viewPositionLoc</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The OpenGL location of the vec3 uniform named "viewPos" in the shader. </p>
 
 </div>
 </div>

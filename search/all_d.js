@@ -8,7 +8,7 @@ var searchData=
   ['postnormalmatrixloc_62',['postNormalMatrixLoc',['../classscene_objects_1_1_s_o___phong_shader.html#a84ff59c0ad502fa3279841a8c24f9127',1,'sceneObjects::SO_PhongShader']]],
   ['processmesh_63',['processMesh',['../classscene_objects_1_1_s_o___assimp_model.html#a652b6453a125d259cee0e1e67cbf397d',1,'sceneObjects::SO_AssimpModel']]],
   ['processnode_64',['processNode',['../classscene_objects_1_1_s_o___assimp_model.html#aae8418a134d18915371b6efd3c4b1afd',1,'sceneObjects::SO_AssimpModel']]],
-  ['programcreated_65',['programCreated',['../classscene_objects_1_1_s_o___shader.html#a72081ae01daf467a90963fd55c712457',1,'sceneObjects::SO_Shader']]],
-  ['programid_66',['programID',['../classscene_objects_1_1_s_o___shader.html#a3bddab0e05819c68a16136488033764e',1,'sceneObjects::SO_Shader']]],
+  ['programcreated_65',['programCreated',['../classscene_objects_1_1_s_o___base_shader.html#ab600a496b612f17210623a5e6952e4f6',1,'sceneObjects::SO_BaseShader']]],
+  ['programid_66',['programID',['../classscene_objects_1_1_s_o___base_shader.html#aefc9f76535871eca5179a17e2370d8ba',1,'sceneObjects::SO_BaseShader']]],
   ['projectionmatrixloc_67',['projectionMatrixLoc',['../classscene_objects_1_1_s_o___shader.html#a28bbb65858a7246ba21cbe47c9342920',1,'sceneObjects::SO_Shader']]]
 ];
