@@ -1,10 +1,9 @@
-/** \file SO_AssimpMesh.cpp */
+/** \file SO_ModelMesh.cpp */
 #include "sceneObjects.hpp"
-#include "sceneModels.hpp"
 
 // craetes a shader for the mesh
-sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int numberLights) {
-    shader = SO_AssimpShader();
+sceneObjects::SO_ModelShader* sceneObjects::SO_ModelMesh::createShader(int numberLights) {
+    shader = SO_ModelShader();
     shader.generate(numberLights, diffuseMaps.size(), specularMaps.size(), normalMaps.size());
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
@@ -13,24 +12,24 @@ sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int num
     glBindVertexArray(vao);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(SO_AssimpVertex), &vertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(SO_ModelVertex), &vertices[0], GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, elements.size() * sizeof(unsigned int), &elements[0], GL_STATIC_DRAW);
 
     //vertices
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(SO_ModelVertex), (void*)0);
     //normals
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, normal));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(SO_ModelVertex), (void*)offsetof(SO_ModelVertex, normal));
     //texture coords
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, texCoords));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(SO_ModelVertex), (void*)offsetof(SO_ModelVertex, texCoords));
     if (normalMaps.size() > 0) {
         //tangents
         glEnableVertexAttribArray(3);
-        glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(SO_AssimpVertex), (void*)offsetof(SO_AssimpVertex, tangent));
+        glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(SO_ModelVertex), (void*)offsetof(SO_ModelVertex, tangent));
     }
 
     glBindVertexArray(0);
@@ -40,7 +39,7 @@ sceneObjects::SO_AssimpShader* sceneObjects::SO_AssimpMesh::createShader(int num
 
 
 //draws the mesh - call at render time
-void sceneObjects::SO_AssimpMesh::render() {
+void sceneObjects::SO_ModelMesh::render() {
     glUseProgram(shader.getProgramID());
     if (diffuseMaps.size() == 0) {
         glUniform3fv(glGetUniformLocation(shader.getProgramID(), "colorDiffuse"), 1, glm::value_ptr(diffuseColor));
@@ -66,7 +65,7 @@ void sceneObjects::SO_AssimpMesh::render() {
     glDrawElements(GL_TRIANGLES, elements.size(), GL_UNSIGNED_INT, 0);
 }
 
-sceneObjects::SO_AssimpMesh::~SO_AssimpMesh() {
+sceneObjects::SO_ModelMesh::~SO_ModelMesh() {
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(1, &ebo);

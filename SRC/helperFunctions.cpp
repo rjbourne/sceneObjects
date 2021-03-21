@@ -1,5 +1,8 @@
 /** \file helperFunctions.cpp */
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
 #include "sceneObjects.hpp"
+
 
 //create vector at a ratio of division/subdivisions from vector1 to vector2
 glm::vec3 sceneObjects::createRatioVector(int subdivisions, int division, glm::vec3 vector1, glm::vec3 vector2) {
@@ -135,3 +138,40 @@ double sceneObjects::perlin(double x, double y, double z, double repeat) { //htt
     return (lerp (y1, y2, w)+1)/2;
 }
 
+//loads texture files into openGL
+GLuint sceneObjects::loadTextureFromFile(std::string path) {
+    std::string filename = path;
+
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+
+    int width, height, nrComponents;
+    stbi_set_flip_vertically_on_load(false);
+    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+    if (data) {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    }
+    else {
+        std::string error = "Unable to load texture at path: " + filename;
+        throw std::runtime_error(error.c_str());
+    }
+    stbi_image_free(data);
+
+    return textureID;
+}
