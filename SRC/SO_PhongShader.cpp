@@ -199,7 +199,6 @@ GLuint sceneObjects::SO_PhongShader::generate(int numberLightsIn, unsigned int o
 
     // get locations of shader uniforms
     normalMatrixLoc = glGetUniformLocation(this->getProgramID(), "normalMatrix");
-    viewPositionLoc = glGetUniformLocation(this->getProgramID(), "viewPos");
     specularPowerLoc = glGetUniformLocation(this->getProgramID(), "specPower");
     setSpecularPower(32);
 
@@ -251,11 +250,6 @@ void sceneObjects::SO_PhongShader::setPostModelMatrix(glm::mat4 modelMatrix) {
     }
 }
 
-//set the position of the camera in the shader program in worldspace
-//method has no effect in SO::Shader base class
-void sceneObjects::SO_PhongShader::setViewPosition(glm::vec3 viewPosition) {
-    glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
-}
 
 //set the position of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)

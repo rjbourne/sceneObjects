@@ -27,36 +27,44 @@
 */
 namespace sceneObjects {
 
-///generic shader program class
-/**
- * The SO_Shader class is the base class for all shader classes in the sceneObjects library.
- * It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, 
- * as well as the ability to supply three matrix uniforms - intended for use in 3D projection
- * these must be of type mat4 in the glsl with names "model", "view", and "proj" for use with the setter functions
-**/
-class SO_Shader {
+class SO_BaseShader {
     GLuint programID; ///< The OpenGL program ID used to reference the program when performing tasks such as useProgram()
     GLuint vertexShaderID; ///< The OpenGL shader ID associated with the vertex shader
     GLuint fragmentShaderID; ///< The OpenGL shader ID associated with the fragment shader
-    GLint modelMatrixLoc; ///< The OpenGL location of the mat4 uniform named "model" in the shader
-    GLint viewMatrixLoc; ///< The OpenGL location of the mat4 uniform named "view" in the shader
-    GLint projectionMatrixLoc; ///< The OpenGL location of the mat4 uniform named "proj" in the shader
     bool programCreated = false; ///< Whether a program has yet been successfully linked by the class
     public:
-        ///The custom destructor for the SO_Shader class
+        ///The custom destructor for the SO_BaseShader class
         /**
          * The custom destructor for this class is implemented with non-default behaviour to destory the program that has been created. 
          * Note that any VAOs, VBOs, etc. are not managed by the class and are therefore not deleted - this must be handled by the user.
         **/
-        ~SO_Shader(void);
+        ~SO_BaseShader(void);
         /// Creates a vertex shader for the shader program using the char* argument
-        void createVertexShader(const char* vertexSource);
+        virtual void createVertexShader(const char* vertexSource);
         /// Creates a fragment shader for the shader program using the char* input
-        void createFragmentShader(const char* fragmentSource);
+        virtual void createFragmentShader(const char* fragmentSource);
         /// Links the vertex and fragment shaders into a program
-        void linkProgram(void);
+        virtual void linkProgram(void);
         /// returns the OpenGL program ID associated with the shader program for use in functions like useProgram()
-        GLuint getProgramID(void);
+        virtual GLuint getProgramID(void);
+};
+
+///generic shader program class for use with SO_Camera
+/**
+ * The SO_Shader class is the base class for all shader classes in the sceneObjects library compatiable with SO_Camera.
+ * It provides the ability to create a program out of a vertex shader and fragment shader which must be provided by the user, 
+ * as well as the ability to supply three matrix uniforms - intended for use in 3D projection
+ * these must be of type mat4 in the glsl with names "model", "view", and "proj" for use with the setter functions.
+ * Additionally the vec3 uniform "viewPos" is required.
+**/
+class SO_Shader : public SO_BaseShader {
+    GLint modelMatrixLoc; ///< The OpenGL location of the mat4 uniform named "model" in the shader
+    GLint viewMatrixLoc; ///< The OpenGL location of the mat4 uniform named "view" in the shader
+    GLint viewPositionLoc; ///< The OpenGL location of the vec3 uniform named "viewPos" in the shader
+    GLint projectionMatrixLoc; ///< The OpenGL location of the mat4 uniform named "proj" in the shader
+    public:
+        /// Overrides the SO_BaseShader to also provide the locations of the set uniforms "model","view","proj" and "viewPos"
+        void linkProgram(void) override;
         /// Sets the mat4 "model" uniform in the shader
         /**
          * Setting the "model" uniform requires the uniform to have been defined within the shader. It is a requirement that 
@@ -71,9 +79,9 @@ class SO_Shader {
          * The view matrix transforms from world space to camera space
         **/
         virtual void setViewMatrix(glm::mat4 viewMatrix);
-        /// Sets the unused vec3 "viewPos" uniform in the shader - DOES NOTHING
+        /// Sets the unused vec3 "viewPos" uniform in the shader
         /**
-         * Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is NOT a requirement that 
+         * Setting the "viewPos" uniform must be done outside the shader - this function is blank as of present. It is a requirement that 
          * shaders utilising the SO_Shader class implement a "viewPos" uniform.
          * The viewPos gives the position of the camera in world space
         **/
@@ -142,7 +150,6 @@ class SO_PhongShader : public SO_Shader {
         int numberLights; ///< number of point light sources in the scene
         unsigned int options; ///< the options to be used - passed in as enums but stored here as an unsigned int
         GLint normalMatrixLoc; ///< The OpenGL location of the mat4 uniform named "normalMatrix" in the shader
-        GLint viewPositionLoc; ///< The OpenGL location of the vec3 uniform named "viewPos" in the shader
         GLint postModelMatrixLoc; ///< The OpenGL location of the mat4 uniform named "postModel" in the shader
         GLint postNormalMatrixLoc; ///< The OpenGL location of the mat4 uniform named "postNormalMatrix" in the shader
         GLint ambientMatLoc; ///< The OpenGL location of the vec3 uniform named "ambientMat" in the shader
@@ -165,8 +172,6 @@ class SO_PhongShader : public SO_Shader {
         void setModelMatrix(glm::mat4 modelMatrix) override;
         /// The PostModelMatrix is the model matrix applied in world space after the instancing matrix - available only if instancing enabled
         void setPostModelMatrix(glm::mat4 modelMatrix);
-        /// Set the position of the camera in world space
-        void setViewPosition(glm::vec3 viewPosition) override;
         /// Set the position of light number 'index' in world space
         void setLightPosition(int index, glm::vec3 lightPosition);
         /// Set the constant term of the lights attenuation factor: 1 for a constant brightness source with distance.
