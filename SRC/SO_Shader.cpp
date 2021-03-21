@@ -1,3 +1,4 @@
+/** \file SO_Shader.cpp */
 #include "sceneObjects.hpp"
 
 

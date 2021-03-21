@@ -1,3 +1,4 @@
+/** \file SO_FfmpegStream.cpp */
 #include "sceneObjects.hpp"
 
 #ifdef _WIN32

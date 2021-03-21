@@ -1,3 +1,4 @@
+/** \file meshFunctions.cpp */
 #include "sceneObjects.hpp"
 
 //create a sphere mesh starting with an icosohedron base (an icosphere)

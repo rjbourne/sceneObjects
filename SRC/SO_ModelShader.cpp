@@ -1,8 +1,8 @@
+/** \file SO_ModelShader.cpp */
 #include "sceneObjects.hpp"
-#include "sceneModels.hpp"
 
 // generate a shader program for a assimp mesh
-GLuint sceneObjects::SO_AssimpShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures) {
+GLuint sceneObjects::SO_ModelShader::generate(int numberLightsIn, int diffuseTextures, int specularTextures, int normalTextures) {
     numberLights = numberLightsIn;
     std::string vertexSourceStr;
     vertexSourceStr = R"glsl(
@@ -151,7 +151,7 @@ GLuint sceneObjects::SO_AssimpShader::generate(int numberLightsIn, int diffuseTe
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
 //also creates and applies the corresponding normal matrix
-void sceneObjects::SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
+void sceneObjects::SO_ModelShader::setModelMatrix(glm::mat4 modelMatrix) {
     SO_Shader::setModelMatrix(modelMatrix);
     glm::mat4 normalMatrix = glm::transpose(glm::inverse(modelMatrix));
     glProgramUniformMatrix4fv(this->getProgramID(), normalMatrixLoc, 1, GL_FALSE, glm::value_ptr(normalMatrix));
@@ -159,14 +159,14 @@ void sceneObjects::SO_AssimpShader::setModelMatrix(glm::mat4 modelMatrix) {
 
 //set the position of the camera in the shader program in worldspace
 //method has no effect in SO::Shader base class
-void sceneObjects::SO_AssimpShader::setViewPosition(glm::vec3 viewPosition) {
+void sceneObjects::SO_ModelShader::setViewPosition(glm::vec3 viewPosition) {
     glProgramUniform3fv(this->getProgramID(), viewPositionLoc, 1, glm::value_ptr(viewPosition));
 }
 
 //set the position of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightPosition is the position
-void sceneObjects::SO_AssimpShader::setLightPosition(int index, glm::vec3 lightPosition) {
+void sceneObjects::SO_ModelShader::setLightPosition(int index, glm::vec3 lightPosition) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -179,7 +179,7 @@ void sceneObjects::SO_AssimpShader::setLightPosition(int index, glm::vec3 lightP
 //set the constant attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightConstant is the constant
-void sceneObjects::SO_AssimpShader::setLightConstant(int index, float lightConstant) {
+void sceneObjects::SO_ModelShader::setLightConstant(int index, float lightConstant) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -192,7 +192,7 @@ void sceneObjects::SO_AssimpShader::setLightConstant(int index, float lightConst
 //set the linear attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightLinear is the coefficient
-void sceneObjects::SO_AssimpShader::setLightLinear(int index, float lightLinear) {
+void sceneObjects::SO_ModelShader::setLightLinear(int index, float lightLinear) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -205,7 +205,7 @@ void sceneObjects::SO_AssimpShader::setLightLinear(int index, float lightLinear)
 //set the quadratic attenuation factor of a light in worldspace
 //index is the number of the light (rom 0 to numberLights-1)
 //lightQuadratic is the coefficient
-void sceneObjects::SO_AssimpShader::setLightQuadratic(int index, float lightQuadratic) {
+void sceneObjects::SO_ModelShader::setLightQuadratic(int index, float lightQuadratic) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -218,7 +218,7 @@ void sceneObjects::SO_AssimpShader::setLightQuadratic(int index, float lightQuad
 //set the ambient color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightAmbient is the color (RGB)
-void sceneObjects::SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
+void sceneObjects::SO_ModelShader::setLightAmbient(int index, glm::vec3 lightAmbient) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -231,7 +231,7 @@ void sceneObjects::SO_AssimpShader::setLightAmbient(int index, glm::vec3 lightAm
 //set the diffuse color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightDiffuse is the color (RGB)
-void sceneObjects::SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
+void sceneObjects::SO_ModelShader::setLightDiffuse(int index, glm::vec3 lightDiffuse) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -244,7 +244,7 @@ void sceneObjects::SO_AssimpShader::setLightDiffuse(int index, glm::vec3 lightDi
 //set the specular color and strength of a light
 //index is the number of the light (rom 0 to numberLights-1)
 //lightSpecular is the color (RGB)
-void sceneObjects::SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
+void sceneObjects::SO_ModelShader::setLightSpecular(int index, glm::vec3 lightSpecular) {
     if (index < 0 || index >= numberLights) {
         std::string error = "index to lights array is out of range\nrecieved: " + std::to_string(index) + "\nlength: " + std::to_string(numberLights);
         throw std::invalid_argument(error.c_str());
@@ -254,6 +254,6 @@ void sceneObjects::SO_AssimpShader::setLightSpecular(int index, glm::vec3 lightS
     glProgramUniform3fv(this->getProgramID(), lightSpecularLoc, 1, glm::value_ptr(lightSpecular));
 }
 
-void sceneObjects::SO_AssimpShader::setSpecularPower(unsigned int specPower) {
+void sceneObjects::SO_ModelShader::setSpecularPower(unsigned int specPower) {
     glProgramUniform1ui(this->getProgramID(), specularPowerLoc, specPower);
 }

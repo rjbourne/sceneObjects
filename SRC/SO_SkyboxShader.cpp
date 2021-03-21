@@ -1,3 +1,4 @@
+/** \file SO_SkyboxShader.cpp */
 #define STB_IMAGE_IMPLEMENTATION
 
 #include "sceneObjects.hpp"

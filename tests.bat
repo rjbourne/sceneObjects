@@ -59,3 +59,9 @@ del main.exe main.o
 mingw32-make
 .\main
 cd ..
+
+cd "J Skybox"
+del main.exe main.o
+mingw32-make
+.\main
+cd ..

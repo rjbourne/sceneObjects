@@ -1,5 +1,4 @@
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+/** \file SO_AssimpModel.cpp */
 #include "sceneObjects.hpp"
 #include "sceneModels.hpp"
 
@@ -54,8 +53,8 @@ void sceneObjects::SO_AssimpModel::processNode(aiNode* node, const aiScene* scen
 }
 
 //convertes an assimp mesh into an SO mesh
-sceneObjects::SO_AssimpMesh sceneObjects::SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
-    sceneObjects::SO_AssimpMesh SOMesh;
+sceneObjects::SO_ModelMesh sceneObjects::SO_AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene) {
+    sceneObjects::SO_ModelMesh SOMesh;
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
     //diffuse texture
     SOMesh.diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE);
@@ -79,7 +78,7 @@ sceneObjects::SO_AssimpMesh sceneObjects::SO_AssimpModel::processMesh(aiMesh* me
     SOMesh.normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT);
     bool includeTangent = SOMesh.normalMaps.size() > 0;
     for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
-        SO_AssimpVertex vertex;
+        SO_ModelVertex vertex;
         vertex.position.x = mesh->mVertices[i].x;
         vertex.position.y = mesh->mVertices[i].y;
         vertex.position.z = mesh->mVertices[i].z;
@@ -105,8 +104,8 @@ sceneObjects::SO_AssimpMesh sceneObjects::SO_AssimpModel::processMesh(aiMesh* me
 }
 
 //loads the texture files from a material
-std::vector<sceneObjects::SO_AssimpTexture> sceneObjects::SO_AssimpModel::loadMaterialTextures(aiMaterial* material, aiTextureType type) {
-    std::vector<SO_AssimpTexture> textures;
+std::vector<sceneObjects::SO_ModelTexture> sceneObjects::SO_AssimpModel::loadMaterialTextures(aiMaterial* material, aiTextureType type) {
+    std::vector<SO_ModelTexture> textures;
     for (unsigned int i = 0; i < material->GetTextureCount(type); i++) {
         aiString str;
         material->GetTexture(type, i, &str);
@@ -119,8 +118,8 @@ std::vector<sceneObjects::SO_AssimpTexture> sceneObjects::SO_AssimpModel::loadMa
             }
         }
         if (!skip) {
-            SO_AssimpTexture texture;
-            texture.textureId = loadTextureFromFile(std::string(str.C_Str()));
+            SO_ModelTexture texture;
+            texture.textureId = sceneObjects::loadTextureFromFile(directory + "\\" + std::string(str.C_Str()));
             texture.path = str.C_Str();
             textures.push_back(texture);
             globalTextures.push_back(texture);
@@ -128,44 +127,6 @@ std::vector<sceneObjects::SO_AssimpTexture> sceneObjects::SO_AssimpModel::loadMa
         }
     }
     return textures;
-}
-
-//loads texture files into openGL
-GLuint sceneObjects::SO_AssimpModel::loadTextureFromFile(std::string path) {
-    std::string filename = directory + '\\' + path;
-
-    GLuint textureID;
-    glGenTextures(1, &textureID);
-
-    int width, height, nrComponents;
-    stbi_set_flip_vertically_on_load(false);
-    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
-    if (data) {
-        GLenum format;
-        if (nrComponents == 1)
-            format = GL_RED;
-        else if (nrComponents == 3)
-            format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
-
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    }
-    else {
-        std::string error = "Unable to load skybox texture at path: " + filename;
-        throw std::runtime_error(error.c_str());
-    }
-    stbi_image_free(data);
-
-    return textureID;
 }
 
 //draws the scene - call at render time
