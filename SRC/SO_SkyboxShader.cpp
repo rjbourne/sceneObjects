@@ -4,7 +4,7 @@
 #include "sceneObjects.hpp"
 #include <stb_image.h>
 
-float skyboxVertices[] = {
+float sceneObjects::skyboxVertices[108] = {
     // positions          
     -1.0f,  1.0f, -1.0f,
     -1.0f, -1.0f, -1.0f,

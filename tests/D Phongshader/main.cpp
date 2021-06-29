@@ -193,19 +193,19 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib1 = glGetAttribLocation(shaderProgram1, "position");
+    GLint posAttrib1 = glGetAttribLocation(shaderProgram1, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib1);
     glVertexAttribPointer(posAttrib1, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib1 = glGetAttribLocation(shaderProgram1, "normal");
+    GLint normalAttrib1 = glGetAttribLocation(shaderProgram1, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib1);
     glVertexAttribPointer(normalAttrib1, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(3*sizeof(float)));
 
     //locate vertex colors within buffer
-    GLint colAttrib1 = glGetAttribLocation(shaderProgram1, "color");
+    GLint colAttrib1 = glGetAttribLocation(shaderProgram1, sceneObjects::SO_PhongShader::COLOR_ATTRIB_NAME);
     glEnableVertexAttribArray(colAttrib1);
     glVertexAttribPointer(colAttrib1, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(6*sizeof(float)));
@@ -250,13 +250,13 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib2 = glGetAttribLocation(shaderProgram2, "position");
+    GLint posAttrib2 = glGetAttribLocation(shaderProgram2, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib2);
     glVertexAttribPointer(posAttrib2, 3, GL_FLOAT, GL_FALSE,
                         6*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib2 = glGetAttribLocation(shaderProgram2, "normal");
+    GLint normalAttrib2 = glGetAttribLocation(shaderProgram2, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib2);
     glVertexAttribPointer(normalAttrib2, 3, GL_FLOAT, GL_FALSE,
                         6*sizeof(float), (void*)(3*sizeof(float)));
@@ -301,13 +301,13 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib3 = glGetAttribLocation(shaderProgram3, "position");
+    GLint posAttrib3 = glGetAttribLocation(shaderProgram3, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib3);
     glVertexAttribPointer(posAttrib3, 3, GL_FLOAT, GL_FALSE,
                         6*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib3 = glGetAttribLocation(shaderProgram3, "normal");
+    GLint normalAttrib3 = glGetAttribLocation(shaderProgram3, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib3);
     glVertexAttribPointer(normalAttrib3, 3, GL_FLOAT, GL_FALSE,
                         6*sizeof(float), (void*)(3*sizeof(float)));
@@ -353,19 +353,19 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib4 = glGetAttribLocation(shaderProgram4, "position");
+    GLint posAttrib4 = glGetAttribLocation(shaderProgram4, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib4);
     glVertexAttribPointer(posAttrib4, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib4 = glGetAttribLocation(shaderProgram4, "normal");
+    GLint normalAttrib4 = glGetAttribLocation(shaderProgram4, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib4);
     glVertexAttribPointer(normalAttrib4, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(3*sizeof(float)));
 
     //locate vertex colors within buffer
-    GLint colAttrib4 = glGetAttribLocation(shaderProgram4, "ambientAttrib");
+    GLint colAttrib4 = glGetAttribLocation(shaderProgram4, sceneObjects::SO_PhongShader::MATERIAL_AMBIENT_ATTRIB_NAME);
     glEnableVertexAttribArray(colAttrib4);
     glVertexAttribPointer(colAttrib4, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(6*sizeof(float)));
@@ -411,13 +411,13 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sphereData.faceElements.size()*sizeof(int), &sphereData.faceElements[0], GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib5 = glGetAttribLocation(shaderProgram5, "position");
+    GLint posAttrib5 = glGetAttribLocation(shaderProgram5, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib5);
     glVertexAttribPointer(posAttrib5, 3, GL_FLOAT, GL_FALSE,
                         3*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib5 = glGetAttribLocation(shaderProgram5, "normal");
+    GLint normalAttrib5 = glGetAttribLocation(shaderProgram5, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib5);
     glVertexAttribPointer(normalAttrib5, 3, GL_FLOAT, GL_FALSE,
                         3*sizeof(float), 0);
@@ -474,19 +474,19 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCol), verticesCol, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib6 = glGetAttribLocation(shaderProgram6, "position");
+    GLint posAttrib6 = glGetAttribLocation(shaderProgram6, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib6);
     glVertexAttribPointer(posAttrib6, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib6 = glGetAttribLocation(shaderProgram6, "normal");
+    GLint normalAttrib6 = glGetAttribLocation(shaderProgram6, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib6);
     glVertexAttribPointer(normalAttrib6, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(3*sizeof(float)));
 
     //locate vertex colors within buffer
-    GLint colAttrib6 = glGetAttribLocation(shaderProgram6, "color");
+    GLint colAttrib6 = glGetAttribLocation(shaderProgram6, sceneObjects::SO_PhongShader::COLOR_ATTRIB_NAME);
     glEnableVertexAttribArray(colAttrib6);
     glVertexAttribPointer(colAttrib6, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(6*sizeof(float)));
@@ -496,7 +496,7 @@ int main(int argc, char *argv[]) {
     glBindBuffer(GL_ARRAY_BUFFER, vbo6InstPos);
     glBufferData(GL_ARRAY_BUFFER, intPos.size()*sizeof(glm::mat4), &intPos[0], GL_STATIC_DRAW);
 
-    GLint instPosAttrib = glGetAttribLocation(shaderProgram6, "instanceMatrix");
+    GLint instPosAttrib = glGetAttribLocation(shaderProgram6, sceneObjects::SO_PhongShader::INSTANCE_MODEL_MATRIX_ATTRIB_NAME);
     glEnableVertexAttribArray(instPosAttrib);
     glVertexAttribPointer(instPosAttrib, 4, GL_FLOAT, GL_FALSE,
                         sizeof(glm::mat4), (void*)0);
@@ -519,7 +519,7 @@ int main(int argc, char *argv[]) {
     glBindBuffer(GL_ARRAY_BUFFER, vbo6InstNorm);
     glBufferData(GL_ARRAY_BUFFER, intNormals.size()*sizeof(glm::mat4), &intNormals[0], GL_STATIC_DRAW);
 
-    GLint instNormAttrib = glGetAttribLocation(shaderProgram6, "normalInstMatrix");
+    GLint instNormAttrib = glGetAttribLocation(shaderProgram6, sceneObjects::SO_PhongShader::INSTANCE_NORMAL_MATRIX_ATTRIB_NAME);
     glEnableVertexAttribArray(instNormAttrib);
     glVertexAttribPointer(instNormAttrib, 4, GL_FLOAT, GL_FALSE,
                         sizeof(glm::mat4), (void*)0);

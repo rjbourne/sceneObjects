@@ -122,19 +122,19 @@ int main(int argc, char *argv[]) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //locate vertex coords within buffer
-    GLint posAttrib = glGetAttribLocation(shaderProgram, "position");
+    GLint posAttrib = glGetAttribLocation(shaderProgram, sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME);
     glEnableVertexAttribArray(posAttrib);
     glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), 0);
     
     //locate vertex normal within buffer
-    GLint normalAttrib = glGetAttribLocation(shaderProgram, "normal");
+    GLint normalAttrib = glGetAttribLocation(shaderProgram, sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME);
     glEnableVertexAttribArray(normalAttrib);
     glVertexAttribPointer(normalAttrib, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(3*sizeof(float)));
 
     //locate vertex colors within buffer
-    GLint colAttrib = glGetAttribLocation(shaderProgram, "color");
+    GLint colAttrib = glGetAttribLocation(shaderProgram, sceneObjects::SO_PhongShader::COLOR_ATTRIB_NAME);
     glEnableVertexAttribArray(colAttrib);
     glVertexAttribPointer(colAttrib, 3, GL_FLOAT, GL_FALSE,
                         9*sizeof(float), (void*)(6*sizeof(float)));

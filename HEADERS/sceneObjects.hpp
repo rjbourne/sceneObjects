@@ -144,6 +144,9 @@ enum SO_ShaderOptions : unsigned int {
  * A class which provides a wide range of shaders for different circumstances - utilkising a basic phong shader model. 
  * For more advanced features such as normal mapping and specular mapping models with UV mapped textures can be uesd with SO_AssimpModel.
  * The functionaility required is selected by use of the SO_ShaderOptions enums.
+ * The names of the various vertex attributes which need to be set can be accessed as constsnt in sceneObjects::SO_PhongShader::____ATTRIB_NAME.
+ * This is for use in functions such as glGetAttribLocation(). Note that an object not showing could be a result of failing to set a required attribute.
+ * Check carefully what is required for the given options.
 **/
 class SO_PhongShader : public SO_Shader {
     protected:
@@ -200,7 +203,21 @@ class SO_PhongShader : public SO_Shader {
         void setColor(glm::vec4 color);
         /// Set the power of the specular highlights - higher integers produce 'sharper' spots
         void setSpecularPower(unsigned int specPower);
+
+        static const char* POSITION_ATTRIB_NAME;
+        static const char* NORMAL_ATTRIB_NAME;
+        static const char* MATERIAL_AMBIENT_ATTRIB_NAME;
+        static const char* MATERIAL_DIFFUSE_ATTRIB_NAME;
+        static const char* MATERIAL_SPECULAR_ATTRIB_NAME;
+        static const char* MATERIAL_ALPHA_ATTRIB_NAME;
+        static const char* COLOR_ATTRIB_NAME;
+        static const char* INSTANCE_MODEL_MATRIX_ATTRIB_NAME;
+        static const char* INSTANCE_NORMAL_MATRIX_ATTRIB_NAME;
+        
 };
+
+///< vertices for a unit cube
+extern float skyboxVertices[108];
 
 ///Generate a skybox using 6 images which will appear in the background
 /**

@@ -226,6 +226,16 @@ GLuint sceneObjects::SO_PhongShader::generate(int numberLightsIn, unsigned int o
     return this->getProgramID();
 }
 
+const char* sceneObjects::SO_PhongShader::POSITION_ATTRIB_NAME = "position";
+const char* sceneObjects::SO_PhongShader::NORMAL_ATTRIB_NAME = "normal";
+const char* sceneObjects::SO_PhongShader::MATERIAL_AMBIENT_ATTRIB_NAME = "ambientAttrib";
+const char* sceneObjects::SO_PhongShader::MATERIAL_DIFFUSE_ATTRIB_NAME = "diffuseAttrib";
+const char* sceneObjects::SO_PhongShader::MATERIAL_SPECULAR_ATTRIB_NAME = "specularAttrib";
+const char* sceneObjects::SO_PhongShader::MATERIAL_ALPHA_ATTRIB_NAME = "alphaAttrib";
+const char* sceneObjects::SO_PhongShader::COLOR_ATTRIB_NAME = "color";
+const char* sceneObjects::SO_PhongShader::INSTANCE_MODEL_MATRIX_ATTRIB_NAME = "instanceMatrix";
+const char* sceneObjects::SO_PhongShader::INSTANCE_NORMAL_MATRIX_ATTRIB_NAME = "normalInstMatrix";
+
 
 //applies the model matrix to the shader program
 //model matrix transforms from modelspace to worldspace
